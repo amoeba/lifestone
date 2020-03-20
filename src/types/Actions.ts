@@ -2,11 +2,11 @@ const ACTION = {
   TURN_TO_TARGET: "TURN_TO_TARGET",
   WAVE: "WAVE",
   INQ_QUEST: "INQ_QUEST"
-}
+};
 
 const PROPERTY = {
   DELAY: "DELAY"
-}
+};
 
 export const ActionTypes = [
   {
@@ -32,5 +32,5 @@ export function createAction() {
         value: 1
       }
     ]
-  }
+  };
 }

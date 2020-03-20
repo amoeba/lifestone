@@ -5,7 +5,8 @@
       <EmoteActionProperty
         :index="index"
         :property="property"
-        @input="(newProperty) => { property = newProperty}" />
+        @input="(newProperty) => { property = newProperty}"
+      />
     </ul>
   </div>
 </template>

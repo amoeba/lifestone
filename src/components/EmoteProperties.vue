@@ -1,17 +1,17 @@
 <template>
-
   <ul>
     <EmoteProperty
       v-for="(property, index) in properties"
       :key="index"
       :index="index"
       :property="property"
-      @input="(newProperty) => { property = newProperty }" />
+      @input="(newProperty) => { property = newProperty }"
+    />
   </ul>
 </template>
 
 <script>
-import EmoteProperty from "./EmoteProperty"
+import EmoteProperty from "./EmoteProperty";
 
 export default {
   name: "EmoteProperties",

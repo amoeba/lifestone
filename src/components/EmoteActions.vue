@@ -6,7 +6,8 @@
         <EmoteAction
           :index="index"
           :action="action"
-          @input="(newAction) => { action = newAction }" />
+          @input="(newAction) => { action = newAction }"
+        />
         <button v-on:click="removeEmoteAction(index)">Remove Action</button>
       </li>
     </ul>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import EmoteAction from "./EmoteAction"
+import EmoteAction from "./EmoteAction";
 import { createAction } from "../types/Actions";
 
 export default {

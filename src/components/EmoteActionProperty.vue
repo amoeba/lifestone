@@ -1,11 +1,11 @@
 <template>
   <li>
-    {{ property.key }}: <input v-model="property.value" />
+    {{ property.key }}:
+    <input v-model="property.value" />
   </li>
 </template>
 
 <script>
-
 export default {
   name: "EmoteActionProperty",
   props: {

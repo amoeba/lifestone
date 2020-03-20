@@ -1,23 +1,23 @@
 <template>
   <div @input="update">
     <h2>Weenie Editor</h2>
-    <label>Name
+    <label>
+      Name
       <input type="text" v-model="weenie.name" />
     </label>
-    <label>ID
+    <label>
+      ID
       <input type="text" v-model="weenie.id" />
     </label>
 
-    <Emotes
-      :emotes="weenie.emotes"
-      @input="(newEmotes) => { emotes = newEmotes; update() }" />
+    <Emotes :emotes="weenie.emotes" @input="(newEmotes) => { emotes = newEmotes; update() }" />
 
-      <textarea v-model="weenieJSON" rows="40" cols="120" />
+    <textarea v-model="weenieJSON" rows="40" cols="120" />
   </div>
 </template>
 
 <script>
-import Emotes from "./Emotes"
+import Emotes from "./Emotes";
 
 export default {
   name: "WeenieEditor",
@@ -26,7 +26,9 @@ export default {
   },
   computed: {
     weenie: {
-      get() { return this.$store.state.weenie; }
+      get() {
+        return this.$store.state.weenie;
+      }
     },
     weenieJSON: {
       get() {

@@ -2,11 +2,11 @@ const TYPES = {
   USE: "USE",
   QUEST_SUCEESS: "QUEST_SUCEESS",
   QUEST_FAILURE: "QUEST_FAILURE"
-}
+};
 
 const PROPERTY = {
   PROBABILITY: "PROBABILITY"
-}
+};
 
 export const EmoteTypes = [
   {
@@ -21,18 +21,17 @@ export const EmoteTypes = [
     id: 2,
     label: TYPES.QUEST_FAILURE
   }
-]
-
+];
 
 export function createEmote() {
   return {
     type: 0,
-    "properties": [
+    properties: [
       {
         key: PROPERTY.PROBABILITY,
         value: 1.0
       }
     ],
     actions: []
-  }
+  };
 }

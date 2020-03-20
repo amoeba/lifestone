@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import WeenieEditor from "../components/WeenieEditor"
+import WeenieEditor from "../components/WeenieEditor";
 
 export default {
   name: "Create",

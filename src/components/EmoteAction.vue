@@ -5,16 +5,14 @@
       <li>
         Type
         <select v-model="action.type" @input="updateType">
-          <option
-            v-for="type in actionTypes"
-            :key="type.id"
-            :value="type.id">{{ type.label }}</option>
+          <option v-for="type in actionTypes" :key="type.id" :value="type.id">{{ type.label }}</option>
         </select>
       </li>
       <li>
         <EmoteActionProperties
           :properties="action.properties"
-          @input="(newProperties) => { action.properties = newProperties }" />
+          @input="(newProperties) => { action.properties = newProperties }"
+        />
       </li>
     </ul>
   </div>
@@ -22,7 +20,7 @@
 
 <script>
 import EmoteActionProperties from "./EmoteActionProperties";
-import { ActionTypes} from "../types/Actions";
+import { ActionTypes } from "../types/Actions";
 
 export default {
   name: "EmoteAction",
