@@ -1,4 +1,4 @@
-enum ACTION {
+export enum ACTION {
   TURN_TO_TARGET = "TURN_TO_TARGET",
   WAVE = "WAVE",
   INQ_QUEST = "INQ_QUEST"

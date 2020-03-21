@@ -5,12 +5,9 @@
       <li>
         Type:
         <select v-model="emote.type" @input="updateType">
-          <option
-            v-for="type in Object.keys(emoteTypes)"
-            :key="type"
-            :value="type"
-            >{{ type }}</option
-          >
+          <option v-for="type in emoteTypes" :key="type" :value="type">{{
+            type
+          }}</option>
         </select>
       </li>
       <li>
@@ -63,7 +60,7 @@ export default {
   },
   computed: {
     emoteTypes() {
-      return EMOTE;
+      return Object.keys(EMOTE);
     }
   },
   methods: {
@@ -73,16 +70,6 @@ export default {
     // Hacky thing I had to do to get the <select> to update correctly
     updateType(e) {
       const newEmote = createEmote(e.target.value);
-
-      console.log(newEmote); // Why do I need this to make this work?
-
-      // Update existing emote with properties from new emote
-
-      // TODO: Merge property values for properties that exist in the old
-      // emote so we can switch and not lose our Probability or Quest
-      this.emote.type = newEmote.type;
-      this.emote.properties = newEmote.properties;
-
       this.$emit("input", this.newEmote);
     }
   }

@@ -5,13 +5,19 @@
       <li>
         Type
         <select v-model="action.type" @input="updateType">
-          <option v-for="type in actionTypes" :key="type.id" :value="type.id">{{ type.label }}</option>
+          <option v-for="type in actionTypes" :key="type" :value="type">{{
+            type
+          }}</option>
         </select>
       </li>
       <li>
         <EmoteActionProperties
           :properties="action.properties"
-          @input="(newProperties) => { action.properties = newProperties }"
+          @input="
+            newProperties => {
+              action.properties = newProperties;
+            }
+          "
         />
       </li>
     </ul>
@@ -20,7 +26,7 @@
 
 <script>
 import EmoteActionProperties from "./EmoteActionProperties";
-import { ActionTypes } from "../types/Actions";
+import { ACTION, createAction } from "../types/Actions";
 
 export default {
   name: "EmoteAction",
@@ -39,16 +45,15 @@ export default {
   },
   computed: {
     actionTypes() {
-      return ActionTypes;
+      return Object.keys(ACTION);
     }
   },
   methods: {
     // Hacky thing I had to do to get the <select> to update correctly
     updateType(e) {
-      this.action.type = e.target.value;
+      const newAction = createAction(e.target.value);
+      this.$emit("input", newAction);
     }
   }
 };
 </script>
-
-
