@@ -19,10 +19,10 @@ interface Emote {
 
 interface EmoteProperty {
   key: string;
-  value: any;
+  value: number;
 }
 
-const emoteProperties = {
+const emoteProperties: { [key: string]: EmoteProperty[] } = {
   [EMOTE.USE]: [
     {
       key: EMOTE_PROPERTY.PROBABILITY,
@@ -36,7 +36,7 @@ const emoteProperties = {
     },
     {
       key: EMOTE_PROPERTY.QUEST,
-      value: null
+      value: 0
     }
   ],
   [EMOTE.QUEST_FAILURE]: [
@@ -46,7 +46,7 @@ const emoteProperties = {
     },
     {
       key: EMOTE_PROPERTY.QUEST,
-      value: null
+      value: 0
     }
   ]
 };

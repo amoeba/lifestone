@@ -8,11 +8,6 @@ enum PROPERTY {
   DELAY = "DELAY"
 }
 
-interface ActionProperty {
-  key: number;
-  value: string;
-}
-
 export interface Action {
   type: number;
   properties: ActionProperty[];
@@ -33,7 +28,12 @@ export const ActionTypes = [
   }
 ];
 
-const actionProperties = {
+interface ActionProperty {
+  key: string;
+  value: number;
+}
+
+const actionProperties: { [key: string]: ActionProperty[] } = {
   [ACTION.TURN_TO_TARGET]: [
     {
       key: PROPERTY.DELAY,
