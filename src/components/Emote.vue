@@ -43,7 +43,7 @@
 <script>
 import EmoteProperties from "./EmoteProperties";
 import EmoteActions from "./EmoteActions";
-import { EMOTE } from "../types/Emotes";
+import { EMOTE, createEmote } from "../types/Emotes";
 
 export default {
   name: "Emote",
@@ -72,7 +72,18 @@ export default {
     },
     // Hacky thing I had to do to get the <select> to update correctly
     updateType(e) {
-      this.emote.type = e.target.value;
+      const newEmote = createEmote(e.target.value);
+
+      console.log(newEmote); // Why do I need this to make this work?
+
+      // Update existing emote with properties from new emote
+
+      // TODO: Merge property values for properties that exist in the old
+      // emote so we can switch and not lose our Probability or Quest
+      this.emote.type = newEmote.type;
+      this.emote.properties = newEmote.properties;
+
+      this.$emit("input", this.newEmote);
     }
   }
 };

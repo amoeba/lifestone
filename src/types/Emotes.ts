@@ -2,12 +2,13 @@ import { Action } from "./Actions";
 
 export enum EMOTE {
   USE = "USE",
-  QUEST_SUCEESS = "QUEST_SUCCESS",
+  QUEST_SUCCESS = "QUEST_SUCCESS",
   QUEST_FAILURE = "QUEST_FAILURE"
 }
 
 enum EMOTE_PROPERTY {
-  PROBABILITY = "PROBABILITY"
+  PROBABILITY = "PROBABILITY",
+  QUEST = "QUEST"
 }
 
 interface Emote {
@@ -26,6 +27,26 @@ const emoteProperties = {
     {
       key: EMOTE_PROPERTY.PROBABILITY,
       value: 1.0
+    }
+  ],
+  [EMOTE.QUEST_SUCCESS]: [
+    {
+      key: EMOTE_PROPERTY.PROBABILITY,
+      value: 1.0
+    },
+    {
+      key: EMOTE_PROPERTY.QUEST,
+      value: null
+    }
+  ],
+  [EMOTE.QUEST_FAILURE]: [
+    {
+      key: EMOTE_PROPERTY.PROBABILITY,
+      value: 1.0
+    },
+    {
+      key: EMOTE_PROPERTY.QUEST,
+      value: null
     }
   ]
 };
