@@ -1,12 +1,17 @@
 <template>
   <div>
+    <h5>Actions</h5>
     <button v-on:click="addEmoteAction">Add Action</button>
     <ul>
       <li v-for="(action, index) in actions" :key="index">
         <EmoteAction
           :index="index"
           :action="action"
-          @input="(newAction) => { action = newAction }"
+          @input="
+            newAction => {
+              action = newAction;
+            }
+          "
         />
         <button v-on:click="removeEmoteAction(index)">Remove Action</button>
       </li>
@@ -44,5 +49,3 @@ export default {
   }
 };
 </script>
-
-

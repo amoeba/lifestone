@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>This is the Create page</h2>
+    <h2>Create</h2>
     <WeenieEditor />
   </div>
 </template>

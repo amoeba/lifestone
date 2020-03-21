@@ -1,36 +1,66 @@
-const ACTION = {
-  TURN_TO_TARGET: "TURN_TO_TARGET",
-  WAVE: "WAVE",
-  INQ_QUEST: "INQ_QUEST"
-};
+enum ACTION {
+  TURN_TO_TARGET = "TURN_TO_TARGET",
+  WAVE = "WAVE",
+  INQ_QUEST = "INQ_QUEST"
+}
 
-const PROPERTY = {
-  DELAY: "DELAY"
-};
+enum PROPERTY {
+  DELAY = "DELAY"
+}
+
+interface ActionProperty {
+  key: number;
+  value: string;
+}
+
+export interface Action {
+  type: number;
+  properties: ActionProperty[];
+}
 
 export const ActionTypes = [
   {
-    id: 0,
+    id: ACTION.TURN_TO_TARGET,
     label: ACTION.TURN_TO_TARGET
   },
   {
-    id: 1,
+    id: ACTION.WAVE,
     label: ACTION.WAVE
   },
   {
-    id: 2,
+    id: ACTION.INQ_QUEST,
     label: ACTION.INQ_QUEST
   }
 ];
 
+const actionProperties = {
+  [ACTION.TURN_TO_TARGET]: [
+    {
+      key: PROPERTY.DELAY,
+      value: 1.0
+    }
+  ],
+  [ACTION.WAVE]: [
+    {
+      key: PROPERTY.DELAY,
+      value: 1.0
+    }
+  ],
+  [ACTION.INQ_QUEST]: [
+    {
+      key: PROPERTY.DELAY,
+      value: 1.0
+    }
+  ]
+};
+
+export function getActionProperties(actionId: string): ActionProperty[] {
+  return actionProperties[actionId];
+}
+
 export function createAction() {
   return {
-    type: 0,
-    properties: [
-      {
-        key: PROPERTY.DELAY,
-        value: 1
-      }
-    ]
+    type: ACTION.TURN_TO_TARGET,
+    properties: getActionProperties(ACTION.TURN_TO_TARGET)
   };
 }

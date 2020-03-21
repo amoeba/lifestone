@@ -1,16 +1,27 @@
 <template>
   <div @input="update">
-    <h2>Weenie Editor</h2>
-    <label>
-      Name
-      <input type="text" v-model="weenie.name" />
-    </label>
-    <label>
-      ID
-      <input type="text" v-model="weenie.id" />
-    </label>
-
-    <Emotes :emotes="weenie.emotes" @input="(newEmotes) => { emotes = newEmotes; update() }" />
+    <h3>Weenie Editor</h3>
+    <div>
+      <label>
+        Name
+        <input type="text" v-model="weenie.name" />
+      </label>
+    </div>
+    <div>
+      <label>
+        ID
+        <input type="text" v-model="weenie.id" />
+      </label>
+    </div>
+    <Emotes
+      :emotes="weenie.emotes"
+      @input="
+        newEmotes => {
+          emotes = newEmotes;
+          update();
+        }
+      "
+    />
 
     <textarea v-model="weenieJSON" rows="40" cols="120" />
   </div>
