@@ -70,7 +70,7 @@ export default {
     // Hacky thing I had to do to get the <select> to update correctly
     updateType(e) {
       const newEmote = createEmote(e.target.value);
-      this.$emit("input", this.newEmote);
+      this.$emit("input", newEmote);
     }
   }
 };
