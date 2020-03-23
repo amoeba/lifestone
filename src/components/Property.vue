@@ -1,7 +1,7 @@
 <template>
   <li>
     <label>
-      {{ property.key }}:
+      {{ property.key }}
       <input type="text" v-model="property.value" @change="update" />
     </label>
   </li>
