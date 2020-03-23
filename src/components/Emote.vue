@@ -1,6 +1,6 @@
 <template>
   <div>
-    Emote [{{ index }}]
+    Emote
     <ul>
       <li>
         Type:
@@ -12,26 +12,10 @@
       </li>
       <li>
         Properties
-        <EmoteProperties
-          :properties="emote.properties"
-          @input="
-            newProperties => {
-              emote.properties = newProperties;
-              update();
-            }
-          "
-        />
+        <EmoteProperties v-model="emote.properties" />
       </li>
       <li>
-        <EmoteActions
-          :actions="emote.actions"
-          @input="
-            newActions => {
-              emote.actions = newActions;
-              update();
-            }
-          "
-        />
+        <EmoteActions v-model="emote.actions" />
       </li>
     </ul>
   </div>
@@ -49,14 +33,14 @@ export default {
     EmoteActions
   },
   props: {
-    index: {
-      type: Number,
-      required: true
-    },
     emote: {
       type: Object,
       required: true
     }
+  },
+  model: {
+    prop: "emote",
+    event: "change"
   },
   computed: {
     emoteTypes() {
@@ -65,12 +49,12 @@ export default {
   },
   methods: {
     update() {
-      this.$emit("input", this.emote);
+      this.$emit("change", this.emote);
     },
-    // Hacky thing I had to do to get the <select> to update correctly
     updateType(e) {
       const newEmote = createEmote(e.target.value);
-      this.$emit("input", newEmote);
+      console.log(newEmote);
+      this.$emit("change", newEmote);
     }
   }
 };

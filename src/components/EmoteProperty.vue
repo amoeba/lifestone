@@ -17,6 +17,10 @@ export default {
       type: Object,
       required: true
     }
+  },
+  model: {
+    prop: "property",
+    event: "change"
   }
 };
 </script>

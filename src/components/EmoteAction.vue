@@ -1,6 +1,6 @@
 <template>
   <div>
-    Action [{{ index }}]
+    Action
     <ul>
       <li>
         Type
@@ -11,14 +11,7 @@
         </select>
       </li>
       <li>
-        <EmoteActionProperties
-          :properties="action.properties"
-          @input="
-            newProperties => {
-              action.properties = newProperties;
-            }
-          "
-        />
+        <EmoteActionProperties v-model="action.properties" />
       </li>
     </ul>
   </div>
@@ -34,14 +27,14 @@ export default {
     EmoteActionProperties
   },
   props: {
-    index: {
-      type: Number,
-      required: true
-    },
     action: {
       type: Object,
       required: true
     }
+  },
+  model: {
+    prop: "action",
+    event: "change"
   },
   computed: {
     actionTypes() {
@@ -49,10 +42,10 @@ export default {
     }
   },
   methods: {
-    // Hacky thing I had to do to get the <select> to update correctly
     updateType(e) {
       const newAction = createAction(e.target.value);
-      this.$emit("input", newAction);
+      console.log(newAction);
+      this.$emit("change", newAction);
     }
   }
 };

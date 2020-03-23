@@ -4,12 +4,7 @@
       v-for="(property, index) in properties"
       :key="index"
       :index="index"
-      :property="property"
-      @input="
-        newProperty => {
-          property = newProperty;
-        }
-      "
+      v-model="properties[index]"
     />
   </ul>
 </template>
@@ -28,10 +23,9 @@ export default {
       required: false
     }
   },
-  watch: {
-    properties() {
-      this.$emit("input", this.actions);
-    }
+  model: {
+    prop: "properties",
+    event: "change"
   }
 };
 </script>

@@ -28,6 +28,10 @@ export default {
       type: Array,
       required: true
     }
+  },
+  model: {
+    prop: "properties",
+    event: "change"
   }
 };
 </script>

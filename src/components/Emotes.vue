@@ -4,16 +4,7 @@
     <button v-on:click="addEmote">Add Emote</button>
     <ul>
       <li v-for="(emote, index) in emotes" :key="index">
-        <Emote
-          :index="index"
-          :emote="emote"
-          @input="
-            newEmote => {
-              emote = newEmote;
-              update();
-            }
-          "
-        />
+        <Emote v-model="emotes[index]" />
         <button v-on:click="removeEmote(index)">Remove Emote</button>
       </li>
     </ul>
@@ -36,20 +27,18 @@ export default {
       required: true
     }
   },
+  model: {
+    prop: "emotes",
+    event: "change"
+  },
   methods: {
     addEmote() {
       this.emotes.push(createEmote(EMOTE.USE));
+      this.$emit("change", this.emotes);
     },
     removeEmote(index) {
       this.emotes.splice(index, 1);
-    },
-    update() {
-      this.$emit("input", this.emotes);
-    }
-  },
-  watch: {
-    emotes() {
-      this.$emit("input", this.emotes);
+      this.$emit("change", this.emotes);
     }
   }
 };

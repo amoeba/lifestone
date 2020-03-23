@@ -32,11 +32,11 @@ const emoteProperties: { [key: string]: EmoteProperty[] } = {
   [EMOTE.QUEST_SUCCESS]: [
     {
       key: EMOTE_PROPERTY.PROBABILITY,
-      value: 1.0
+      value: 0.5
     },
     {
       key: EMOTE_PROPERTY.QUEST,
-      value: 0
+      value: 1
     }
   ],
   [EMOTE.QUEST_FAILURE]: [
@@ -46,7 +46,7 @@ const emoteProperties: { [key: string]: EmoteProperty[] } = {
     },
     {
       key: EMOTE_PROPERTY.QUEST,
-      value: 0
+      value: 2
     }
   ]
 };

@@ -5,11 +5,12 @@ export enum ACTION {
 }
 
 enum PROPERTY {
-  DELAY = "DELAY"
+  DELAY = "DELAY",
+  QUEST = "QUEST"
 }
 
 export interface Action {
-  type: number;
+  type: string;
   properties: ActionProperty[];
 }
 
@@ -43,13 +44,13 @@ const actionProperties: { [key: string]: ActionProperty[] } = {
   [ACTION.WAVE]: [
     {
       key: PROPERTY.DELAY,
-      value: 1.0
+      value: 2.0
     }
   ],
   [ACTION.INQ_QUEST]: [
     {
-      key: PROPERTY.DELAY,
-      value: 1.0
+      key: PROPERTY.QUEST,
+      value: 0
     }
   ]
 };
@@ -58,9 +59,9 @@ export function getActionProperties(actionId: string): ActionProperty[] {
   return actionProperties[actionId];
 }
 
-export function createAction() {
+export function createAction(action: string): Action {
   return {
-    type: ACTION.TURN_TO_TARGET,
-    properties: getActionProperties(ACTION.TURN_TO_TARGET)
+    type: action,
+    properties: getActionProperties(action)
   };
 }
