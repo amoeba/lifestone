@@ -58,12 +58,15 @@ export default {
   components: {
     Emotes
   },
-  data() {
-    return {
-      tab: "main"
-    };
-  },
   computed: {
+    activeTab: {
+      get() {
+        return this.$store.state.activeTab;
+      },
+      set(value) {
+        this.$store.dispatch("changeTab", value);
+      }
+    },
     weenie: {
       get() {
         return this.$store.state.weenie;
@@ -80,10 +83,10 @@ export default {
       this.$store.dispatch("updateWeenie", this.weenie);
     },
     switchTab(tab) {
-      this.tab = tab;
+      this.activeTab = tab;
     },
     isActive(tab) {
-      return this.tab === tab;
+      return this.activeTab === tab;
     }
   }
 };
