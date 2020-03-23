@@ -38,13 +38,13 @@
         >
       </li>
     </ul>
-    <div :class="{ hidden: isHidden('main') }">
+    <div :class="{ hidden: !isActive('main') }">
       <h3>Main (TODO)</h3>
     </div>
-    <div :class="{ hidden: isHidden('emotes') }">
+    <div :class="{ hidden: !isActive('emotes') }">
       <Emotes v-model="weenie.emotes" @change="update" />
     </div>
-    <div :class="{ hidden: isHidden('json') }">
+    <div :class="{ hidden: !isActive('json') }">
       <textarea class="json" v-model="weenieJSON" rows="40" cols="120" />
     </div>
   </div>
@@ -81,9 +81,6 @@ export default {
     },
     switchTab(tab) {
       this.tab = tab;
-    },
-    isHidden(tab) {
-      return this.tab !== tab;
     },
     isActive(tab) {
       return this.tab === tab;
