@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 import { RootState } from "../types/State";
 import { TAB } from "../types/UI";
-import { Weenie } from "./Weenie";
+import { Weenie } from "../types/Weenie";
 
 Vue.use(Vuex);
 
