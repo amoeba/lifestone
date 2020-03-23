@@ -1,11 +1,11 @@
 <template>
-  <div v-on:remove="removeEmote">
+  <div>
     <h4>Emotes</h4>
-    <button v-on:click="addEmote">Add Emote</button>
+    <button @click="addEmote">Add Emote</button>
     <ul>
       <li v-for="(emote, index) in emotes" :key="index">
-        <Emote v-model="emotes[index]" />
-        <button v-on:click="removeEmote(index)">Remove Emote</button>
+        <Emote v-model="emotes[index]" @change="update" />
+        <button @click="removeEmote(index)">Remove Emote</button>
       </li>
     </ul>
   </div>
@@ -38,6 +38,9 @@ export default {
     },
     removeEmote(index) {
       this.emotes.splice(index, 1);
+      this.$emit("change", this.emotes);
+    },
+    update() {
       this.$emit("change", this.emotes);
     }
   }

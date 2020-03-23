@@ -1,18 +1,14 @@
 <template>
   <li>
     {{ property.key }}:
-    <input type="text" v-model="property.value" />
+    <input type="text" v-model="property.value" @change="update" />
   </li>
 </template>
 
 <script>
 export default {
-  name: "EmoteProperty",
+  name: "Property",
   props: {
-    index: {
-      type: Number,
-      required: true
-    },
     property: {
       type: Object,
       required: true
@@ -21,6 +17,11 @@ export default {
   model: {
     prop: "property",
     event: "change"
+  },
+  methods: {
+    update() {
+      this.$emit("change", this.property);
+    }
   }
 };
 </script>

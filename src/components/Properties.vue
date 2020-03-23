@@ -1,31 +1,36 @@
 <template>
   <ul>
-    <EmoteProperty
+    <Property
       v-for="(property, index) in properties"
       :key="index"
-      :index="index"
       v-model="properties[index]"
+      @change="update"
     />
   </ul>
 </template>
 
 <script>
-import EmoteProperty from "./EmoteProperty";
+import Property from "./Property";
 
 export default {
-  name: "EmoteProperties",
+  name: "Properties",
   components: {
-    EmoteProperty
+    Property
   },
   props: {
     properties: {
       type: Array,
-      required: false
+      required: true
     }
   },
   model: {
     prop: "properties",
     event: "change"
+  },
+  methods: {
+    update() {
+      this.$emit("change", this.properties);
+    }
   }
 };
 </script>

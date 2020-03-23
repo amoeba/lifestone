@@ -1,30 +1,22 @@
 <template>
   <div>
-    Action
-    <ul>
-      <li>
-        Type
-        <select v-model="action.type" @input="updateType">
-          <option v-for="type in actionTypes" :key="type" :value="type">{{
-            type
-          }}</option>
-        </select>
-      </li>
-      <li>
-        <EmoteActionProperties v-model="action.properties" />
-      </li>
-    </ul>
+    <select v-model="action.type" @input="updateType">
+      <option v-for="type in actionTypes" :key="type" :value="type">{{
+        type
+      }}</option>
+    </select>
+    <Properties v-model="action.properties" @change="update" />
   </div>
 </template>
 
 <script>
-import EmoteActionProperties from "./EmoteActionProperties";
+import Properties from "./Properties";
 import { ACTION, createAction } from "../types/Actions";
 
 export default {
   name: "EmoteAction",
   components: {
-    EmoteActionProperties
+    Properties
   },
   props: {
     action: {
@@ -44,8 +36,11 @@ export default {
   methods: {
     updateType(e) {
       const newAction = createAction(e.target.value);
-      console.log(newAction);
       this.$emit("change", newAction);
+    },
+    update() {
+      console.log("EmoteAction.update", this.action);
+      this.$emit("change", this.action);
     }
   }
 };

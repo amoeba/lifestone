@@ -13,7 +13,7 @@
         <input type="text" v-model="weenie.id" />
       </label>
     </div>
-    <Emotes v-model="weenie.emotes" />
+    <Emotes v-model="weenie.emotes" @change="update" />
 
     <textarea v-model="weenieJSON" rows="40" cols="120" />
   </div>
@@ -27,36 +27,23 @@ export default {
   components: {
     Emotes
   },
-  data() {
-    return {
-      weenie: {
-        id: 0,
-        name: "MyWeenie",
-        emotes: []
-      }
-    };
-  },
   computed: {
-    weenieJSON() {
-      return JSON.stringify(this.weenie);
+    weenie: {
+      get() {
+        return this.$store.state.weenie;
+      }
+    },
+    weenieJSON: {
+      get() {
+        return JSON.stringify(this.$store.state.weenie, null, "\t");
+      }
+    }
+  },
+  methods: {
+    update() {
+      console.log("WeenieEditor::update -> dispatch ->");
+      this.$store.dispatch("updateWeenie", this.weenie);
     }
   }
-  // computed: {
-  //   weenie: {
-  //     get() {
-  //       return this.$store.state.weenie;
-  //     }
-  //   },
-  //   weenieJSON: {
-  //     get() {
-  //       return JSON.stringify(this.$store.state.weenie, null, "\t");
-  //     }
-  //   }
-  // },
-  // methods: {
-  //   update() {
-  //     this.$store.dispatch("updateWeenie", this.weenie);
-  //   }
-  // }
 };
 </script>

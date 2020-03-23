@@ -1,11 +1,11 @@
 <template>
   <div>
     <h5>Actions</h5>
-    <button v-on:click="addEmoteAction">Add Action</button>
+    <button @click="addEmoteAction">Add Action</button>
     <ul>
       <li v-for="(action, index) in actions" :key="index">
-        <EmoteAction v-model="actions[index]" />
-        <button v-on:click="removeEmoteAction(index)">Remove Action</button>
+        <EmoteAction v-model="actions[index]" @change="update" />
+        <button @click="removeEmoteAction(index)">Remove Action</button>
       </li>
     </ul>
   </div>
@@ -33,9 +33,14 @@ export default {
   methods: {
     addEmoteAction() {
       this.actions.push(createAction(ACTION.TURN_TO_TARGET));
+      this.$emit("change", this.actions);
     },
     removeEmoteAction(index) {
       this.actions.splice(index, 1);
+      this.$emit("change", this.actions);
+    },
+    update() {
+      this.$emit("change", this.actions);
     }
   }
 };
