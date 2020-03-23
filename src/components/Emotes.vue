@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h4>Emotes</h4>
+    <h3>Emotes</h3>
     <button @click="addEmote">Add Emote</button>
     <ul>
       <li v-for="(emote, index) in emotes" :key="index">
-        <Emote v-model="emotes[index]" @change="update" />
-        <button @click="removeEmote(index)">Remove Emote</button>
+        <Emote
+          v-model="emotes[index]"
+          :index="index"
+          @change="update"
+          @remove="removeEmote"
+        />
       </li>
     </ul>
   </div>

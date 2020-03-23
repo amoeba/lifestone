@@ -1,11 +1,18 @@
 <template>
-  <div>
-    <select v-model="emote.type" @input="updateType">
-      <option v-for="type in emoteTypes" :key="type" :value="type">{{
-        type
-      }}</option>
-    </select>
-    <Properties v-model="emote.properties" @change="update" />
+  <div class="emote">
+    <div class="two-col row">
+      <select v-model="emote.type" @input="updateType">
+        <option v-for="type in emoteTypes" :key="type" :value="type">{{
+          type
+        }}</option>
+      </select>
+      <div class="right">
+        <button @click="remove">Remove</button>
+      </div>
+    </div>
+    <div class="row">
+      <Properties v-model="emote.properties" @change="update" />
+    </div>
     <EmoteActions v-model="emote.actions" @change="update" />
   </div>
 </template>
@@ -25,6 +32,10 @@ export default {
     emote: {
       type: Object,
       required: true
+    },
+    index: {
+      type: Number,
+      required: true
     }
   },
   model: {
@@ -43,6 +54,9 @@ export default {
     },
     update() {
       this.$emit("change", this.emote);
+    },
+    remove() {
+      this.$emit("remove", this.index);
     }
   }
 };

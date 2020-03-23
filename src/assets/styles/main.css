@@ -1,0 +1,85 @@
+/* Element styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  padding: 0.5rem;
+}
+
+input,
+select,
+option,
+button {
+  font-size: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top level elements */
+#nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#nav a {
+  color: blue;
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+#nav a:last-child {
+  margin-right: 0;
+}
+
+#nav a:visited {
+  color: blue;
+}
+
+/* Repeated styles */
+.emote {
+  border: 1px solid #ccc;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.action {
+  border: 1px solid #ccc;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+/* Grids */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Utility styles */
+.row {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.right {
+  text-align: right;
+}

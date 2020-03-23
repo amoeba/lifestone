@@ -1,10 +1,15 @@
 <template>
-  <div>
-    <select v-model="action.type" @input="updateType">
-      <option v-for="type in actionTypes" :key="type" :value="type">{{
-        type
-      }}</option>
-    </select>
+  <div class="action">
+    <div class="two-col row">
+      <select v-model="action.type" @input="updateType">
+        <option v-for="type in actionTypes" :key="type" :value="type">{{
+          type
+        }}</option>
+      </select>
+      <div class="right">
+        <button @click="handleRemove">Remove</button>
+      </div>
+    </div>
     <Properties v-model="action.properties" @change="update" />
   </div>
 </template>
@@ -21,6 +26,10 @@ export default {
   props: {
     action: {
       type: Object,
+      required: true
+    },
+    index: {
+      type: Number,
       required: true
     }
   },
@@ -39,8 +48,10 @@ export default {
       this.$emit("change", newAction);
     },
     update() {
-      console.log("EmoteAction.update", this.action);
       this.$emit("change", this.action);
+    },
+    handleRemove() {
+      this.$emit("remove", this.index);
     }
   }
 };

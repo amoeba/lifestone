@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3>Weenie Editor</h3>
     <div>
       <label>
         Name
@@ -41,7 +40,6 @@ export default {
   },
   methods: {
     update() {
-      console.log("WeenieEditor::update -> dispatch ->");
       this.$store.dispatch("updateWeenie", this.weenie);
     }
   }
