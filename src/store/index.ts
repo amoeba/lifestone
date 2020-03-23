@@ -14,7 +14,7 @@ const vuexLocal = new VuexPersistence<RootState>({
 
 // State
 const initialState: RootState = {
-  activeTab: TAB.HOME,
+  activeTab: TAB.MAIN,
   weenie: {
     id: 0,
     name: "MyWeenie",

@@ -16,35 +16,35 @@
       <li>
         <a
           href="#main"
-          @click.prevent="switchTab('main')"
-          :class="{ active: isActive('main') }"
+          @click.prevent="switchTab(TAB.MAIN)"
+          :class="{ active: isActive(TAB.MAIN) }"
           >Main</a
         >
       </li>
       <li>
         <a
           href="#emotes"
-          @click.prevent="switchTab('emotes')"
-          :class="{ active: isActive('emotes') }"
+          @click.prevent="switchTab(TAB.EMOTES)"
+          :class="{ active: isActive(TAB.EMOTES) }"
           >Emotes</a
         >
       </li>
       <li>
         <a
           href="#json"
-          @click.prevent="switchTab('json')"
-          :class="{ active: isActive('json') }"
+          @click.prevent="switchTab(TAB.JSON)"
+          :class="{ active: isActive(TAB.JSON) }"
           >JSON</a
         >
       </li>
     </ul>
-    <div :class="{ hidden: !isActive('main') }">
+    <div :class="{ hidden: !isActive(TAB.MAIN) }">
       <h3>Main (TODO)</h3>
     </div>
-    <div :class="{ hidden: !isActive('emotes') }">
+    <div :class="{ hidden: !isActive(TAB.EMOTES) }">
       <Emotes v-model="weenie.emotes" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive('json') }">
+    <div :class="{ hidden: !isActive(TAB.JSON) }">
       <textarea class="json" v-model="weenieJSON" rows="40" cols="120" />
     </div>
   </div>
@@ -52,6 +52,7 @@
 
 <script>
 import Emotes from "./Emotes";
+import { TAB } from "../types/UI";
 
 export default {
   name: "WeenieEditor",
@@ -59,6 +60,9 @@ export default {
     Emotes
   },
   computed: {
+    TAB() {
+      return TAB;
+    },
     activeTab: {
       get() {
         return this.$store.state.activeTab;
