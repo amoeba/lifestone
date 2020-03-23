@@ -12,9 +12,41 @@
         <input type="text" v-model="weenie.id" />
       </label>
     </div>
-    <Emotes v-model="weenie.emotes" @change="update" />
-
-    <textarea v-model="weenieJSON" rows="40" cols="120" />
+    <ul class="tabbar">
+      <li>
+        <a
+          href="#main"
+          @click.prevent="switchTab('main')"
+          :class="{ active: isActive('main') }"
+          >Main</a
+        >
+      </li>
+      <li>
+        <a
+          href="#emotes"
+          @click.prevent="switchTab('emotes')"
+          :class="{ active: isActive('emotes') }"
+          >Emotes</a
+        >
+      </li>
+      <li>
+        <a
+          href="#json"
+          @click.prevent="switchTab('json')"
+          :class="{ active: isActive('json') }"
+          >JSON</a
+        >
+      </li>
+    </ul>
+    <div :class="{ hidden: isHidden('main') }">
+      <h3>Main (TODO)</h3>
+    </div>
+    <div :class="{ hidden: isHidden('emotes') }">
+      <Emotes v-model="weenie.emotes" @change="update" />
+    </div>
+    <div :class="{ hidden: isHidden('json') }">
+      <textarea class="json" v-model="weenieJSON" rows="40" cols="120" />
+    </div>
   </div>
 </template>
 
@@ -26,6 +58,11 @@ export default {
   components: {
     Emotes
   },
+  data() {
+    return {
+      tab: "main"
+    };
+  },
   computed: {
     weenie: {
       get() {
@@ -34,13 +71,22 @@ export default {
     },
     weenieJSON: {
       get() {
-        return JSON.stringify(this.$store.state.weenie, null, "\t");
+        return JSON.stringify(this.$store.state.weenie, null, "  ");
       }
     }
   },
   methods: {
     update() {
       this.$store.dispatch("updateWeenie", this.weenie);
+    },
+    switchTab(tab) {
+      this.tab = tab;
+    },
+    isHidden(tab) {
+      return this.tab !== tab;
+    },
+    isActive(tab) {
+      return this.tab === tab;
     }
   }
 };

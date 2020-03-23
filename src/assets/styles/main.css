@@ -52,6 +52,10 @@ ul {
   color: blue;
 }
 
+.json {
+  width: 100%;
+}
+
 /* Repeated styles */
 .emote {
   border: 1px solid #ccc;
@@ -82,4 +86,30 @@ ul {
 
 .right {
   text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Tab bar */
+.tabbar {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tabbar li {
+  margin: 0 1rem;
+}
+
+.tabbar a {
+  color: blue;
+  text-decoration: none;
+}
+
+.tabbar a.active {
+  font-weight: bold;
 }
