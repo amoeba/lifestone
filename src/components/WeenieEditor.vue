@@ -18,9 +18,7 @@
         Type
         <select v-model="weenie.type">
           <option v-for="type in weenieTypes" :key="type" :value="type">
-            {{
-            type
-            }}
+            {{ type }}
           </option>
         </select>
       </label>
@@ -31,21 +29,24 @@
           href="#properties"
           @click.prevent="switchTab(TAB.PROPERTIES)"
           :class="{ active: isActive(TAB.PROPERTIES) }"
-        >Properties</a>
+          >Properties</a
+        >
       </li>
       <li>
         <a
           href="#emotes"
           @click.prevent="switchTab(TAB.EMOTES)"
           :class="{ active: isActive(TAB.EMOTES) }"
-        >Emotes</a>
+          >Emotes</a
+        >
       </li>
       <li>
         <a
           href="#json"
           @click.prevent="switchTab(TAB.JSON)"
           :class="{ active: isActive(TAB.JSON) }"
-        >JSON</a>
+          >JSON</a
+        >
       </li>
     </ul>
     <div :class="{ hidden: !isActive(TAB.PROPERTIES) }">

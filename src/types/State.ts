@@ -1,7 +1,7 @@
 import { Weenie } from "./Weenie";
 
 export interface RootState {
-  activeTab: String;
+  activeTab: string;
   weenie: Weenie;
   drafts: Weenie[];
 }
