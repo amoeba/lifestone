@@ -2,11 +2,14 @@
   <div class="emote">
     <div class="two-col row">
       <select v-model="emote.type" @input="updateType">
-        <option v-for="type in emoteTypes" :key="type" :value="type">{{
+        <option v-for="type in emoteTypes" :key="type" :value="type">
+          {{
           type
-        }}</option>
+          }}
+        </option>
       </select>
       <div class="right">
+        <button @click="duplicate">Duplicate</button>
         <button @click="remove">Remove</button>
       </div>
     </div>
@@ -54,6 +57,9 @@ export default {
     },
     update() {
       this.$emit("change", this.emote);
+    },
+    duplicate() {
+      this.$emit("duplicate", this.index);
     },
     remove() {
       this.$emit("remove", this.index);

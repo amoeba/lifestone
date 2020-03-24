@@ -8,6 +8,7 @@
           v-model="emotes[index]"
           :index="index"
           @change="update"
+          @duplicate="duplicateEmote"
           @remove="removeEmote"
         />
       </li>
@@ -38,6 +39,14 @@ export default {
   methods: {
     addEmote() {
       this.emotes.push(createEmote(EMOTE.USE));
+      this.$emit("change", this.emotes);
+    },
+    duplicateEmote(index) {
+      this.emotes.splice(
+        index,
+        0,
+        JSON.parse(JSON.stringify(this.emotes[index]))
+      );
       this.$emit("change", this.emotes);
     },
     removeEmote(index) {
