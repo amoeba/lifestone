@@ -1,12 +1,20 @@
 export enum ACTION {
   TURN_TO_TARGET = "TURN_TO_TARGET",
   WAVE = "WAVE",
+  GIVE = "GIVE",
+  TELL = "TELL",
   INQ_QUEST = "INQ_QUEST"
 }
 
 enum PROPERTY {
   DELAY = "DELAY",
-  QUEST = "QUEST"
+  QUEST = "QUEST",
+  WEENIE = "WEENIE",
+  DESTINATION = "DESTINATION",
+  PALETTE = "PALETTE",
+  SHADE = "SHADE",
+  QUANTITY = "QUANTITY",
+  BONDED = "BONDED"
 }
 
 export interface Action {
@@ -22,6 +30,14 @@ export const ActionTypes = [
   {
     id: ACTION.WAVE,
     label: ACTION.WAVE
+  },
+  {
+    id: ACTION.GIVE,
+    label: ACTION.GIVE
+  },
+  {
+    id: ACTION.TELL,
+    label: ACTION.TELL
   },
   {
     id: ACTION.INQ_QUEST,
@@ -48,6 +64,42 @@ const actionProperties: { [key: string]: ActionProperty[] } = {
     }
   ],
   [ACTION.INQ_QUEST]: [
+    {
+      key: PROPERTY.QUEST,
+      value: 0
+    }
+  ],
+  [ACTION.GIVE]: [
+    {
+      key: PROPERTY.DELAY,
+      value: 0
+    },
+    {
+      key: PROPERTY.WEENIE,
+      value: 0
+    },
+    {
+      key: PROPERTY.DESTINATION,
+      value: 0
+    },
+    {
+      key: PROPERTY.PALETTE,
+      value: 0
+    },
+    {
+      key: PROPERTY.SHADE,
+      value: 0
+    },
+    {
+      key: PROPERTY.QUANTITY,
+      value: 0
+    },
+    {
+      key: PROPERTY.BONDED,
+      value: 0
+    }
+  ],
+  [ACTION.TELL]: [
     {
       key: PROPERTY.QUEST,
       value: 0
