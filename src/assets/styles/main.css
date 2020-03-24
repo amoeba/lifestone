@@ -16,6 +16,10 @@ button {
   padding: 3px 5px;
 }
 
+label :first-child {
+  margin-right: 0.5rem;
+}
+
 h1,
 h2,
 h3,
@@ -77,11 +81,21 @@ ul {
   grid-template-columns: 1fr 1fr;
 }
 
+.two-col-auto {
+  display: grid;
+  grid-template-columns: auto 4rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Utility styles */
 .row {
   border-bottom: 1px solid #ccc;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.row div {
+  margin-bottom: 0.5rem;
 }
 
 .right {

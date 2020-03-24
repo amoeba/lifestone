@@ -1,15 +1,28 @@
 <template>
   <div>
-    <div>
+    <div class="row">
+      <div>
+        <label>
+          Name
+          <input type="text" v-model="weenie.name" />
+        </label>
+      </div>
+      <div>
+        <label>
+          ID
+          <input type="text" v-model="weenie.id" />
+        </label>
+      </div>
+
       <label>
-        Name
-        <input type="text" v-model="weenie.name" />
-      </label>
-    </div>
-    <div>
-      <label>
-        ID
-        <input type="text" v-model="weenie.id" />
+        Type
+        <select v-model="weenie.type">
+          <option v-for="type in weenieTypes" :key="type" :value="type">
+            {{
+            type
+            }}
+          </option>
+        </select>
       </label>
     </div>
     <ul class="tabbar">
@@ -36,16 +49,6 @@
       </li>
     </ul>
     <div :class="{ hidden: !isActive(TAB.MAIN) }">
-      <label>
-        Type
-        <select v-model="weenie.type">
-          <option v-for="type in weenieTypes" :key="type" :value="type">
-            {{
-            type
-            }}
-          </option>
-        </select>
-      </label>
       <WeenieProperties v-model="weenie.properties" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.EMOTES) }">
