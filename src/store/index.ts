@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 import { RootState } from "../types/State";
 import { TAB } from "../types/UI";
-import { Weenie } from "../types/Weenie";
+import { Weenie, WeenieType } from "../types/Weenie";
 
 Vue.use(Vuex);
 
@@ -18,6 +18,17 @@ const initialState: RootState = {
   weenie: {
     id: 0,
     name: "MyWeenie",
+    type: WeenieType.CREATURE,
+    properties: {
+      string: [],
+      int32: [],
+      int64: [],
+      float: [],
+      dataId: [],
+      instanceId: [],
+      bool: [],
+      position: []
+    },
     emotes: []
   },
   drafts: []

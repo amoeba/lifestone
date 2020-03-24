@@ -18,28 +18,35 @@
           href="#main"
           @click.prevent="switchTab(TAB.MAIN)"
           :class="{ active: isActive(TAB.MAIN) }"
-          >Main</a
-        >
+        >Main</a>
       </li>
       <li>
         <a
           href="#emotes"
           @click.prevent="switchTab(TAB.EMOTES)"
           :class="{ active: isActive(TAB.EMOTES) }"
-          >Emotes</a
-        >
+        >Emotes</a>
       </li>
       <li>
         <a
           href="#json"
           @click.prevent="switchTab(TAB.JSON)"
           :class="{ active: isActive(TAB.JSON) }"
-          >JSON</a
-        >
+        >JSON</a>
       </li>
     </ul>
     <div :class="{ hidden: !isActive(TAB.MAIN) }">
-      <h3>Main (TODO)</h3>
+      <label>
+        Type
+        <select v-model="weenie.type">
+          <option v-for="type in weenieTypes" :key="type" :value="type">
+            {{
+            type
+            }}
+          </option>
+        </select>
+      </label>
+      <WeenieProperties v-model="weenie.properties" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.EMOTES) }">
       <Emotes v-model="weenie.emotes" @change="update" />
@@ -51,12 +58,15 @@
 </template>
 
 <script>
+import WeenieProperties from "./WeenieProperties";
 import Emotes from "./Emotes";
 import { TAB } from "../types/UI";
+import { WeenieType } from "../types/Weenie";
 
 export default {
   name: "WeenieEditor",
   components: {
+    WeenieProperties,
     Emotes
   },
   computed: {
@@ -75,6 +85,9 @@ export default {
       get() {
         return this.$store.state.weenie;
       }
+    },
+    weenieTypes() {
+      return Object.keys(WeenieType);
     },
     weenieJSON: {
       get() {

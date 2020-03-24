@@ -92,11 +92,21 @@ ul {
   display: none;
 }
 
+.property-count {
+  background-color: #ccc;
+  border-radius: 1rem;
+  color: black;
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
 /* Tab bar */
 .tabbar {
   border-bottom: 1px solid #ccc;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
 }
