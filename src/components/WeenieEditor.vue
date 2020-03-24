@@ -28,10 +28,10 @@
     <ul class="tabbar">
       <li>
         <a
-          href="#main"
-          @click.prevent="switchTab(TAB.MAIN)"
-          :class="{ active: isActive(TAB.MAIN) }"
-        >Main</a>
+          href="#properties"
+          @click.prevent="switchTab(TAB.PROPERTIES)"
+          :class="{ active: isActive(TAB.PROPERTIES) }"
+        >Properties</a>
       </li>
       <li>
         <a
@@ -48,7 +48,7 @@
         >JSON</a>
       </li>
     </ul>
-    <div :class="{ hidden: !isActive(TAB.MAIN) }">
+    <div :class="{ hidden: !isActive(TAB.PROPERTIES) }">
       <WeenieProperties v-model="weenie.properties" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.EMOTES) }">
