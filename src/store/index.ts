@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
-import { RootState } from "../types/State";
-import { TAB } from "../types/UI";
-import { Weenie, WeenieType } from "../types/Weenie";
-import { Spell } from "../types/Spells";
+import { RootState } from "@/types/State";
+import { TAB } from "@/types/UI";
+import { Weenie, WeenieType } from "@/types/Weenie";
+import { createCreatureProperties } from "@/types/Creature.ts";
 
 Vue.use(Vuex);
 
@@ -20,6 +20,7 @@ const initialState: RootState = {
     id: 0,
     name: "MyWeenie",
     type: WeenieType.CREATURE,
+    creature: createCreatureProperties(),
     properties: {
       string: [],
       int32: [],

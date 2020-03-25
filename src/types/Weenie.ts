@@ -1,3 +1,4 @@
+import { CreatureProperties } from "./Creature";
 import { Spell } from "./Spells";
 import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
@@ -79,6 +80,7 @@ export interface Weenie {
   name: string;
   type: WeenieType;
   properties: WeenieProperties;
+  creature: CreatureProperties;
   spells: Spell[];
   createList: CreateListItem[];
   generators: Generator[];
