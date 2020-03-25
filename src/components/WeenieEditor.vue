@@ -1,19 +1,15 @@
 <template>
   <div>
     <div class="row">
-      <div>
-        <label>
-          Name
-          <input type="text" v-model="weenie.name" />
-        </label>
-      </div>
-      <div>
-        <label>
-          ID
-          <input type="text" v-model="weenie.id" />
-        </label>
-      </div>
+      <label>
+        Name
+        <input type="text" v-model="weenie.name" />
+      </label>
 
+      <label>
+        ID
+        <input type="text" v-model="weenie.id" />
+      </label>
       <label>
         Type
         <select v-model="weenie.type">

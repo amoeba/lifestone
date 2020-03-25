@@ -1,10 +1,12 @@
 <template>
-  <div class="two-col-auto">
+  <div>
     <label>
       <select v-model="property.key">
-        <option v-for="(key, index) in propertyTypes" :key="index">{{
+        <option v-for="(key, index) in propertyTypes" :key="index">
+          {{
           key
-        }}</option>
+          }}
+        </option>
       </select>
       <input :type="inputType" v-model="property.value" @change="update" />
     </label>

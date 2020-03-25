@@ -3,7 +3,7 @@
     <div class="two-col row">
       <h3>Create List</h3>
       <div class="right">
-        <button @click="addItem">Add</button>
+        <button @click="addItem">Add Item</button>
       </div>
     </div>
     <div>

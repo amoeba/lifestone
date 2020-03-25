@@ -16,6 +16,11 @@ button {
   padding: 3px 5px;
 }
 
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
 label :first-child {
   margin-right: 0.5rem;
 }
@@ -79,12 +84,6 @@ ul {
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.two-col-auto {
-  display: grid;
-  grid-template-columns: auto 4rem;
-  margin-bottom: 0.5rem;
 }
 
 /* Utility styles */

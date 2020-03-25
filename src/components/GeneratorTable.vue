@@ -3,7 +3,7 @@
     <div class="two-col row">
       <h3>Generators</h3>
       <div class="right">
-        <button @click="addItem">Add</button>
+        <button @click="addItem">Add Generator</button>
       </div>
     </div>
     <div>

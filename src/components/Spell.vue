@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <label>
       ID
       <input type="text" v-model="spell.id" @change="update" />
