@@ -32,6 +32,7 @@ const initialState: RootState = {
     },
     spells: [],
     createList: [],
+    generators: [],
     emotes: []
   },
   drafts: []
