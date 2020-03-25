@@ -1,5 +1,6 @@
 export enum TAB {
   PROPERTIES = "PROPERTIES",
+  SPELLS = "SPELLS",
   EMOTES = "EMOTES",
   JSON = "JSON"
 }

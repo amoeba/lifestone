@@ -4,6 +4,7 @@ import VuexPersistence from "vuex-persist";
 import { RootState } from "../types/State";
 import { TAB } from "../types/UI";
 import { Weenie, WeenieType } from "../types/Weenie";
+import { Spell } from "../types/Spells";
 
 Vue.use(Vuex);
 
@@ -29,6 +30,7 @@ const initialState: RootState = {
       bool: [],
       position: []
     },
+    spells: [],
     emotes: []
   },
   drafts: []

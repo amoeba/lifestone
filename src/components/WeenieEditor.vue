@@ -17,9 +17,7 @@
       <label>
         Type
         <select v-model="weenie.type">
-          <option v-for="type in weenieTypes" :key="type" :value="type">
-            {{ type }}
-          </option>
+          <option v-for="type in weenieTypes" :key="type" :value="type">{{ type }}</option>
         </select>
       </label>
     </div>
@@ -29,28 +27,35 @@
           href="#properties"
           @click.prevent="switchTab(TAB.PROPERTIES)"
           :class="{ active: isActive(TAB.PROPERTIES) }"
-          >Properties</a
-        >
+        >Properties</a>
+      </li>
+      <li>
+        <a
+          href="#spells"
+          @click.prevent="switchTab(TAB.SPELLS)"
+          :class="{ active: isActive(TAB.SPELLS) }"
+        >Spells</a>
       </li>
       <li>
         <a
           href="#emotes"
           @click.prevent="switchTab(TAB.EMOTES)"
           :class="{ active: isActive(TAB.EMOTES) }"
-          >Emotes</a
-        >
+        >Emotes</a>
       </li>
       <li>
         <a
           href="#json"
           @click.prevent="switchTab(TAB.JSON)"
           :class="{ active: isActive(TAB.JSON) }"
-          >JSON</a
-        >
+        >JSON</a>
       </li>
     </ul>
     <div :class="{ hidden: !isActive(TAB.PROPERTIES) }">
       <WeenieProperties v-model="weenie.properties" @change="update" />
+    </div>
+    <div :class="{ hidden: !isActive(TAB.SPELLS) }">
+      <Spells v-model="weenie.spells" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.EMOTES) }">
       <Emotes v-model="weenie.emotes" @change="update" />
@@ -63,6 +68,7 @@
 
 <script>
 import WeenieProperties from "./WeenieProperties";
+import Spells from "./Spells";
 import Emotes from "./Emotes";
 import { TAB } from "../types/UI";
 import { WeenieType } from "../types/Weenie";
@@ -71,6 +77,7 @@ export default {
   name: "WeenieEditor",
   components: {
     WeenieProperties,
+    Spells,
     Emotes
   },
   computed: {

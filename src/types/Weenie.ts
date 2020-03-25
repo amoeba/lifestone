@@ -1,3 +1,5 @@
+import { Spell } from "./Spells";
+
 export enum WeenieType {
   CREATURE = "CREATURE",
   VENDOR = "VENDOR"
@@ -75,6 +77,7 @@ export interface Weenie {
   name: string;
   type: WeenieType;
   properties: WeenieProperties;
+  spells: Spell[];
   emotes: [];
 }
 
