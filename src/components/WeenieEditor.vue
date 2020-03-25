@@ -38,6 +38,13 @@
       </li>
       <li>
         <a
+          href="#createlist"
+          @click.prevent="switchTab(TAB.CREATELIST)"
+          :class="{ active: isActive(TAB.CREATELIST) }"
+        >Create List</a>
+      </li>
+      <li>
+        <a
           href="#emotes"
           @click.prevent="switchTab(TAB.EMOTES)"
           :class="{ active: isActive(TAB.EMOTES) }"
@@ -57,6 +64,9 @@
     <div :class="{ hidden: !isActive(TAB.SPELLS) }">
       <Spells v-model="weenie.spells" @change="update" />
     </div>
+    <div :class="{ hidden: !isActive(TAB.CREATELIST) }">
+      <CreateList v-model="weenie.createList" @change="update" />
+    </div>
     <div :class="{ hidden: !isActive(TAB.EMOTES) }">
       <Emotes v-model="weenie.emotes" @change="update" />
     </div>
@@ -69,6 +79,7 @@
 <script>
 import WeenieProperties from "./WeenieProperties";
 import Spells from "./Spells";
+import CreateList from "./CreateList";
 import Emotes from "./Emotes";
 import { TAB } from "../types/UI";
 import { WeenieType } from "../types/Weenie";
@@ -78,6 +89,7 @@ export default {
   components: {
     WeenieProperties,
     Spells,
+    CreateList,
     Emotes
   },
   computed: {
