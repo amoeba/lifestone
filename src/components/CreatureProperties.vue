@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>CreatureProperties</h3>
+    <h4>Attributes</h4>
     <label>
       Strength
       <input type="text" v-model="creature.strength" />
@@ -25,12 +26,21 @@
       Self
       <input type="text" v-model="creature.self" />
     </label>
+    <CreatureVitals v-model="creature.vitals" @change="update" />
+    <CreatureSkills v-model="creature.skills" @change="update" />
   </div>
 </template>
 
 <script>
+import CreatureVitals from "./CreatureVitals";
+import CreatureSkills from "./CreatureSkills";
+
 export default {
   name: "CreatureProperties",
+  components: {
+    CreatureVitals,
+    CreatureSkills
+  },
   props: {
     creature: {
       type: Object,

@@ -30,20 +30,23 @@ export const createCreatureProperties = function() {
     quickness: 0,
     focus: 0,
     self: 0,
-    health: {
-      base: 0,
-      current: 0,
-      max: 0
+    vitals: {
+      health: {
+        base: 0,
+        current: 0,
+        max: 0
+      },
+      stamina: {
+        base: 0,
+        current: 0,
+        max: 0
+      },
+      mana: {
+        base: 0,
+        current: 0,
+        max: 0
+      }
     },
-    stamina: {
-      base: 0,
-      current: 0,
-      max: 0
-    },
-    mana: {
-      base: 0,
-      current: 0,
-      max: 0
-    }
+    skills: []
   };
 };
