@@ -29,7 +29,7 @@
         <a
           href="#creature"
           @click.prevent="switchTab(TAB.CREATURE)"
-          :class="{ active: isActive(TAB.CREAtURE) }"
+          :class="{ active: isActive(TAB.CREATURE) }"
         >Creature</a>
       </li>
       <li>
