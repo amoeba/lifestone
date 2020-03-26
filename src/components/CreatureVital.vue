@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h5>{{name}}</h5>
+    <h5>{{ name }}</h5>
     <label>
       Base
-      <input type="text" v-model="vital.base" />
+      <input type="text" v-model="vital.base" @input="update" />
     </label>
     <label>
       Current
-      <input type="text" v-model="vital.current" />
+      <input type="text" v-model="vital.current" @input="update" />
     </label>
     <label>
       Max
-      <input type="text" v-model="vital.max" />
+      <input type="text" v-model="vital.max" @input="update" />
     </label>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     update() {
-      this.$emit("update", this.vital);
+      this.$emit("change", this.vital);
     }
   }
 };

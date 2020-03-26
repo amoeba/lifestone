@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     update() {
-      this.$emit("update", this.vitals);
+      this.$emit("change", this.vitals);
     }
   }
 };

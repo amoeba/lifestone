@@ -2,19 +2,19 @@
   <div>
     <label>
       Name
-      <input type="text" v-model="skill.name" />
+      <input type="text" v-model="skill.name" @change="update" />
     </label>
     <label>
       Spec
-      <input type="text" v-model="skill.spec" />
+      <input type="text" v-model="skill.spec" @change="update" />
     </label>
     <label>
       Base
-      <input type="text" v-model="skill.base" />
+      <input type="text" v-model="skill.base" @change="update" />
     </label>
     <label>
       Effective
-      <input type="text" v-model="skill.effective" />
+      <input type="text" v-model="skill.effective" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -42,7 +42,7 @@ export default {
       this.$emit("remove", this.index);
     },
     update() {
-      this.$emit("update", this.skill);
+      this.$emit("change", this.skill);
     }
   }
 };

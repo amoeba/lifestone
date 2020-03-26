@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button @click="addSkill">Add Skill</button>
+    <div class="two-col row">
+      <h4>Skills</h4>
+      <div class="right">
+        <button @click="addSkill">Add Skill</button>
+      </div>
+    </div>
     <CreatureSkill
       v-for="(skill, index) in skills"
       v-model="skills[index]"
@@ -14,7 +19,7 @@
 
 <script>
 import CreatureSkill from "./CreatureSkill";
-import { createSkill } from "../types/Weenie";
+import { createSkill } from "../types/Creature";
 
 export default {
   name: "CreatureSkills",
@@ -34,13 +39,14 @@ export default {
   methods: {
     addSkill() {
       this.skills.push(createSkill());
+      this.$emit("change", this.skills);
     },
     removeSkill(index) {
       this.skills.splice(index, 1);
-      this.$emit("update", this.skills);
+      this.$emit("change", this.skills);
     },
     update() {
-      this.$emit("update", this.skills);
+      this.$emit("change", this.skills);
     }
   }
 };

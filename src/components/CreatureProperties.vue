@@ -4,6 +4,7 @@
     <CreatureAttributes v-model="creature.attributes" @change="update" />
     <CreatureVitals v-model="creature.vitals" @change="update" />
     <CreatureSkills v-model="creature.skills" @change="update" />
+    <CreatureBodyParts v-model="creature.bodyParts" @change="update" />
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import CreatureAttributes from "./CreatureAttributes";
 import CreatureVitals from "./CreatureVitals";
 import CreatureSkills from "./CreatureSkills";
+import CreatureBodyParts from "./CreatureBodyParts";
 
 export default {
   name: "CreatureProperties",
   components: {
     CreatureAttributes,
     CreatureVitals,
-    CreatureSkills
+    CreatureSkills,
+    CreatureBodyParts
   },
   props: {
     creature: {
@@ -31,7 +34,7 @@ export default {
   },
   methods: {
     update() {
-      this.$emit("update", this.creature);
+      this.$emit("change", this.creature);
     }
   }
 };

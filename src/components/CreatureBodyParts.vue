@@ -1,0 +1,54 @@
+<template>
+  <div>
+    <div class="two-col row">
+      <h4>Skills</h4>
+      <div class="right">
+        <button @click="add">Add Part</button>
+      </div>
+    </div>
+    <CreatureBodyPart
+      v-for="(part, index) in parts"
+      :key="index"
+      v-model="parts[index]"
+      :index="index"
+      @change="update"
+      @add="add"
+      @remove="remove"
+    />
+  </div>
+</template>
+
+<script>
+import CreatureBodyPart from "./CreatureBodyPart";
+import { createCreatureBodyPart } from "../types/Creature";
+
+export default {
+  name: "CreatureBodyParts",
+  components: {
+    CreatureBodyPart
+  },
+  props: {
+    parts: {
+      type: Array,
+      required: true
+    }
+  },
+  model: {
+    prop: "parts",
+    event: "change"
+  },
+  methods: {
+    add() {
+      this.parts.push(createCreatureBodyPart());
+      this.$emit("change", this.parts);
+    },
+    remove(index) {
+      this.parts.splice(index, 1);
+      this.$emit("change", this.parts);
+    },
+    update() {
+      this.$emit("change", this.parts);
+    }
+  }
+};
+</script>

@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     update() {
-      this.$emit("update", this.attributes);
+      this.$emit("change", this.attributes);
     }
   }
 };
