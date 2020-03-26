@@ -9,7 +9,8 @@ body {
 input,
 select,
 option,
-button {
+button,
+textarea {
   font-size: 100%;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -23,6 +24,10 @@ label {
 
 label :first-child {
   margin-right: 0.5rem;
+}
+
+textarea {
+  width: 100%;
 }
 
 h1,

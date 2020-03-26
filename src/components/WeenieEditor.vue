@@ -38,6 +38,14 @@
       </li>
       <li>
         <a
+          href="#book"
+          :class="{ active: isActive(TAB.BOOK) }"
+          @click.prevent="switchTab(TAB.BOOK)"
+          >Book</a
+        >
+      </li>
+      <li>
+        <a
           href="#spells"
           :class="{ active: isActive(TAB.SPELLS) }"
           @click.prevent="switchTab(TAB.SPELLS)"
@@ -83,6 +91,9 @@
     <div :class="{ hidden: !isActive(TAB.CREATURE) }">
       <CreatureProperties v-model="weenie.creature" @change="update" />
     </div>
+    <div :class="{ hidden: !isActive(TAB.BOOK) }">
+      <Book v-model="weenie.book" @change="update" />
+    </div>
     <div :class="{ hidden: !isActive(TAB.SPELLS) }">
       <Spells v-model="weenie.spells" @change="update" />
     </div>
@@ -104,6 +115,7 @@
 <script>
 import WeenieProperties from "./WeenieProperties";
 import CreatureProperties from "./CreatureProperties";
+import Book from "./Book";
 import Spells from "./Spells";
 import CreateList from "./CreateList";
 import GeneratorTable from "./GeneratorTable";
@@ -116,6 +128,7 @@ export default {
   components: {
     WeenieProperties,
     CreatureProperties,
+    Book,
     Spells,
     CreateList,
     GeneratorTable,

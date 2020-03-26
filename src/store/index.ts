@@ -5,6 +5,7 @@ import { RootState } from "@/types/State";
 import { TAB } from "@/types/UI";
 import { Weenie, WeenieType } from "@/types/Weenie";
 import { createCreatureProperties } from "@/types/Creature.ts";
+import { Book } from "@/types/Book";
 
 Vue.use(Vuex);
 
@@ -31,6 +32,7 @@ const initialState: RootState = {
       bool: [],
       position: []
     },
+    book: null,
     spells: [],
     createList: [],
     generators: [],
