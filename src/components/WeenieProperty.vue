@@ -2,7 +2,7 @@
   <div>
     <label>
       <select v-model="property.key">
-        <option v-for="(key, index) in propertyTypes" :key="index">
+        <option v-for="(key, idx) in propertyTypes" :key="idx">
           {{ key }}
         </option>
       </select>

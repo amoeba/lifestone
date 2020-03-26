@@ -3,7 +3,7 @@
     <label>
       Type
       <select v-model="part.type" @change="update">
-        <option v-for="(type, index) in types" :key="index">{{ type }}</option>
+        <option v-for="(type, idx) in types" :key="idx">{{ type }}</option>
       </select>
     </label>
     <h5>Damage</h5>
