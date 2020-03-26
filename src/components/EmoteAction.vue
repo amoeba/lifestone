@@ -2,9 +2,11 @@
   <div class="action">
     <div class="two-col row">
       <select v-model="action.type" @input="updateType">
-        <option v-for="type in actionTypes" :key="type" :value="type">{{
+        <option v-for="type in actionTypes" :key="type" :value="type">
+          {{
           type
-        }}</option>
+          }}
+        </option>
       </select>
       <div class="right">
         <button @click="handleRemove">Remove</button>
@@ -39,7 +41,7 @@ export default {
   },
   computed: {
     actionTypes() {
-      return Object.keys(ACTION);
+      return ACTION;
     }
   },
   methods: {

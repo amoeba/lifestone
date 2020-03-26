@@ -130,7 +130,7 @@ export default {
       }
     },
     weenieTypes() {
-      return Object.keys(WeenieType);
+      return WeenieType;
     },
     weenieJSON: {
       get() {
