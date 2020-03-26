@@ -3,19 +3,21 @@
     <div class="row">
       <label>
         Name
-        <input v-model="weenie.name" type="text" />
+        <input v-model="weenie.name" type="text" @change="update" />
       </label>
 
       <label>
         ID
-        <input v-model="weenie.id" type="text" />
+        <input v-model="weenie.id" type="text" @change="update" />
       </label>
       <label>
         Type
-        <select v-model="weenie.type">
-          <option v-for="type in weenieTypes" :key="type" :value="type">{{
+        <select v-model="weenie.type" @change="update">
+          <option v-for="type in weenieTypes" :key="type" :value="type">
+            {{
             type
-          }}</option>
+            }}
+          </option>
         </select>
       </label>
     </div>
