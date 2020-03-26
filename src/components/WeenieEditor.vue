@@ -13,7 +13,9 @@
       <label>
         Type
         <select v-model="weenie.type">
-          <option v-for="type in weenieTypes" :key="type" :value="type">{{ type }}</option>
+          <option v-for="type in weenieTypes" :key="type" :value="type">{{
+            type
+          }}</option>
         </select>
       </label>
     </div>
@@ -23,49 +25,56 @@
           href="#properties"
           @click.prevent="switchTab(TAB.PROPERTIES)"
           :class="{ active: isActive(TAB.PROPERTIES) }"
-        >Properties</a>
+          >Properties</a
+        >
       </li>
       <li>
         <a
           href="#creature"
           @click.prevent="switchTab(TAB.CREATURE)"
           :class="{ active: isActive(TAB.CREATURE) }"
-        >Creature</a>
+          >Creature</a
+        >
       </li>
       <li>
         <a
           href="#spells"
           @click.prevent="switchTab(TAB.SPELLS)"
           :class="{ active: isActive(TAB.SPELLS) }"
-        >Spells</a>
+          >Spells</a
+        >
       </li>
       <li>
         <a
           href="#createlist"
           @click.prevent="switchTab(TAB.CREATELIST)"
           :class="{ active: isActive(TAB.CREATELIST) }"
-        >Create List</a>
+          >Create List</a
+        >
       </li>
       <li>
         <a
           href="#generators"
           @click.prevent="switchTab(TAB.GENERATORS)"
           :class="{ active: isActive(TAB.GENERATORS) }"
-        >Generators</a>
+          >Generators</a
+        >
       </li>
       <li>
         <a
           href="#emotes"
           @click.prevent="switchTab(TAB.EMOTES)"
           :class="{ active: isActive(TAB.EMOTES) }"
-        >Emotes</a>
+          >Emotes</a
+        >
       </li>
       <li>
         <a
           href="#json"
           @click.prevent="switchTab(TAB.JSON)"
           :class="{ active: isActive(TAB.JSON) }"
-        >JSON</a>
+          >JSON</a
+        >
       </li>
     </ul>
     <div :class="{ hidden: !isActive(TAB.PROPERTIES) }">

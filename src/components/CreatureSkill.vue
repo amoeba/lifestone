@@ -3,7 +3,9 @@
     <label>
       Name
       <select v-model="skill.name" @change="update">
-        <option v-for="(skill, index) in skills" :key="index">{{skill}}</option>
+        <option v-for="(skill, index) in skills" :key="index">{{
+          skill
+        }}</option>
       </select>
     </label>
     <label>

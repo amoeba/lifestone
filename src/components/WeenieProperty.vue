@@ -3,9 +3,7 @@
     <label>
       <select v-model="property.key">
         <option v-for="(key, index) in propertyTypes" :key="index">
-          {{
-          key
-          }}
+          {{ key }}
         </option>
       </select>
       <input :type="inputType" v-model="property.value" @change="update" />

@@ -3,9 +3,7 @@
     <div class="two-col row">
       <select v-model="action.type" @input="updateType">
         <option v-for="type in actionTypes" :key="type" :value="type">
-          {{
-          type
-          }}
+          {{ type }}
         </option>
       </select>
       <div class="right">

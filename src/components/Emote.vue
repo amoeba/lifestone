@@ -2,7 +2,9 @@
   <div class="emote">
     <div class="two-col row">
       <select v-model="emote.type" @input="updateType">
-        <option v-for="type in emoteTypes" :key="type" :value="type">{{ type }}</option>
+        <option v-for="type in emoteTypes" :key="type" :value="type">{{
+          type
+        }}</option>
       </select>
       <div class="right">
         <button @click="duplicate">Duplicate</button>

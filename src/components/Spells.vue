@@ -9,7 +9,12 @@
     <div>
       <ul>
         <li v-for="(spell, index) in spells" :key="index">
-          <Spell v-model="spells[index]" :index="index" @change="update" @remove="removeSpell" />
+          <Spell
+            v-model="spells[index]"
+            :index="index"
+            @change="update"
+            @remove="removeSpell"
+          />
         </li>
       </ul>
     </div>
