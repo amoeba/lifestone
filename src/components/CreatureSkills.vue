@@ -14,7 +14,7 @@
 
 <script>
 import CreatureSkill from "./CreatureSkill";
-import { createSkill } from "../types/Skills";
+import { createSkill } from "../types/Weenie";
 
 export default {
   name: "CreatureSkills",
