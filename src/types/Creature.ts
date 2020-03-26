@@ -1,3 +1,33 @@
+export enum BodyPartType {
+  UNDEFINED = "UNDEFINED",
+
+  HEAD = "HEAD",
+  CHEST = "CHEST",
+  ABDOMEN = "ABDOMEN",
+  UPPER_ARM = "UPPER_ARM",
+  LOWER_ARM = "LOWER_ARM",
+  HAND = "HAND",
+  UPPER_LEG = "UPPER_LEG",
+  LOWER_LEG = "LOWER_LEG",
+  FOOT = "FOOT",
+  HORN = "HORN",
+  FRONT_LEG = "FRONT_LEG",
+  FRONT_FOOT = "FRONT_FOOT",
+  REAR_LEG = "REAR_LEG",
+  REAR_FOOT = "REAR_FOOT",
+  TORSO = "TORSO",
+  TAIL = "TAIL",
+  ARM = "ARM",
+  LEG = "LEG",
+  CLAW = "CLAW",
+  WINGS = "WINGS",
+  BREATH = "BREATH",
+  TENTACLE = "TENTACLE",
+  UPPER_TENTACLE = "UPPER_TENTACLE",
+  LOWER_TENTACLE = "LOWER_TENTACLE",
+  CLOAK = "CLOAK"
+}
+
 interface BodyPartArmor {
   base: number;
   blunt: number;

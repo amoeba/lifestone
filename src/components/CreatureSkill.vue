@@ -2,7 +2,9 @@
   <div>
     <label>
       Name
-      <input type="text" v-model="skill.name" @change="update" />
+      <select v-model="skill.name" @change="update">
+        <option v-for="(skill, index) in skills" :key="index">{{skill}}</option>
+      </select>
     </label>
     <label>
       Spec
@@ -21,6 +23,8 @@
 </template>
 
 <script>
+import { Skills } from "../types/Skills.ts";
+
 export default {
   name: "CreatureSkill",
   props: {
@@ -36,6 +40,11 @@ export default {
   model: {
     prop: "skill",
     event: "change"
+  },
+  computed: {
+    skills() {
+      return Skills;
+    }
   },
   methods: {
     remove() {

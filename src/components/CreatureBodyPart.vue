@@ -2,7 +2,9 @@
   <div class="row">
     <label>
       Type
-      <input type="text" v-model="part.type" @change="update" />
+      <select v-model="part.type" @change="update">
+        <option v-for="(type, index) in types" :key="index">{{type}}</option>
+      </select>
     </label>
     <h5>Damage</h5>
     <label>
@@ -114,6 +116,8 @@
 </template>
 
 <script>
+import { BodyPartType } from "../types/Creature";
+
 export default {
   name: "CreatureBodyPart",
   props: {
@@ -129,6 +133,11 @@ export default {
   model: {
     prop: "part",
     event: "change"
+  },
+  computed: {
+    types() {
+      return BodyPartType;
+    }
   },
   methods: {
     remove() {
