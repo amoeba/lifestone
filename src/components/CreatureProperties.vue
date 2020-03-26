@@ -1,8 +1,10 @@
 <template>
   <div>
     <h3>CreatureProperties</h3>
-    <CreatureAttributes v-model="creature.attributes" @change="update" />
-    <CreatureVitals v-model="creature.vitals" @change="update" />
+    <div class="col-40-60">
+      <CreatureAttributes v-model="creature.attributes" @change="update" />
+      <CreatureVitals v-model="creature.vitals" @change="update" />
+    </div>
     <CreatureSkills v-model="creature.skills" @change="update" />
     <CreatureBodyParts v-model="creature.bodyParts" @change="update" />
   </div>

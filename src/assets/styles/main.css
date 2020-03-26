@@ -86,6 +86,11 @@ ul {
   grid-template-columns: 1fr 1fr;
 }
 
+.col-40-60 {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
 /* Utility styles */
 .row {
   border-bottom: 1px solid #ccc;
