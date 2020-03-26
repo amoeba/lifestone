@@ -8,9 +8,9 @@
     </div>
     <CreatureSkill
       v-for="(skill, index) in skills"
+      :key="index"
       v-model="skills[index]"
       :index="index"
-      :key="index"
       @change="update"
       @remove="removeSkill"
     />
@@ -26,15 +26,15 @@ export default {
   components: {
     CreatureSkill
   },
+  model: {
+    prop: "skills",
+    event: "change"
+  },
   props: {
     skills: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "skills",
-    event: "change"
   },
   methods: {
     addSkill() {

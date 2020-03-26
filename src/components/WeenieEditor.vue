@@ -3,12 +3,12 @@
     <div class="row">
       <label>
         Name
-        <input type="text" v-model="weenie.name" />
+        <input v-model="weenie.name" type="text" />
       </label>
 
       <label>
         ID
-        <input type="text" v-model="weenie.id" />
+        <input v-model="weenie.id" type="text" />
       </label>
       <label>
         Type
@@ -23,56 +23,56 @@
       <li>
         <a
           href="#properties"
-          @click.prevent="switchTab(TAB.PROPERTIES)"
           :class="{ active: isActive(TAB.PROPERTIES) }"
+          @click.prevent="switchTab(TAB.PROPERTIES)"
           >Properties</a
         >
       </li>
       <li>
         <a
           href="#creature"
-          @click.prevent="switchTab(TAB.CREATURE)"
           :class="{ active: isActive(TAB.CREATURE) }"
+          @click.prevent="switchTab(TAB.CREATURE)"
           >Creature</a
         >
       </li>
       <li>
         <a
           href="#spells"
-          @click.prevent="switchTab(TAB.SPELLS)"
           :class="{ active: isActive(TAB.SPELLS) }"
+          @click.prevent="switchTab(TAB.SPELLS)"
           >Spells</a
         >
       </li>
       <li>
         <a
           href="#createlist"
-          @click.prevent="switchTab(TAB.CREATELIST)"
           :class="{ active: isActive(TAB.CREATELIST) }"
+          @click.prevent="switchTab(TAB.CREATELIST)"
           >Create List</a
         >
       </li>
       <li>
         <a
           href="#generators"
-          @click.prevent="switchTab(TAB.GENERATORS)"
           :class="{ active: isActive(TAB.GENERATORS) }"
+          @click.prevent="switchTab(TAB.GENERATORS)"
           >Generators</a
         >
       </li>
       <li>
         <a
           href="#emotes"
-          @click.prevent="switchTab(TAB.EMOTES)"
           :class="{ active: isActive(TAB.EMOTES) }"
+          @click.prevent="switchTab(TAB.EMOTES)"
           >Emotes</a
         >
       </li>
       <li>
         <a
           href="#json"
-          @click.prevent="switchTab(TAB.JSON)"
           :class="{ active: isActive(TAB.JSON) }"
+          @click.prevent="switchTab(TAB.JSON)"
           >JSON</a
         >
       </li>
@@ -96,7 +96,7 @@
       <Emotes v-model="weenie.emotes" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.JSON) }">
-      <textarea class="json" v-model="weenieJSON" rows="40" cols="120" />
+      <textarea v-model="weenieJSON" class="json" rows="40" cols="120" />
     </div>
   </div>
 </template>

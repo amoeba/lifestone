@@ -2,55 +2,55 @@
   <div class="row">
     <label>
       Slot
-      <input type="text" v-model="item.slot" @change="update" />
+      <input v-model="item.slot" type="text" @change="update" />
     </label>
     <label>
       Probability
-      <input type="text" v-model="item.probability" @change="update" />
+      <input v-model="item.probability" type="text" @change="update" />
     </label>
     <label>
       Delay
-      <input type="text" v-model="item.delay" @change="update" />
+      <input v-model="item.delay" type="text" @change="update" />
     </label>
     <label>
       WCID
-      <input type="text" v-model="item.wcid" @change="update" />
+      <input v-model="item.wcid" type="text" @change="update" />
     </label>
     <label>
       Regen
-      <input type="text" v-model="item.regen" @change="update" />
+      <input v-model="item.regen" type="text" @change="update" />
     </label>
     <label>
       Location
-      <input type="text" v-model="item.location" @change="update" />
+      <input v-model="item.location" type="text" @change="update" />
     </label>
     <label>
       Initial
-      <input type="text" v-model="item.initial" @change="update" />
+      <input v-model="item.initial" type="text" @change="update" />
     </label>
     <label>
       Max
-      <input type="text" v-model="item.max" @change="update" />
+      <input v-model="item.max" type="text" @change="update" />
     </label>
     <label>
       Palette
-      <input type="text" v-model="item.palette" @change="update" />
+      <input v-model="item.palette" type="text" @change="update" />
     </label>
     <label>
       Shade
-      <input type="text" v-model="item.shade" @change="update" />
+      <input v-model="item.shade" type="text" @change="update" />
     </label>
     <label>
       Stack
-      <input type="text" v-model="item.stack" @change="update" />
+      <input v-model="item.stack" type="text" @change="update" />
     </label>
     <label>
       Cell
-      <input type="text" v-model="item.cell" @change="update" />
+      <input v-model="item.cell" type="text" @change="update" />
     </label>
     <label>
       Frame
-      <input type="text" v-model="item.frame" @change="update" />
+      <input v-model="item.frame" type="text" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -59,6 +59,10 @@
 <script>
 export default {
   name: "GeneratorTableItem",
+  model: {
+    prop: "item",
+    event: "change"
+  },
   props: {
     item: {
       type: Object,
@@ -68,10 +72,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "item",
-    event: "change"
   },
   methods: {
     update() {

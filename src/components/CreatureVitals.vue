@@ -15,15 +15,15 @@ export default {
   components: {
     CreatureVital
   },
+  model: {
+    prop: "vitals",
+    event: "change"
+  },
   props: {
     vitals: {
       type: Object,
       required: true
     }
-  },
-  model: {
-    prop: "vitals",
-    event: "change"
   },
   methods: {
     update() {

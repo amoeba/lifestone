@@ -30,15 +30,15 @@ export default {
   components: {
     Emote
   },
+  model: {
+    prop: "emotes",
+    event: "change"
+  },
   props: {
     emotes: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "emotes",
-    event: "change"
   },
   methods: {
     addEmote() {

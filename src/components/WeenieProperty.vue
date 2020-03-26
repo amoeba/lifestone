@@ -6,7 +6,7 @@
           {{ key }}
         </option>
       </select>
-      <input :type="inputType" v-model="property.value" @change="update" />
+      <input v-model="property.value" :type="inputType" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -17,6 +17,10 @@ import { WEENIE_PROPERTY, getPropertyTypes } from "../types/Weenie";
 
 export default {
   name: "WeenieProperty",
+  model: {
+    prop: "property",
+    event: "change"
+  },
   props: {
     index: {
       type: Number,
@@ -30,10 +34,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  model: {
-    prop: "property",
-    event: "change"
   },
   computed: {
     propertyTypes() {

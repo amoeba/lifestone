@@ -3,27 +3,27 @@
     <h4>Attributes</h4>
     <label>
       Strength
-      <input type="text" v-model="attributes.strength" @change="update" />
+      <input v-model="attributes.strength" type="text" @change="update" />
     </label>
     <label>
       Endurance
-      <input type="text" v-model="attributes.endurance" @change="update" />
+      <input v-model="attributes.endurance" type="text" @change="update" />
     </label>
     <label>
       Coordination
-      <input type="text" v-model="attributes.coordination" @change="update" />
+      <input v-model="attributes.coordination" type="text" @change="update" />
     </label>
     <label>
       Quickness
-      <input type="text" v-model="attributes.quickness" @change="update" />
+      <input v-model="attributes.quickness" type="text" @change="update" />
     </label>
     <label>
       Focus
-      <input type="text" v-model="attributes.focus" @change="update" />
+      <input v-model="attributes.focus" type="text" @change="update" />
     </label>
     <label>
       Self
-      <input type="text" v-model="attributes.self" @change="update" />
+      <input v-model="attributes.self" type="text" @change="update" />
     </label>
   </div>
 </template>
@@ -31,16 +31,17 @@
 <script>
 export default {
   name: "CreatureAttributes",
+  model: {
+    prop: "attributes",
+    event: "change"
+  },
   props: {
     attributes: {
       type: Object,
       required: true
     }
   },
-  model: {
-    prop: "attributes",
-    event: "change"
-  },
+
   methods: {
     update() {
       this.$emit("change", this.attributes);

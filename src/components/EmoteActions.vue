@@ -24,15 +24,15 @@ export default {
   components: {
     EmoteAction
   },
+  model: {
+    prop: "actions",
+    event: "change"
+  },
   props: {
     actions: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "actions",
-    event: "change"
   },
   methods: {
     addEmoteAction() {

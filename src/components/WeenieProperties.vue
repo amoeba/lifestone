@@ -6,8 +6,8 @@
       <li>
         <a
           href="#string"
-          @click.prevent="switchTab(TAB.STRING)"
           :class="{ active: isActive(TAB.STRING) }"
+          @click.prevent="switchTab(TAB.STRING)"
         >
           STRING
           <span class="property-count">{{ properties.string.length }}</span>
@@ -16,8 +16,8 @@
       <li>
         <a
           href="#int32"
-          @click.prevent="switchTab(TAB.INT32)"
           :class="{ active: isActive(TAB.INT32) }"
+          @click.prevent="switchTab(TAB.INT32)"
         >
           INT32
           <span class="property-count">{{ properties.int32.length }}</span>
@@ -26,8 +26,8 @@
       <li>
         <a
           href="#int64"
-          @click.prevent="switchTab(TAB.INT64)"
           :class="{ active: isActive(TAB.INT64) }"
+          @click.prevent="switchTab(TAB.INT64)"
         >
           INT64
           <span class="property-count">{{ properties.int64.length }}</span>
@@ -36,8 +36,8 @@
       <li>
         <a
           href="#float"
-          @click.prevent="switchTab(TAB.FLOAT)"
           :class="{ active: isActive(TAB.FLOAT) }"
+          @click.prevent="switchTab(TAB.FLOAT)"
         >
           FLOAT
           <span class="property-count">{{ properties.float.length }}</span>
@@ -46,8 +46,8 @@
       <li>
         <a
           href="#dataid"
-          @click.prevent="switchTab(TAB.DATAID)"
           :class="{ active: isActive(TAB.DATAID) }"
+          @click.prevent="switchTab(TAB.DATAID)"
         >
           DATAID
           <span class="property-count">{{ properties.dataId.length }}</span>
@@ -56,8 +56,8 @@
       <li>
         <a
           href="#instanceid"
-          @click.prevent="switchTab(TAB.INSTANCEID)"
           :class="{ active: isActive(TAB.INSTANCEID) }"
+          @click.prevent="switchTab(TAB.INSTANCEID)"
         >
           INSTANCEID
           <span class="property-count">{{ properties.instanceId.length }}</span>
@@ -66,8 +66,8 @@
       <li>
         <a
           href="#bool"
-          @click.prevent="switchTab(TAB.BOOL)"
           :class="{ active: isActive(TAB.BOOL) }"
+          @click.prevent="switchTab(TAB.BOOL)"
         >
           BOOL
           <span class="property-count">{{ properties.bool.length }}</span>
@@ -76,8 +76,8 @@
       <li>
         <a
           href="#position"
-          @click.prevent="switchTab(TAB.POSITION)"
           :class="{ active: isActive(TAB.POSITION) }"
+          @click.prevent="switchTab(TAB.POSITION)"
         >
           POSITION
           <span class="property-count">{{ properties.position.length }}</span>
@@ -153,15 +153,15 @@ export default {
   components: {
     WeeniePropertiesTable
   },
+  model: {
+    prop: "properties",
+    event: "change"
+  },
   props: {
     properties: {
       type: Object,
       required: true
     }
-  },
-  model: {
-    prop: "properties",
-    event: "change"
   },
   data() {
     return {

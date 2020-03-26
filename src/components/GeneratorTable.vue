@@ -30,15 +30,15 @@ export default {
   components: {
     GeneratorTableItem
   },
+  model: {
+    prop: "items",
+    event: "change"
+  },
   props: {
     items: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "items",
-    event: "change"
   },
   methods: {
     addItem() {

@@ -10,15 +10,15 @@
     </label>
     <label>
       Spec
-      <input type="text" v-model="skill.spec" @change="update" />
+      <input v-model="skill.spec" type="text" @change="update" />
     </label>
     <label>
       Base
-      <input type="text" v-model="skill.base" @change="update" />
+      <input v-model="skill.base" type="text" @change="update" />
     </label>
     <label>
       Effective
-      <input type="text" v-model="skill.effective" @change="update" />
+      <input v-model="skill.effective" type="text" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -29,6 +29,10 @@ import { Skills } from "../types/Skills.ts";
 
 export default {
   name: "CreatureSkill",
+  model: {
+    prop: "skill",
+    event: "change"
+  },
   props: {
     skill: {
       type: Object,
@@ -38,10 +42,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "skill",
-    event: "change"
   },
   computed: {
     skills() {

@@ -9,107 +9,107 @@
     <h5>Damage</h5>
     <label>
       Damage Type
-      <input type="text" v-model="part.damageType" @change="update" />
+      <input v-model="part.damageType" type="text" @change="update" />
     </label>
     <label>
       Damage
-      <input type="text" v-model="part.damage" @change="update" />
+      <input v-model="part.damage" type="text" @change="update" />
     </label>
     <label>
       Variance
-      <input type="text" v-model="part.variance" @change="update" />
+      <input v-model="part.variance" type="text" @change="update" />
     </label>
     <h5>Armor</h5>
     <label>
       Height
-      <input type="text" v-model="part.height" @change="update" />
+      <input v-model="part.height" type="text" @change="update" />
     </label>
     <label>
       Base
-      <input type="text" v-model="part.armor.base" @change="update" />
+      <input v-model="part.armor.base" type="text" @change="update" />
     </label>
     <label>
       Blunt
-      <input type="text" v-model="part.armor.blunt" @change="update" />
+      <input v-model="part.armor.blunt" type="text" @change="update" />
     </label>
     <label>
       Pierce
-      <input type="text" v-model="part.armor.pierce" @change="update" />
+      <input v-model="part.armor.pierce" type="text" @change="update" />
     </label>
     <label>
       Slash
-      <input type="text" v-model="part.armor.slash" @change="update" />
+      <input v-model="part.armor.slash" type="text" @change="update" />
     </label>
     <label>
       Acid
-      <input type="text" v-model="part.armor.acid" @change="update" />
+      <input v-model="part.armor.acid" type="text" @change="update" />
     </label>
     <label>
       Cold
-      <input type="text" v-model="part.armor.cold" @change="update" />
+      <input v-model="part.armor.cold" type="text" @change="update" />
     </label>
     <label>
       Fire
-      <input type="text" v-model="part.armor.fire" @change="update" />
+      <input v-model="part.armor.fire" type="text" @change="update" />
     </label>
     <label>
       Lightning
-      <input type="text" v-model="part.armor.lightning" @change="update" />
+      <input v-model="part.armor.lightning" type="text" @change="update" />
     </label>
     <label>
       Nether
-      <input type="text" v-model="part.armor.nether" @change="update" />
+      <input v-model="part.armor.nether" type="text" @change="update" />
     </label>
     <h5>High</h5>
     <label>
       Front Left
-      <input type="text" v-model="part.highLeftFront" @change="update" />
+      <input v-model="part.highLeftFront" type="text" @change="update" />
     </label>
     <label>
       Front Right
-      <input type="text" v-model="part.highFrontRight" @change="update" />
+      <input v-model="part.highFrontRight" type="text" @change="update" />
     </label>
     <label>
       Back Left
-      <input type="text" v-model="part.highLeftBack" @change="update" />
+      <input v-model="part.highLeftBack" type="text" @change="update" />
     </label>
     <label>
       Back Right
-      <input type="text" v-model="part.highRightBack" @change="update" />
+      <input v-model="part.highRightBack" type="text" @change="update" />
     </label>
     <h5>Mid</h5>
     <label>
       Front Left
-      <input type="text" v-model="part.midLeftFront" @change="update" />
+      <input v-model="part.midLeftFront" type="text" @change="update" />
     </label>
     <label>
       Front Right
-      <input type="text" v-model="part.midRightFront" @change="update" />
+      <input v-model="part.midRightFront" type="text" @change="update" />
     </label>
     <label>
       Back Left
-      <input type="text" v-model="part.midLeftBack" @change="update" />
+      <input v-model="part.midLeftBack" type="text" @change="update" />
     </label>
     <label>
       Back Right
-      <input type="text" v-model="part.midRightBack" @change="update" />
+      <input v-model="part.midRightBack" type="text" @change="update" />
     </label>
     <h5>Low</h5>
     <label>
       Front Left
-      <input type="text" v-model="part.lowLeftFront" @change="update" />
+      <input v-model="part.lowLeftFront" type="text" @change="update" />
     </label>
     <label>
       Front Right
-      <input type="text" v-model="part.lowRightFront" @change="update" />
+      <input v-model="part.lowRightFront" type="text" @change="update" />
     </label>
     <label>
       Back Left
-      <input type="text" v-model="part.highLeftBack" @change="update" />
+      <input v-model="part.highLeftBack" type="text" @change="update" />
     </label>
     <label>
       Back Right
-      <input type="text" v-model="part.highRightBack" @change="update" />
+      <input v-model="part.highRightBack" type="text" @change="update" />
     </label>
     <button @click="remove">Remove Part</button>
   </div>
@@ -120,6 +120,10 @@ import { BodyPartType } from "../types/Creature";
 
 export default {
   name: "CreatureBodyPart",
+  model: {
+    prop: "part",
+    event: "change"
+  },
   props: {
     part: {
       type: Object,
@@ -129,10 +133,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "part",
-    event: "change"
   },
   computed: {
     types() {

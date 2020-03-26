@@ -30,15 +30,15 @@ export default {
   components: {
     Spell
   },
+  model: {
+    prop: "spells",
+    event: "change"
+  },
   props: {
     spells: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "spells",
-    event: "change"
   },
   methods: {
     addSpell() {

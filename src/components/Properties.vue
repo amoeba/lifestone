@@ -17,15 +17,15 @@ export default {
   components: {
     Property
   },
+  model: {
+    prop: "properties",
+    event: "change"
+  },
   props: {
     properties: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "properties",
-    event: "change"
   },
   methods: {
     update() {

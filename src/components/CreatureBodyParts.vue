@@ -27,15 +27,15 @@ export default {
   components: {
     CreatureBodyPart
   },
+  model: {
+    prop: "parts",
+    event: "change"
+  },
   props: {
     parts: {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "parts",
-    event: "change"
   },
   methods: {
     add() {

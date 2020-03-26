@@ -23,6 +23,10 @@ export default {
   components: {
     Properties
   },
+  model: {
+    prop: "action",
+    event: "change"
+  },
   props: {
     action: {
       type: Object,
@@ -32,10 +36,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "action",
-    event: "change"
   },
   computed: {
     actionTypes() {

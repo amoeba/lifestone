@@ -3,15 +3,15 @@
     <h5>{{ name }}</h5>
     <label>
       Base
-      <input type="text" v-model="vital.base" @input="update" />
+      <input v-model="vital.base" type="text" @input="update" />
     </label>
     <label>
       Current
-      <input type="text" v-model="vital.current" @input="update" />
+      <input v-model="vital.current" type="text" @input="update" />
     </label>
     <label>
       Max
-      <input type="text" v-model="vital.max" @input="update" />
+      <input v-model="vital.max" type="text" @input="update" />
     </label>
   </div>
 </template>
@@ -19,6 +19,10 @@
 <script>
 export default {
   name: "CreatureVital",
+  model: {
+    prop: "vital",
+    event: "change"
+  },
   props: {
     vital: {
       type: Object,
@@ -28,10 +32,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  model: {
-    prop: "vital",
-    event: "change"
   },
   methods: {
     update() {

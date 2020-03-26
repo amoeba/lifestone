@@ -2,27 +2,27 @@
   <div>
     <label>
       Weenie
-      <input type="text" v-model="item.weenie" @change="update" />
+      <input v-model="item.weenie" type="text" @change="update" />
     </label>
     <label>
       Destination
-      <input type="text" v-model="item.destination" @change="update" />
+      <input v-model="item.destination" type="text" @change="update" />
     </label>
     <label>
       Palette
-      <input type="text" v-model="item.palette" @change="update" />
+      <input v-model="item.palette" type="text" @change="update" />
     </label>
     <label>
       Shade
-      <input type="text" v-model="item.shade" @change="update" />
+      <input v-model="item.shade" type="text" @change="update" />
     </label>
     <label>
       Quantity
-      <input type="text" v-model="item.quantity" @change="update" />
+      <input v-model="item.quantity" type="text" @change="update" />
     </label>
     <label>
       Bonded
-      <input type="checkbox" v-model="item.bonded" @change="update" />
+      <input v-model="item.bonded" type="checkbox" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -31,6 +31,10 @@
 <script>
 export default {
   name: "CreateListItem",
+  model: {
+    prop: "item",
+    event: "change"
+  },
   props: {
     item: {
       type: Object,
@@ -40,10 +44,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "item",
-    event: "change"
   },
   methods: {
     update() {

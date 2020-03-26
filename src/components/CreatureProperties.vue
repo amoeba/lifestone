@@ -24,16 +24,17 @@ export default {
     CreatureSkills,
     CreatureBodyParts
   },
+  model: {
+    prop: "creature",
+    event: "change"
+  },
   props: {
     creature: {
       type: Object,
       required: true
     }
   },
-  model: {
-    prop: "creature",
-    event: "change"
-  },
+
   methods: {
     update() {
       this.$emit("change", this.creature);

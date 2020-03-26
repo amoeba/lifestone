@@ -2,15 +2,15 @@
   <div>
     <label>
       ID
-      <input type="text" v-model="spell.id" @change="update" />
+      <input v-model="spell.id" type="text" @change="update" />
     </label>
     <label>
       Spell
-      <input type="text" v-model="spell.name" @change="update" />
+      <input v-model="spell.name" type="text" @change="update" />
     </label>
     <label>
       Probability
-      <input type="text" v-model="spell.probability" @change="update" />
+      <input v-model="spell.probability" type="text" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -19,6 +19,10 @@
 <script>
 export default {
   name: "Spell",
+  model: {
+    prop: "spell",
+    event: "change"
+  },
   props: {
     spell: {
       type: Object,
@@ -28,10 +32,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "spell",
-    event: "change"
   },
   methods: {
     update() {

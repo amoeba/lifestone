@@ -27,6 +27,10 @@ export default {
   components: {
     WeenieProperty
   },
+  model: {
+    prop: "properties",
+    event: "change"
+  },
   props: {
     kind: {
       type: String,
@@ -36,10 +40,6 @@ export default {
       type: Array,
       required: true
     }
-  },
-  model: {
-    prop: "properties",
-    event: "change"
   },
   methods: {
     update() {

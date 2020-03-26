@@ -29,6 +29,10 @@ export default {
     Properties,
     EmoteActions
   },
+  model: {
+    prop: "emote",
+    event: "change"
+  },
   props: {
     emote: {
       type: Object,
@@ -38,10 +42,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-  model: {
-    prop: "emote",
-    event: "change"
   },
   computed: {
     emoteTypes() {
