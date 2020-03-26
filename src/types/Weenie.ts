@@ -6,7 +6,8 @@ import { Book } from "./Book";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
-  VENDOR = "VENDOR"
+  VENDOR = "VENDOR",
+  BOOK = "BOOK"
 }
 
 enum StringProp {
