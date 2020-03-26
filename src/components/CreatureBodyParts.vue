@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="two-col row">
-      <h4>Skills</h4>
+      <h4>Body Parts</h4>
       <div class="right">
         <button @click="add">Add Part</button>
       </div>
