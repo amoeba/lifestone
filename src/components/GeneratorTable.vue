@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div class="two-col row">
       <h3>Generators</h3>
       <div class="right">
@@ -7,16 +7,14 @@
       </div>
     </div>
     <div>
-      <ul>
-        <li v-for="(item, index) in items" :key="index">
-          <GeneratorTableItem
-            v-model="items[index]"
-            :index="index"
-            @change="update"
-            @remove="removeItem"
-          />
-        </li>
-      </ul>
+      <GeneratorTableItem
+        v-for="(item, index) in items"
+        :key="index"
+        v-model="items[index]"
+        :index="index"
+        @change="update"
+        @remove="removeItem"
+      />
     </div>
   </div>
 </template>

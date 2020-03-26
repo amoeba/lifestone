@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div class="two-col row">
       <h3>Spells</h3>
       <div class="right">
@@ -9,12 +9,7 @@
     <div>
       <ul>
         <li v-for="(spell, index) in spells" :key="index">
-          <Spell
-            v-model="spells[index]"
-            :index="index"
-            @change="update"
-            @remove="removeSpell"
-          />
+          <Spell v-model="spells[index]" :index="index" @change="update" @remove="removeSpell" />
         </li>
       </ul>
     </div>

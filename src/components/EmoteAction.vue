@@ -1,10 +1,8 @@
 <template>
-  <div class="action">
+  <div class="box">
     <div class="two-col row">
       <select v-model="action.type" @input="updateType">
-        <option v-for="type in actionTypes" :key="type" :value="type">
-          {{ type }}
-        </option>
+        <option v-for="type in actionTypes" :key="type" :value="type">{{ type }}</option>
       </select>
       <div class="right">
         <button @click="handleRemove">Remove</button>

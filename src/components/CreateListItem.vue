@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="item">
     <label>
       Weenie
       <input v-model="item.weenie" type="text" @change="update" />

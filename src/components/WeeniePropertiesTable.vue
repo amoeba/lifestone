@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="box">
     <div class="two-col row">
-      <h4>Properties ({{ kind }})</h4>
+      <h4>{{ kind }} Properties</h4>
       <div class="right">
         <button @click="addProperty">Add Property</button>
       </div>

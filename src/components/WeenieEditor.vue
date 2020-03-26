@@ -79,28 +79,28 @@
         >JSON</a>
       </li>
     </ul>
-    <div :class="{ hidden: !isActive(TAB.PROPERTIES) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.PROPERTIES) }">
       <WeenieProperties v-model="weenie.properties" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.CREATURE) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATURE) }">
       <CreatureProperties v-model="weenie.creature" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.BOOK) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.BOOK) }">
       <Book v-model="weenie.book" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.SPELLS) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.SPELLS) }">
       <Spells v-model="weenie.spells" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.CREATELIST) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATELIST) }">
       <CreateList v-model="weenie.createList" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.GENERATORS) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.GENERATORS) }">
       <GeneratorTable v-model="weenie.generators" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.EMOTES) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.EMOTES) }">
       <Emotes v-model="weenie.emotes" @change="update" />
     </div>
-    <div :class="{ hidden: !isActive(TAB.JSON) }">
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.JSON) }">
       <textarea v-model="weenieJSON" class="json" rows="40" cols="120" />
     </div>
   </div>

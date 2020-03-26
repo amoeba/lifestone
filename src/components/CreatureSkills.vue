@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div class="two-col row">
       <h4>Skills</h4>
       <div class="right">

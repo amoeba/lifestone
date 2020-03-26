@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="item">
     <label>
       Slot
       <input v-model="item.slot" type="text" @change="update" />

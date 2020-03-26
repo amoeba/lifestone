@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="item">
     <label>
       Name
       <select v-model="skill.name" @change="update">

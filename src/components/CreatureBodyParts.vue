@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div class="two-col row">
       <h4>Body Parts</h4>
       <div class="right">

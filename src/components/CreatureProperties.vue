@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>CreatureProperties</h3>
-    <div class="col-40-60">
+    <h3>Creature Properties</h3>
+    <div class="col-40-60 box">
       <CreatureAttributes v-model="creature.attributes" @change="update" />
       <CreatureVitals v-model="creature.vitals" @change="update" />
     </div>

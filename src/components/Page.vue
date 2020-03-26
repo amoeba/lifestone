@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div class="two-col">
       <h5>Page {{ index + 1 }}</h5>
       <div class="right">
