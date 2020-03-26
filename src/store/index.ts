@@ -46,7 +46,6 @@ export default new Vuex.Store({
       state.activeTab = tab;
     },
     updateWeenie(state, weenie) {
-      console.log("updateWeenie");
       state.weenie = weenie;
     }
   },
