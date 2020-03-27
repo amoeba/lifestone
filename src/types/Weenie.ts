@@ -56,14 +56,14 @@ interface WeenieProperty<K, V> {
 }
 
 export enum WEENIE_PROPERTY {
-  STRING = "string",
-  INT32 = "int32",
-  INT64 = "int64",
-  FLOAT = "float",
-  DATAID = "dataId",
-  INSTANCEID = "instanceId",
-  BOOL = "bool",
-  POSITION = "position"
+  STRING = "String",
+  INT32 = "Int32",
+  INT64 = "Int64",
+  FLOAT = "Float",
+  DATAID = "DataID",
+  INSTANCEID = "InstanceID",
+  BOOL = "Bool",
+  POSITION = "Position"
 }
 
 interface WeenieProperties {
