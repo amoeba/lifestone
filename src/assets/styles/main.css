@@ -161,3 +161,31 @@ ul {
 .tabpage {
   padding: 0.5rem 0;
 }
+
+/* Autocomplete */
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(1.5rem);
+  border: 1px solid black;
+  box-sizing: border-box;
+  background-color: white;
+  z-index: 1;
+}
+
+.autocomplete-suggestions li {
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+.autocomplete-suggestions li:hover {
+  background-color: black;
+  color: white;
+}

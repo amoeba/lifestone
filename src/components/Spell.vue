@@ -6,7 +6,7 @@
     </label>
     <label>
       Spell
-      <input v-model="spell.name" type="text" @change="update" />
+      <Autocomplete :options="spells" :value="spell.name" @change="update" @choose="choose" />
     </label>
     <label>
       Probability
@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import Autocomplete from "./Autocomplete";
+
 export default {
   name: "Spell",
+  components: {
+    Autocomplete
+  },
   model: {
     prop: "spell",
     event: "change"
@@ -33,8 +38,22 @@ export default {
       required: true
     }
   },
+  computed: {
+    spells() {
+      return [
+        { id: 0, label: "Heal Self I" },
+        { id: 1, label: "Heal Self 2" },
+        { id: 2, label: "Stamina to Mana Other III" }
+      ];
+    }
+  },
   methods: {
+    choose(payload) {
+      (this.spell.id = payload.id), (this.spell.name = payload.label);
+      this.$emit("change", this.spell);
+    },
     update() {
+      console.log("update", this.spell);
       this.$emit("change", this.spell);
     },
     remove() {
