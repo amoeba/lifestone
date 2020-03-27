@@ -1,5 +1,8 @@
 module.exports = {
   pwa: {
-    name: "Lifestone"
+    name: "Lifestone",
+    workboxOptions: {
+      skipWaiting: true
+    }
   }
 };
