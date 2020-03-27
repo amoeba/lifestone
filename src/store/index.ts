@@ -42,12 +42,26 @@ const initialState: RootState = {
 
 export default new Vuex.Store({
   state: initialState,
+  getters: {
+    drafts(state) {
+      return state.drafts;
+    }
+  },
   mutations: {
     changeTab(state, tab: TAB) {
       state.activeTab = tab;
     },
-    updateWeenie(state, weenie) {
+    updateWeenie(state, weenie: Weenie) {
       state.weenie = weenie;
+    },
+    saveDraft(state, weenie: Weenie) {
+      state.drafts.push(JSON.parse(JSON.stringify(weenie)));
+    },
+    openDraft(state, index: number) {
+      state.weenie = JSON.parse(JSON.stringify(state.drafts[index]));
+    },
+    removeDraft(state, index: number) {
+      state.drafts.splice(index, 1);
     }
   },
   actions: {
@@ -56,6 +70,15 @@ export default new Vuex.Store({
     },
     updateWeenie(context, weenie: Weenie) {
       context.commit("updateWeenie", weenie);
+    },
+    saveDraft(context, weenie: Weenie) {
+      context.commit("saveDraft", weenie);
+    },
+    openDraft(context, index: number) {
+      context.commit("openDraft", index);
+    },
+    removeDraft(context, index: number) {
+      context.commit("removeDraft", index);
     }
   },
   plugins: [vuexLocal.plugin]
