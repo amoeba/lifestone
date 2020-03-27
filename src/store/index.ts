@@ -23,14 +23,14 @@ const initialState: RootState = {
     type: WeenieType.CREATURE,
     creature: createCreatureProperties(),
     properties: {
-      string: [],
-      int32: [],
-      int64: [],
-      float: [],
-      dataId: [],
-      instanceId: [],
-      bool: [],
-      position: []
+      String: [],
+      Int32: [],
+      Int64: [],
+      Float: [],
+      DataID: [],
+      InstanceID: [],
+      Bool: [],
+      Position: []
     },
     book: null,
     spells: [],
