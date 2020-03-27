@@ -6,7 +6,12 @@
     </label>
     <label>
       Spell
-      <Autocomplete :options="spells" :value="spell.name" @change="update" @choose="choose" />
+      <Autocomplete
+        :options="spells"
+        :value="spell.name"
+        @change="update"
+        @choose="choose"
+      />
     </label>
     <label>
       Probability

@@ -2,7 +2,9 @@
   <div class="row">
     <label>
       <select v-model="property.key">
-        <option v-for="(key, idx) in propertyTypes" :key="idx">{{ key }}</option>
+        <option v-for="(key, idx) in propertyTypes" :key="idx">{{
+          key
+        }}</option>
       </select>
       <input v-model="property.value" :type="inputType" @change="update" />
     </label>

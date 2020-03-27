@@ -85,28 +85,60 @@
     </ul>
 
     <div :class="{ hidden: !isActive(TAB.STRING) }">
-      <WeeniePropertiesTable v-model="properties.string" kind="String" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.string"
+        kind="String"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.INT32) }">
-      <WeeniePropertiesTable v-model="properties.int32" kind="Int32" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.int32"
+        kind="Int32"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.INT64) }">
-      <WeeniePropertiesTable v-model="properties.int64" kind="Int64" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.int64"
+        kind="Int64"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.FLOAT) }">
-      <WeeniePropertiesTable v-model="properties.float" kind="Float" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.float"
+        kind="Float"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.DATAID) }">
-      <WeeniePropertiesTable v-model="properties.dataId" kind="DataID" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.dataId"
+        kind="DataID"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.INSTANCEID) }">
-      <WeeniePropertiesTable v-model="properties.instanceId" kind="InstanceID" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.instanceId"
+        kind="InstanceID"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.BOOL) }">
-      <WeeniePropertiesTable v-model="properties.bool" kind="Bool" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.bool"
+        kind="Bool"
+        @change="update"
+      />
     </div>
     <div :class="{ hidden: !isActive(TAB.POSITION) }">
-      <WeeniePropertiesTable v-model="properties.position" kind="Position" @change="update" />
+      <WeeniePropertiesTable
+        v-model="properties.position"
+        kind="Position"
+        @change="update"
+      />
     </div>
   </div>
 </template>

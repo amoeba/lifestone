@@ -14,9 +14,7 @@
         Type
         <select v-model="weenie.type" @change="update">
           <option v-for="type in weenieTypes" :key="type" :value="type">
-            {{
-            type
-            }}
+            {{ type }}
           </option>
         </select>
       </label>
@@ -27,56 +25,64 @@
           href="#properties"
           :class="{ active: isActive(TAB.PROPERTIES) }"
           @click.prevent="switchTab(TAB.PROPERTIES)"
-        >Properties</a>
+          >Properties</a
+        >
       </li>
       <li v-if="isCreature">
         <a
           href="#creature"
           :class="{ active: isActive(TAB.CREATURE) }"
           @click.prevent="switchTab(TAB.CREATURE)"
-        >Creature</a>
+          >Creature</a
+        >
       </li>
       <li v-if="isBook">
         <a
           href="#book"
           :class="{ active: isActive(TAB.BOOK) }"
           @click.prevent="switchTab(TAB.BOOK)"
-        >Book</a>
+          >Book</a
+        >
       </li>
       <li>
         <a
           href="#spells"
           :class="{ active: isActive(TAB.SPELLS) }"
           @click.prevent="switchTab(TAB.SPELLS)"
-        >Spells</a>
+          >Spells</a
+        >
       </li>
       <li>
         <a
           href="#createlist"
           :class="{ active: isActive(TAB.CREATELIST) }"
           @click.prevent="switchTab(TAB.CREATELIST)"
-        >Create List</a>
+          >Create List</a
+        >
       </li>
       <li>
         <a
           href="#generators"
           :class="{ active: isActive(TAB.GENERATORS) }"
           @click.prevent="switchTab(TAB.GENERATORS)"
-        >Generators</a>
+          >Generators</a
+        >
       </li>
       <li>
         <a
           href="#emotes"
           :class="{ active: isActive(TAB.EMOTES) }"
           @click.prevent="switchTab(TAB.EMOTES)"
-        >Emotes</a>
+          >Emotes</a
+        >
       </li>
       <li>
         <a
           href="#json"
           :class="{ active: isActive(TAB.JSON) }"
           @click.prevent="switchTab(TAB.JSON)"
-        >JSON</a>
+          >JSON</a
+        >
       </li>
     </ul>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.PROPERTIES) }">

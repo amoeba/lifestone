@@ -1,7 +1,7 @@
 <template>
   <div class="autocomplete">
     <div class="autocomplete-input">
-      <input type="text" v-model="input" @input="filter" />
+      <input v-model="input" type="text" @input="filter" />
     </div>
     <div v-if="isOpen" class="autocomplete-suggestions">
       <ul>
@@ -11,7 +11,9 @@
           :data-id="match.id"
           :data-label="match.label"
           @click="choose"
-        >{{ match.label }}</li>
+        >
+          {{ match.label }}
+        </li>
       </ul>
     </div>
   </div>

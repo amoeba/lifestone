@@ -2,8 +2,10 @@
   <div>
     <h3>Book</h3>
     <div class="row">
-      <button @click="create" v-bind:disabled="this.book">Create Book</button>
-      <button @click="destroy" v-bind:disabled="!this.book">Destroy Book</button>
+      <button :disabled="this.book" @click="create">Create Book</button>
+      <button :disabled="!this.book" @click="destroy">
+        Destroy Book
+      </button>
     </div>
     <div v-if="book">
       <div class="row">
