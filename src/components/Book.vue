@@ -2,10 +2,8 @@
   <div>
     <h3>Book</h3>
     <div class="row">
-      <button :disabled="this.book" @click="create">Create Book</button>
-      <button :disabled="!this.book" @click="destroy">
-        Destroy Book
-      </button>
+      <button :disabled="book" @click="create">Create Book</button>
+      <button :disabled="!book" @click="destroy">Destroy Book</button>
     </div>
     <div v-if="book">
       <div class="row">

@@ -58,7 +58,6 @@ export default {
       this.$emit("change", this.spell);
     },
     update() {
-      console.log("update", this.spell);
       this.$emit("change", this.spell);
     },
     remove() {
