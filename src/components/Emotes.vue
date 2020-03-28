@@ -6,18 +6,16 @@
         <button @click="addEmote">Add Emote</button>
       </div>
     </div>
-    <ul>
-      <li v-for="(emote, index) in emotes" :key="index">
-        <Emote
-          v-model="emotes[index]"
-          :index="index"
-          @change="update"
-          @duplicate="duplicateEmote"
-          @remove="removeEmote"
-        />
-      </li>
-    </ul>
     <p v-if="emotes.length === 0">No emotes to show.</p>
+    <Emote
+      v-for="(emote, index) in emotes"
+      :key="index"
+      v-model="emotes[index]"
+      :index="index"
+      @change="update"
+      @duplicate="duplicateEmote"
+      @remove="removeEmote"
+    />
   </div>
 </template>
 

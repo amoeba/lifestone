@@ -6,17 +6,15 @@
         <button @click="addItem">Add Generator</button>
       </div>
     </div>
-    <div>
-      <GeneratorTableItem
-        v-for="(item, index) in items"
-        :key="index"
-        v-model="items[index]"
-        :index="index"
-        @change="update"
-        @remove="removeItem"
-      />
-    </div>
     <p v-if="items.length === 0">No items to show.</p>
+    <GeneratorTableItem
+      v-for="(item, index) in items"
+      :key="index"
+      v-model="items[index]"
+      :index="index"
+      @change="update"
+      @remove="removeItem"
+    />
   </div>
 </template>
 

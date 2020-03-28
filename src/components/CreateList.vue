@@ -6,17 +6,15 @@
         <button @click="addItem">Add Item</button>
       </div>
     </div>
-    <div>
-      <CreateListItem
-        v-for="(item, index) in items"
-        :key="index"
-        v-model="items[index]"
-        :index="index"
-        @change="update"
-        @remove="removeItem"
-      />
-    </div>
     <p v-if="items.length === 0">No items to show.</p>
+    <CreateListItem
+      v-for="(item, index) in items"
+      :key="index"
+      v-model="items[index]"
+      :index="index"
+      @change="update"
+      @remove="removeItem"
+    />
   </div>
 </template>
 
