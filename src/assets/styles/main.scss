@@ -83,6 +83,10 @@ label :first-child {
   margin-right: 0.5rem;
 }
 
+label * {
+  display: block;
+  margin-top: 0.1rem;
+}
 textarea {
   width: 100%;
 }
@@ -200,15 +204,15 @@ ul {
   padding: 0.25rem 0.5rem;
 }
 
-.button-group button {
+.group * {
   margin: 0 0.25rem;
 }
 
-.button-group button:first-child {
+.group *:first-child {
   margin: 0 0.25rem 0 0;
 }
 
-.button-group button:last-child {
+.group *:last-child {
   margin: 0 0 0 0.25rem;
 }
 

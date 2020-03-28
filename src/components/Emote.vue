@@ -2,11 +2,13 @@
   <div class="box">
     <div class="two-col row">
       <select v-model="emote.type" @input="updateType">
-        <option v-for="type in emoteTypes" :key="type" :value="type">{{
+        <option v-for="type in emoteTypes" :key="type" :value="type">
+          {{
           type
-        }}</option>
+          }}
+        </option>
       </select>
-      <div class="right button-group">
+      <div class="right group">
         <button @click="duplicate">Duplicate</button>
         <button @click="remove">Remove</button>
       </div>

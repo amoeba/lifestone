@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <h3>{{ draft.id }} - {{ draft.name }}</h3>
-    <div class="button-group">
+    <div class="group">
       <button @click="load">Load</button>
       <button @click="destroy">Destroy</button>
     </div>

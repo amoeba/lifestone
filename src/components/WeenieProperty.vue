@@ -1,13 +1,13 @@
 <template>
-  <div class="row">
-    <label>
-      <select v-model="property.key">
-        <option v-for="(key, idx) in propertyTypes" :key="idx">{{
-          key
-        }}</option>
-      </select>
-      <input v-model="property.value" :type="inputType" @change="update" />
-    </label>
+  <div class="row group">
+    <select v-model="property.key">
+      <option v-for="(key, idx) in propertyTypes" :key="idx">
+        {{
+        key
+        }}
+      </option>
+    </select>
+    <input v-model="property.value" :type="inputType" @change="update" />
     <button @click="remove">Remove</button>
   </div>
 </template>
