@@ -1,8 +1,8 @@
 <template>
   <div class="box">
     <h3>{{ draft.id }} - {{ draft.name }}</h3>
-    <button @click="load">Open</button>
-    <button @click="remove">Destroy</button>
+    <button @click="load">Load</button>
+    <button @click="destroy">Destroy</button>
   </div>
 </template>
 
@@ -21,10 +21,10 @@ export default {
   },
   methods: {
     load() {
-      this.$emit("open", this.index);
+      this.$store.dispatch("loadDraft", this.index);
     },
-    remove() {
-      this.$emit("remove", this.index);
+    destroy() {
+      this.$store.dispatch("destroyDraft", this.index);
     }
   }
 };

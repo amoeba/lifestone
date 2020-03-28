@@ -23,14 +23,6 @@ export default {
     drafts() {
       return this.$store.state.drafts;
     }
-  },
-  methods: {
-    open(index) {
-      this.$store.commit("loadDraft", index);
-    },
-    remove(index) {
-      this.$store.commit("removeDraft", index);
-    }
   }
 };
 </script>

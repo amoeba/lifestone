@@ -57,10 +57,10 @@ export default new Vuex.Store({
     saveDraft(state, weenie: Weenie) {
       state.drafts.push(JSON.parse(JSON.stringify(weenie)));
     },
-    openDraft(state, index: number) {
+    loadDraft(state, index: number) {
       state.weenie = JSON.parse(JSON.stringify(state.drafts[index]));
     },
-    removeDraft(state, index: number) {
+    destroyDraft(state, index: number) {
       state.drafts.splice(index, 1);
     }
   },
@@ -74,11 +74,11 @@ export default new Vuex.Store({
     saveDraft(context, weenie: Weenie) {
       context.commit("saveDraft", weenie);
     },
-    openDraft(context, index: number) {
-      context.commit("openDraft", index);
+    loadDraft(context, index: number) {
+      context.commit("loadDraft", index);
     },
-    removeDraft(context, index: number) {
-      context.commit("removeDraft", index);
+    destroyDraft(context, index: number) {
+      context.commit("destroyDraft", index);
     }
   },
   plugins: [vuexLocal.plugin]
