@@ -147,7 +147,7 @@ export const getPropertyTypes = function(kind: WEENIE_PROPERTY) {
     retval = processEnum(Int64Prop);
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
     retval = processEnum(FloatProp);
-  } else if (kind === WEENIE_ PROPERTY.DATAID) {
+  } else if (kind === WEENIE_PROPERTY.DATAID) {
     retval = processEnum(DataIDProp);
   } else if (kind === WEENIE_PROPERTY.INSTANCEID) {
     retval = processEnum(InstanceIDProp);
