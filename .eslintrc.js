@@ -18,7 +18,7 @@ module.exports = {
   },
 
   rules: {
-    "no-console": "off",
+    "no-console": "on",
     "no-debugger": "off"
   },
 
