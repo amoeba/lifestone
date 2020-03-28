@@ -17,25 +17,23 @@ const vuexLocal = new VuexPersistence<RootState>({
 const initialState: RootState = {
   activeTab: TAB.PROPERTIES,
   weenie: {
-    id: 0,
-    name: "MyWeenie",
-    type: WeenieType.CREATURE,
-    creature: createCreatureProperties(),
-    properties: {
-      String: [],
-      Int32: [],
-      Int64: [],
-      Float: [],
-      DataID: [],
-      InstanceID: [],
-      Bool: [],
-      Position: []
-    },
+    wcid: 0,
+    weenieType: WeenieType.CREATURE,
+    attributes: createCreatureProperties(),
+    body: [],
+    StringStats: [],
+    Int32Stats: [],
+    Int64Stats: [],
+    FloatStats: [],
+    DataIDStats: [],
+    InstanceIDStats: [],
+    BoolStats: [],
+    PositionStats: [],
     book: null,
     spells: [],
     createList: [],
     generators: [],
-    emotes: []
+    emoteTable: []
   },
   drafts: []
 };

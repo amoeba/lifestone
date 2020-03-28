@@ -3,6 +3,7 @@ import { Spell } from "./Spells";
 import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
 import { Book } from "./Book";
+import { BodyPart } from "./Creature";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
@@ -78,16 +79,23 @@ interface WeenieProperties {
 }
 
 export interface Weenie {
-  id: number;
-  name: string;
-  type: WeenieType;
-  properties: WeenieProperties;
+  wcid: number;
+  weenieType: WeenieType;
+  attributes: CreatureProperties;
+  body: BodyPart[];
+  StringStats: StringProp[];
+  Int32Stats: Int32Prop[];
+  Int64Stats: Int64Prop[];
+  FloatStats: FloatProp[];
+  DataIDStats: DataIDProp[];
+  InstanceIDStats: InstanceIDProp[];
+  BoolStats: BoolProp[];
+  PositionStats: PositionProp[];
   book: Book | null;
-  creature: CreatureProperties;
   spells: Spell[];
   createList: CreateListItem[];
   generators: Generator[];
-  emotes: [];
+  emoteTable: [];
 }
 
 export const createProperty = function(kind: WEENIE_PROPERTY) {

@@ -55,7 +55,7 @@ interface BPSD {
   lowRightBack: number;
 }
 
-interface BodyPart {
+export interface BodyPart {
   type: number;
   damageType: number;
   damage: number;
@@ -99,7 +99,6 @@ export interface CreatureProperties {
     };
   };
   skills: Skill[];
-  bodyParts: BodyPart[];
 }
 
 export const createCreatureBodyPart = function() {
