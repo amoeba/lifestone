@@ -1,3 +1,36 @@
+:root {
+  /* Light theme */
+  --c-light-text: #333;
+  --c-light-background: #fff;
+  --c-light-focus: deepskyblue;
+  --c-light-interactive: mediumvioletred;
+
+  /* Dark theme */
+  --c-dark-text: #fff;
+  --c-dark-background: #333;
+  --c-dark-focus: deeppink;
+  --c-dark-interactive: palegreen;
+}
+
+.theme-container {
+  /* Make the light theme the default */
+  --c-text: var(--c-light-text);
+  --c-background: var(--c-light-background);
+  --c-focus: var(--c-light-focus);
+  --c-interactive: var(--c-light-interactive);
+
+  padding: 1.5rem;
+  color: var(--c-text);
+  background-color: var(--c-background);
+}
+
+.dark-mode-checkbox:checked ~ .theme-container {
+  /* Override the default theme */
+  --c-text: var(--c-dark-text);
+  --c-background: var(--c-dark-background);
+  --c-focus: var(--c-dark-focus);
+  --c-interactive: var(--c-dark-interactive);
+}
 /* Element styles */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,

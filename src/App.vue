@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="theme-container">
     <h1>Lifestone</h1>
     <div id="nav">
       <router-link to="/">Home</router-link>
