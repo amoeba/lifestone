@@ -6,6 +6,7 @@
         <button @click="addSpell">Add Spell</button>
       </div>
     </div>
+    <p v-if="spells.length === 0">No spells to show.</p>
     <Spell
       v-for="(spell, index) in spells"
       :key="index"

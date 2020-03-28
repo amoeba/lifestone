@@ -16,6 +16,7 @@
         @remove="removeItem"
       />
     </div>
+    <p v-if="items.length === 0">No items to show.</p>
   </div>
 </template>
 

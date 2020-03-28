@@ -17,6 +17,7 @@
         />
       </li>
     </ul>
+    <p v-if="emotes.length === 0">No emotes to show.</p>
   </div>
 </template>
 

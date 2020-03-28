@@ -6,6 +6,7 @@
         <button @click="addSkill">Add Skill</button>
       </div>
     </div>
+    <p v-if="skills.length === 0">No skills to show.</p>
     <CreatureSkill
       v-for="(skill, index) in skills"
       :key="index"

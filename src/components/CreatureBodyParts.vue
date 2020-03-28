@@ -6,6 +6,7 @@
         <button @click="add">Add Part</button>
       </div>
     </div>
+    <p v-if="parts.length === 0">No body parts to show.</p>
     <CreatureBodyPart
       v-for="(part, index) in parts"
       :key="index"
