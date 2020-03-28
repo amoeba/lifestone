@@ -4,6 +4,7 @@ import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
 import { Book } from "./Book";
 import { BodyPart } from "./Creature";
+import { Int32Prop } from "./properties/Int32Prop";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
@@ -12,13 +13,8 @@ export enum WeenieType {
 }
 
 enum StringProp {
-  NAME = "NAME",
-  SEX = "SEX"
-}
-
-enum Int32Prop {
-  ITEM_TYPE = "ITEM_TYPE",
-  CREATURE_TYPE = "CREATURE_TYPE"
+  Name,
+  Sex
 }
 
 enum Int64Prop {
@@ -104,7 +100,7 @@ export const createProperty = function(kind: WEENIE_PROPERTY) {
   if (kind === WEENIE_PROPERTY.STRING) {
     retval = { key: StringProp.NAME, value: "" };
   } else if (kind === WEENIE_PROPERTY.INT32) {
-    retval = { key: Int32Prop.CREATURE_TYPE, value: 1 };
+    retval = { key: Int32Prop.AccountRequirements, value: 1 };
   } else if (kind === WEENIE_PROPERTY.INT64) {
     retval = { key: Int64Prop.AVAILABLE_EXPERIENCE, value: 1 };
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
@@ -122,25 +118,43 @@ export const createProperty = function(kind: WEENIE_PROPERTY) {
   return retval;
 };
 
-export const getPropertyTypes = function(kind: WEENIE_PROPERTY): any[] {
+interface SelectOption {
+  label: string;
+  value: number;
+}
+
+export const processEnum = function(input: Enumerator): SelectOption[] {
+  return Object.keys(input)
+    .filter(p => {
+      return isNaN(p);
+    })
+    .map(p => {
+      return {
+        value: input[p],
+        label: p
+      };
+    });
+};
+
+export const getPropertyTypes = function(kind: WEENIE_PROPERTY) {
   let retval: any[] = [];
 
   if (kind === WEENIE_PROPERTY.STRING) {
-    retval = Object.keys(StringProp);
+    retval = processEnum(StringProp);
   } else if (kind === WEENIE_PROPERTY.INT32) {
-    retval = Object.keys(Int32Prop);
+    retval = processEnum(Int32Prop);
   } else if (kind === WEENIE_PROPERTY.INT64) {
-    retval = Object.keys(Int64Prop);
+    retval = processEnum(Int64Prop);
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
-    retval = Object.keys(FloatProp);
-  } else if (kind === WEENIE_PROPERTY.DATAID) {
-    retval = Object.keys(DataIDProp);
+    retval = processEnum(FloatProp);
+  } else if (kind === WEENIE_ PROPERTY.DATAID) {
+    retval = processEnum(DataIDProp);
   } else if (kind === WEENIE_PROPERTY.INSTANCEID) {
-    retval = Object.keys(InstanceIDProp);
+    retval = processEnum(InstanceIDProp);
   } else if (kind === WEENIE_PROPERTY.BOOL) {
-    retval = Object.keys(BoolProp);
+    retval = processEnum(BoolProp);
   } else if (kind === WEENIE_PROPERTY.POSITION) {
-    retval = Object.keys(PositionProp);
+    retval = processEnum(PositionProp);
   }
 
   return retval;
