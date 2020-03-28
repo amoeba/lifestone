@@ -1,15 +1,20 @@
+/* Theme styles */
 :root {
   /* Light theme */
-  --c-light-text: #333;
-  --c-light-background: #fff;
+  --c-light-text: black;
+  --c-light-background: white;
   --c-light-focus: deepskyblue;
-  --c-light-interactive: mediumvioletred;
+  --c-light-interactive: blue;
+  --c-light-border: #ccc;
+  --c-light-button: #eee;
 
   /* Dark theme */
-  --c-dark-text: #fff;
+  --c-dark-text: white;
   --c-dark-background: #333;
   --c-dark-focus: deeppink;
-  --c-dark-interactive: palegreen;
+  --c-dark-interactive: orange;
+  --c-dark-border: orange;
+  --c-dark-button: orange;
 }
 
 .theme-container {
@@ -18,8 +23,9 @@
   --c-background: var(--c-light-background);
   --c-focus: var(--c-light-focus);
   --c-interactive: var(--c-light-interactive);
+  --c-border: var(--c-light-border);
+  --c-button: var(--c-light-button);
 
-  padding: 1.5rem;
   color: var(--c-text);
   background-color: var(--c-background);
 }
@@ -30,13 +36,30 @@
   --c-background: var(--c-dark-background);
   --c-focus: var(--c-dark-focus);
   --c-interactive: var(--c-dark-interactive);
+  --c-border: var(--c-dark-border);
+  --c-button: var(--c-dark-button);
 }
+
+.dark-mode-checkbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 /* Element styles */
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
-  padding: 0.5rem;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 input,
@@ -45,9 +68,10 @@ option,
 button,
 textarea {
   font-size: 100%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
   padding: 3px 5px;
+  background-color: var(--c-button);
+  border: 1px solid var(--c-border);
+  border-radius: 5px;
 }
 
 label {
@@ -80,6 +104,10 @@ ul {
 }
 
 /* Top level elements */
+#app {
+  padding: 1rem;
+}
+
 #nav {
   display: flex;
   flex-wrap: wrap;
@@ -87,7 +115,7 @@ ul {
 }
 
 #nav a {
-  color: blue;
+  color: var(--c-interactive);
   margin-right: 0.5rem;
   text-decoration: none;
 }
@@ -97,7 +125,7 @@ ul {
 }
 
 #nav a:visited {
-  color: blue;
+  color: var(--c-interactive);
 }
 
 .json {
@@ -106,7 +134,7 @@ ul {
 
 /* Repeated styles */
 .box {
-  border: 1px solid #ccc;
+  border: 1px solid var(--c-border);
   margin-top: 1.5rem;
   padding: 0.5rem;
   border-radius: 5px;
@@ -114,7 +142,7 @@ ul {
 
 .item {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--c-border);
 }
 
 .item:last-child {
@@ -123,7 +151,7 @@ ul {
 }
 
 .action {
-  border: 1px solid #ccc;
+  border: 1px solid var(--c-border);
   margin-top: 1.5rem;
   padding: 0.5rem;
   border-radius: 5px;
@@ -141,9 +169,13 @@ ul {
 }
 
 /* Utility styles */
+.grow {
+  flex-grow: 1;
+}
+
 .row {
   box-sizing: border-box;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--c-border);
   padding: 0.5rem 0;
 }
 
@@ -160,7 +192,7 @@ ul {
 }
 
 .property-count {
-  background-color: #ccc;
+  background-color: var(--c-border);
   border-radius: 1rem;
   color: black;
   display: inline-block;
@@ -170,7 +202,7 @@ ul {
 
 /* Tab bar */
 .tabbar {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--c-border);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -183,7 +215,7 @@ ul {
 }
 
 .tabbar a {
-  color: blue;
+  color: var(--c-interactive);
   text-decoration: none;
 }
 
