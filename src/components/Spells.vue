@@ -6,18 +6,14 @@
         <button @click="addSpell">Add Spell</button>
       </div>
     </div>
-    <div>
-      <ul>
-        <li v-for="(spell, index) in spells" :key="index">
-          <Spell
-            v-model="spells[index]"
-            :index="index"
-            @change="update"
-            @remove="removeSpell"
-          />
-        </li>
-      </ul>
-    </div>
+    <Spell
+      v-for="(spell, index) in spells"
+      :key="index"
+      v-model="spells[index]"
+      :index="index"
+      @change="update"
+      @remove="removeSpell"
+    />
   </div>
 </template>
 
