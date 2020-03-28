@@ -4,6 +4,7 @@ import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
 import { Book } from "./Book";
 import { BodyPart } from "./Creature";
+import { Skill } from "./Skills";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
@@ -95,6 +96,7 @@ export interface Weenie {
   spells: Spell[];
   createList: CreateListItem[];
   generators: Generator[];
+  skills: Skill[];
   emoteTable: [];
 }
 

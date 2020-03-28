@@ -72,33 +72,31 @@ interface Skill {
   effective: number;
 }
 
+interface Attribute {
+  cp_spent: number;
+  level_from_cp: number;
+  init_level: number;
+}
+
+interface Vital {
+  cp_spent: number;
+  level_from_cp: number;
+  init_level: number;
+  current: number;
+}
+
 export interface CreatureProperties {
   attributes: {
-    strength: number;
-    endurance: number;
-    coordination: number;
-    quickness: number;
-    focus: number;
-    self: number;
+    strength: Attribute;
+    endurance: Attribute;
+    coordination: Attribute;
+    quickness: Attribute;
+    focus: Attribute;
+    self: Attribute;
+    health: Vital;
+    stamina: Vital;
+    mana: Vital;
   };
-  vitals: {
-    health: {
-      base: number;
-      current: number;
-      max: number;
-    };
-    stamina: {
-      base: number;
-      current: number;
-      max: number;
-    };
-    mana: {
-      base: number;
-      current: number;
-      max: number;
-    };
-  };
-  skills: Skill[];
 }
 
 export const createCreatureBodyPart = function() {
@@ -163,14 +161,5 @@ export const createCreatureProperties = function() {
     },
     skills: [],
     bodyParts: []
-  };
-};
-
-export const createSkill = function() {
-  return {
-    name: "",
-    spec: "",
-    base: 100,
-    effective: 100
   };
 };

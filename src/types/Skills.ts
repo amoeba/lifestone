@@ -38,3 +38,26 @@ export enum Skills {
   WAR_MAGIG = "War Magic",
   WEAPON_TINKERING = "Weapon Tinkering"
 }
+
+interface SkillValue {
+  level_from_pp: number;
+  last_used_time: Float32Array;
+  init_level: number;
+  pp: number;
+  resistance_of_last_check: number;
+  sac: number;
+}
+
+export interface Skill {
+  key: number;
+  value: SkillValue;
+}
+
+export const createSkill = function() {
+  return {
+    name: "",
+    spec: "",
+    base: 100,
+    effective: 100
+  };
+};
