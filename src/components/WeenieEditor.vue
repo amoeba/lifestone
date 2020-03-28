@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button @click="saveDraft">Save Draft</button>
+    <div class="two-col">
+      <div>Edit Weenie</div>
+      <div class="right">
+        <button @click="saveDraft">Save Draft</button>
+      </div>
+    </div>
     <div class="row">
       <label>
         Name
