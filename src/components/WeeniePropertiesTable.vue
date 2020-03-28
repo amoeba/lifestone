@@ -6,7 +6,7 @@
         <button @click="addProperty">Add Property</button>
       </div>
     </div>
-    <p v-if="properties.length === 0">No {{kind}} properties to show.</p>
+    <p v-if="properties.length === 0">No {{ kind }} properties to show.</p>
     <WeenieProperty
       v-for="(property, index) in properties"
       :key="index"
