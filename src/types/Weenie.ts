@@ -90,9 +90,7 @@ export interface Weenie {
   emotes: [];
 }
 
-export const createProperty = function(
-  kind: WEENIE_PROPERTY
-): Record<any, any> {
+export const createProperty = function(kind: WEENIE_PROPERTY) {
   let retval = {};
 
   if (kind === WEENIE_PROPERTY.STRING) {
