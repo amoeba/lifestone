@@ -86,7 +86,7 @@
       </li>
     </ul>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.PROPERTIES) }">
-      <WeenieProperties />
+      <WeenieProperties v-model="weenie" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATURE) }">
       <CreatureProperties v-model="weenie.attributes" @change="update" />
