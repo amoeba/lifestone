@@ -5,7 +5,6 @@ import { RootState } from "@/types/State";
 import { TAB } from "@/types/UI";
 import { Weenie, WeenieType } from "@/types/Weenie";
 import { createAttributes } from "@/types/Creature.ts";
-import { createBook } from "@/types/Book";
 
 Vue.use(Vuex);
 
