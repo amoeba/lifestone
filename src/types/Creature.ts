@@ -67,32 +67,29 @@ export interface BodyPart {
   bpsd: BPSD;
 }
 
+interface Attribute {
+  cp_spent: number;
+  level_from_cp: number;
+  init_level: number;
+}
+
+interface Vital {
+  cp_spent: number;
+  level_from_cp: number;
+  init_level: number;
+  current: number;
+}
+
 export interface Attributes {
-  attributes: {
-    strength: number;
-    endurance: number;
-    coordination: number;
-    quickness: number;
-    focus: number;
-    self: number;
-  };
-  vitals: {
-    health: {
-      base: number;
-      current: number;
-      max: number;
-    };
-    stamina: {
-      base: number;
-      current: number;
-      max: number;
-    };
-    mana: {
-      base: number;
-      current: number;
-      max: number;
-    };
-  };
+  strength: Attribute;
+  endurance: Attribute;
+  coordination: Attribute;
+  quickness: Attribute;
+  focus: Attribute;
+  self: Attribute;
+  health: Vital;
+  stamina: Vital;
+  mana: Vital;
 }
 
 export const createCreatureBodyPart = function() {
