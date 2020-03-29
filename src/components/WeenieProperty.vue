@@ -1,12 +1,13 @@
 <template>
   <div class="row group">
-    <select v-model="property.key">
-      <option v-for="prop in propertyTypes" :key="prop">
+    <select v-model="property.key" @input="update">
+      <option v-for="prop in propertyTypes" :key="prop" :value="prop">
         {{
         prop
         }}
       </option>
     </select>
+
     <input v-model="property.value" :type="inputType" @change="update" />
     <button @click="remove">Remove</button>
   </div>
@@ -19,7 +20,7 @@ export default {
   name: "WeenieProperty",
   model: {
     prop: "property",
-    event: "change"
+    event: "input"
   },
   props: {
     index: {

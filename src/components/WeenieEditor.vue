@@ -7,10 +7,10 @@
       </div>
     </div>
     <div class="row">
-      <label>
+      <div>
         Name:
-        TODO
-      </label>
+        {{ weenieName }}
+      </div>
 
       <label>
         ID
@@ -86,7 +86,7 @@
       </li>
     </ul>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.PROPERTIES) }">
-      <WeenieProperties v-model="weenie" @change="update" />
+      <WeenieProperties />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATURE) }">
       <CreatureProperties v-model="weenie.attributes" @change="update" />
@@ -121,7 +121,7 @@ import CreateList from "./CreateList";
 import GeneratorTable from "./GeneratorTable";
 import Emotes from "./Emotes";
 import { TAB } from "../types/UI";
-import { WeenieType } from "../types/Weenie";
+import { WeenieType, StringProp } from "../types/Weenie";
 
 export default {
   name: "WeenieEditor",
@@ -153,6 +153,11 @@ export default {
       set() {
         this.$store.dispatch("updateWeenie", this.weenie);
       }
+    },
+    weenieName() {
+      return this.$store.state.weenie.stringStats.filter(
+        s => (s.key = StringProp.Name)
+      ).value;
     },
     weenieTypes() {
       return WeenieType;

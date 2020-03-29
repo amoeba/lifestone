@@ -13,7 +13,7 @@ export enum WeenieType {
   BOOK = "BOOK"
 }
 
-enum StringProp {
+export enum StringProp {
   Name,
   Sex
 }

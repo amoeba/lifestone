@@ -120,16 +120,6 @@ export default {
   components: {
     WeeniePropertiesTable
   },
-  model: {
-    prop: "weenie",
-    event: "change"
-  },
-  props: {
-    weenie: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
       activeTab: WEENIE_PROPERTY.STRING
@@ -138,11 +128,14 @@ export default {
   computed: {
     TAB() {
       return WEENIE_PROPERTY;
+    },
+    weenie() {
+      return this.$store.state.weenie;
     }
   },
   methods: {
-    update() {
-      this.$emit("change", this.weenie);
+    update(e) {
+      this.$store.dispatch("updateWeenie", this.weenie);
     },
     switchTab(tab) {
       this.activeTab = tab;
