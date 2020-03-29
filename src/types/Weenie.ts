@@ -120,7 +120,7 @@ export const createProperty = function(kind: WEENIE_PROPERTY) {
   return retval;
 };
 
-export const getPropertyTypes = function(kind: WEENIE_PROPERTY): strinumng[] {
+export const getPropertyTypes = function(kind: WEENIE_PROPERTY): string[] {
   if (kind === WEENIE_PROPERTY.STRING) {
     return Object.keys(StringProp).filter(
       k => typeof StringProp[k as any] !== "number"
