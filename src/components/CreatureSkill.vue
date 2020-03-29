@@ -1,22 +1,18 @@
 <template>
   <div class="item">
     <label>
-      Name
-      <select v-model="skill.name" @change="update">
+      Key
+      <select v-model="skill.key" @change="update">
         <option v-for="(skl, idx) in skills" :key="idx">{{ skl }}</option>
       </select>
     </label>
     <label>
-      Spec
-      <input v-model="skill.spec" type="text" @change="update" />
+      init_level
+      <input v-model="skill.value.init_level" type="text" @change="update" />
     </label>
     <label>
-      Base
-      <input v-model="skill.base" type="text" @change="update" />
-    </label>
-    <label>
-      Effective
-      <input v-model="skill.effective" type="text" @change="update" />
+      sac?
+      <input v-model="skill.value.sac" type="text" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+
 export enum Skills {
   ALCHEMY = "Alchemy",
   ARCANE_LORE = "Arcane Lore",
@@ -38,3 +40,31 @@ export enum Skills {
   WAR_MAGIG = "War Magic",
   WEAPON_TINKERING = "Weapon Tinkering"
 }
+
+interface SkillValue {
+  level_from_pp: number;
+  last_used_time: number;
+  init_level: number;
+  pp: number;
+  resistance_of_last_check: number;
+  sac: number;
+}
+
+export interface Skill {
+  key: number;
+  value: SkillValue;
+}
+
+export const createSkill = function() {
+  return {
+    key: 0,
+    value: {
+      level_from_pp: 0,
+      last_used_time: 0.0,
+      init_level: 100,
+      pp: 0,
+      resistance_of_last_check: 0,
+      sac: 3
+    }
+  };
+};

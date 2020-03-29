@@ -9,7 +9,7 @@
           @click.prevent="switchTab(TAB.STRING)"
         >
           STRING
-          <span class="property-count">{{ properties.string.length }}</span>
+          <span class="property-count">{{ weenie.stringStats.length }}</span>
         </a>
       </li>
       <li>
@@ -19,7 +19,7 @@
           @click.prevent="switchTab(TAB.INT32)"
         >
           INT32
-          <span class="property-count">{{ properties.int32.length }}</span>
+          <span class="property-count">{{ weenie.intStats.length }}</span>
         </a>
       </li>
       <li>
@@ -29,7 +29,7 @@
           @click.prevent="switchTab(TAB.INT64)"
         >
           INT64
-          <span class="property-count">{{ properties.int64.length }}</span>
+          <span class="property-count">{{ weenie.int64Stats.length }}</span>
         </a>
       </li>
       <li>
@@ -39,7 +39,7 @@
           @click.prevent="switchTab(TAB.FLOAT)"
         >
           FLOAT
-          <span class="property-count">{{ properties.float.length }}</span>
+          <span class="property-count">{{ weenie.floatStats.length }}</span>
         </a>
       </li>
       <li>
@@ -49,7 +49,7 @@
           @click.prevent="switchTab(TAB.DATAID)"
         >
           DATAID
-          <span class="property-count">{{ properties.dataId.length }}</span>
+          <span class="property-count">{{ weenie.didStats.length }}</span>
         </a>
       </li>
       <li>
@@ -59,7 +59,7 @@
           @click.prevent="switchTab(TAB.INSTANCEID)"
         >
           INSTANCEID
-          <span class="property-count">{{ properties.instanceId.length }}</span>
+          <span class="property-count">{{ weenie.iidStats.length }}</span>
         </a>
       </li>
       <li>
@@ -69,7 +69,7 @@
           @click.prevent="switchTab(TAB.BOOL)"
         >
           BOOL
-          <span class="property-count">{{ properties.bool.length }}</span>
+          <span class="property-count">{{ weenie.boolStats.length }}</span>
         </a>
       </li>
       <li>
@@ -79,34 +79,34 @@
           @click.prevent="switchTab(TAB.POSITION)"
         >
           POSITION
-          <span class="property-count">{{ properties.position.length }}</span>
+          <span class="property-count">{{ weenie.posStats.length }}</span>
         </a>
       </li>
     </ul>
 
     <div :class="{ hidden: !isActive(TAB.STRING) }">
-      <WeeniePropertiesTable v-model="properties.string" kind="String" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.stringStats" kind="String" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.INT32) }">
-      <WeeniePropertiesTable v-model="properties.int32" kind="Int32" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.intStats" kind="Int32" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.INT64) }">
-      <WeeniePropertiesTable v-model="properties.int64" kind="Int64" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.int64Stats" kind="Int64" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.FLOAT) }">
-      <WeeniePropertiesTable v-model="properties.float" kind="Float" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.floatStats" kind="Float" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.DATAID) }">
-      <WeeniePropertiesTable v-model="properties.dataId" kind="DataID" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.didStats" kind="DataID" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.INSTANCEID) }">
-      <WeeniePropertiesTable v-model="properties.instanceId" kind="InstanceID" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.iidStats" kind="InstanceID" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.BOOL) }">
-      <WeeniePropertiesTable v-model="properties.bool" kind="Bool" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.boolStats" kind="Bool" @change="update" />
     </div>
     <div :class="{ hidden: !isActive(TAB.POSITION) }">
-      <WeeniePropertiesTable v-model="properties.position" kind="Position" @change="update" />
+      <WeeniePropertiesTable v-model="weenie.posStats" kind="Position" @change="update" />
     </div>
   </div>
 </template>
@@ -121,11 +121,11 @@ export default {
     WeeniePropertiesTable
   },
   model: {
-    prop: "properties",
+    prop: "weenie",
     event: "change"
   },
   props: {
-    properties: {
+    weenie: {
       type: Object,
       required: true
     }
@@ -142,7 +142,7 @@ export default {
   },
   methods: {
     update() {
-      this.$emit("change", this.properties);
+      this.$emit("change", this.weenie);
     },
     switchTab(tab) {
       this.activeTab = tab;

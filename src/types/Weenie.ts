@@ -1,10 +1,11 @@
-import { CreatureProperties } from "./Creature";
+import { Attributes } from "./Creature";
 import { Spell } from "./Spells";
 import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
 import { Book } from "./Book";
 import { BodyPart } from "./Creature";
 import { Int32Prop } from "./properties/Int32Prop";
+import { Skill } from "./Skills";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
@@ -18,33 +19,33 @@ enum StringProp {
 }
 
 enum Int64Prop {
-  TOTAL_EXPERIENCE = "TOTAL_EXPERIENCE",
-  AVAILABLE_EXPERIENCE = "AVAILABLE_EXPERIENCE"
+  TotalExperience,
+  AvailableExperience
 }
 
 enum FloatProp {
-  HEARTBEAT_INTERVAL = "HEARTBEAT_INTERVAL",
-  HEARTBEAT_TIMESTAMP = "HEARTBEAT_TIMESTAMP"
+  HeartbeatInterval,
+  HeartbeatTimestamp
 }
 
 enum DataIDProp {
-  SETUP = "SETUP",
-  MOTION_TABLE = "MOTION_TABLE"
+  Setup,
+  MotionTable
 }
 
 enum InstanceIDProp {
-  OWNER = "OWNER",
-  CONTAINER = "CONTAINER"
+  Owner,
+  Container
 }
 
 enum BoolProp {
-  ATTACKABLE = "ATTACKABLE",
-  ETHEREAL = "ETHEREAL"
+  Attackable,
+  Ethereal
 }
 
 enum PositionProp {
-  LOCATION = "LOCATION",
-  DESTINATION = "DESTINATION"
+  Location,
+  Destination
 }
 
 interface WeenieProperty<K, V> {
@@ -77,85 +78,82 @@ interface WeenieProperties {
 export interface Weenie {
   wcid: number;
   weenieType: WeenieType;
-  attributes: CreatureProperties;
+  pageDataList: Book | null;
+  attributes: Attributes | null;
   body: BodyPart[];
-  StringStats: StringProp[];
-  Int32Stats: Int32Prop[];
-  Int64Stats: Int64Prop[];
-  FloatStats: FloatProp[];
-  DataIDStats: DataIDProp[];
-  InstanceIDStats: InstanceIDProp[];
-  BoolStats: BoolProp[];
-  PositionStats: PositionProp[];
-  book: Book | null;
-  spells: Spell[];
+  boolStats: BoolProp[];
+  intStats: Int32Prop[];
+  didStats: DataIDProp[];
+  iidStats: InstanceIDProp[];
+  floatStats: FloatProp[];
+  int64Stats: Int64Prop[];
+  stringStats: StringProp[];
+  posStats: PositionProp[];
   createList: CreateListItem[];
-  generators: Generator[];
+  skills: Skill[];
   emoteTable: [];
+  spellbook: Spell[];
+  generatorTable: Generator[];
 }
 
 export const createProperty = function(kind: WEENIE_PROPERTY) {
   let retval = {};
 
   if (kind === WEENIE_PROPERTY.STRING) {
-    retval = { key: StringProp.NAME, value: "" };
+    retval = { key: StringProp.Name, value: "" };
   } else if (kind === WEENIE_PROPERTY.INT32) {
     retval = { key: Int32Prop.AccountRequirements, value: 1 };
   } else if (kind === WEENIE_PROPERTY.INT64) {
-    retval = { key: Int64Prop.AVAILABLE_EXPERIENCE, value: 1 };
+    retval = { key: Int64Prop.AvailableExperience, value: 1 };
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
-    retval = { key: FloatProp.HEARTBEAT_INTERVAL, value: 1 };
+    retval = { key: FloatProp.HeartbeatInterval, value: 1 };
   } else if (kind === WEENIE_PROPERTY.DATAID) {
-    retval = { key: DataIDProp.MOTION_TABLE, value: 1 };
+    retval = { key: DataIDProp.MotionTable, value: 1 };
   } else if (kind === WEENIE_PROPERTY.INSTANCEID) {
-    retval = { key: InstanceIDProp.CONTAINER, value: 1 };
+    retval = { key: InstanceIDProp.Container, value: 1 };
   } else if (kind === WEENIE_PROPERTY.BOOL) {
-    retval = { key: BoolProp.ATTACKABLE, value: false };
+    retval = { key: BoolProp.Attackable, value: false };
   } else if (kind === WEENIE_PROPERTY.POSITION) {
-    retval = { key: PositionProp.DESTINATION, value: 1 };
+    retval = { key: PositionProp.Destination, value: 1 };
   }
 
   return retval;
 };
 
-interface SelectOption {
-  label: string;
-  value: number;
-}
-
-export const processEnum = function(input: Enumerator): SelectOption[] {
-  return Object.keys(input)
-    .filter(p => {
-      return isNaN(p);
-    })
-    .map(p => {
-      return {
-        value: input[p],
-        label: p
-      };
-    });
-};
-
-export const getPropertyTypes = function(kind: WEENIE_PROPERTY) {
-  let retval: any[] = [];
-
+export const getPropertyTypes = function(kind: WEENIE_PROPERTY): strinumng[] {
   if (kind === WEENIE_PROPERTY.STRING) {
-    retval = processEnum(StringProp);
+    return Object.keys(StringProp).filter(
+      k => typeof StringProp[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.INT32) {
-    retval = processEnum(Int32Prop);
+    return Object.keys(Int32Prop).filter(
+      k => typeof Int32Prop[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.INT64) {
-    retval = processEnum(Int64Prop);
+    return Object.keys(Int64Prop).filter(
+      k => typeof Int64Prop[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
-    retval = processEnum(FloatProp);
+    return Object.keys(FloatProp).filter(
+      k => typeof FloatProp[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.DATAID) {
-    retval = processEnum(DataIDProp);
+    return Object.keys(DataIDProp).filter(
+      k => typeof DataIDProp[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.INSTANCEID) {
-    retval = processEnum(InstanceIDProp);
+    return Object.keys(InstanceIDProp).filter(
+      k => typeof InstanceIDProp[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.BOOL) {
-    retval = processEnum(BoolProp);
+    return Object.keys(BoolProp).filter(
+      k => typeof BoolProp[k as any] !== "number"
+    );
   } else if (kind === WEENIE_PROPERTY.POSITION) {
-    retval = processEnum(PositionProp);
+    return Object.keys(PositionProp).filter(
+      k => typeof PositionProp[k as any] !== "number"
+    );
+  } else {
+    return [];
   }
-
-  return retval;
 };

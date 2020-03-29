@@ -4,7 +4,8 @@ import VuexPersistence from "vuex-persist";
 import { RootState } from "@/types/State";
 import { TAB } from "@/types/UI";
 import { Weenie, WeenieType } from "@/types/Weenie";
-import { createCreatureProperties } from "@/types/Creature.ts";
+import { createAttributes } from "@/types/Creature.ts";
+import { createBook } from "@/types/Book";
 
 Vue.use(Vuex);
 
@@ -19,21 +20,22 @@ const initialState: RootState = {
   weenie: {
     wcid: 0,
     weenieType: WeenieType.CREATURE,
-    attributes: createCreatureProperties(),
+    pageDataList: null,
+    attributes: createAttributes(),
     body: [],
-    StringStats: [],
-    Int32Stats: [],
-    Int64Stats: [],
-    FloatStats: [],
-    DataIDStats: [],
-    InstanceIDStats: [],
-    BoolStats: [],
-    PositionStats: [],
-    book: null,
-    spells: [],
+    boolStats: [],
+    intStats: [],
+    didStats: [],
+    iidStats: [],
+    floatStats: [],
+    int64Stats: [],
+    stringStats: [],
+    posStats: [],
     createList: [],
-    generators: [],
-    emoteTable: []
+    skills: [],
+    emoteTable: [],
+    spellbook: [],
+    generatorTable: []
   },
   drafts: []
 };

@@ -2,20 +2,15 @@
   <div class="item">
     <label>
       ID
-      <input v-model="spell.id" type="text" @change="update" />
+      <input v-model="spell.key" type="text" @change="update" />
     </label>
     <label>
       Spell
-      <Autocomplete
-        :options="spells"
-        :value="spell.name"
-        @change="update"
-        @choose="choose"
-      />
+      <Autocomplete :options="spells" @change="update" @choose="choose" />
     </label>
     <label>
       Probability
-      <input v-model="spell.probability" type="text" @change="update" />
+      <input v-model="spell.value.casting_likelihood" type="text" @change="update" />
     </label>
     <button @click="remove">Remove</button>
   </div>
@@ -46,15 +41,15 @@ export default {
   computed: {
     spells() {
       return [
-        { id: 0, label: "Heal Self I" },
-        { id: 1, label: "Heal Self 2" },
-        { id: 2, label: "Stamina to Mana Other III" }
+        { key: 0, label: "Heal Self I" },
+        { key: 1, label: "Heal Self 2" },
+        { key: 2, label: "Stamina to Mana Other III" }
       ];
     }
   },
   methods: {
     choose(payload) {
-      (this.spell.id = payload.id), (this.spell.name = payload.label);
+      this.spell.key = payload.key;
       this.$emit("change", this.spell);
     },
     update() {

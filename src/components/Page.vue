@@ -7,22 +7,22 @@
       </div>
     </div>
     <label>
-      Author
+      Author Name
       <input v-model="page.authorName" type="text" @change="update" />
     </label>
     <label>
-      Account
-      <input v-model="page.account" type="text" @change="update" />
+      Author Account
+      <input v-model="page.authorAccount" type="text" @change="update" />
     </label>
     <label>
-      ID
-      <input v-model="page.id" type="text" @change="update" />
+      Author ID
+      <input v-model="page.authorID" type="text" @change="update" />
     </label>
     <label>
-      Ignore
-      <input v-model="page.ignore" type="checkbox" @change="update" />
+      Ignore Author
+      <input v-model="page.ignoreAuthor" type="checkbox" @change="update" />
     </label>
-    <textarea v-model="page.text" rows="10" @change="update" />
+    <textarea v-model="page.pageText" rows="10" @change="update" />
   </div>
 </template>
 

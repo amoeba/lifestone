@@ -1,25 +1,31 @@
 interface Page {
   authorName: string;
-  account: string;
-  id: number;
-  ignore: boolean;
-  text: string;
+  authorAccount: string;
+  authorID: number;
+  ignoreAuthor: boolean;
+  pageText: string;
 }
 
 export interface Book {
-  maxPages: number;
-  maxCharacters: number;
+  maxNumCharsPerPage: number;
+  maxNumPages: number;
   pages: Page[];
 }
 
 export const createPage = function(): Page {
-  return { authorName: "", account: "", id: 0, ignore: false, text: "" };
+  return {
+    authorName: "",
+    authorAccount: "",
+    authorID: 0,
+    ignoreAuthor: false,
+    pageText: ""
+  };
 };
 
 export const createBook = function(): Book {
   return {
-    maxPages: 0,
-    maxCharacters: 0,
+    maxNumPages: 0,
+    maxNumCharsPerPage: 0,
     pages: [createPage()]
   };
 };

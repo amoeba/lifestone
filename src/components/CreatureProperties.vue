@@ -2,34 +2,34 @@
   <div>
     <h3>Creature Properties</h3>
     <div class="col-40-60 box">
-      <CreatureAttributes v-model="creature.attributes" @change="update" />
-      <CreatureVitals v-model="creature.vitals" @change="update" />
+      <CreatureAttributes v-model="attributes" @change="update" />
+      <CreatureVitals v-model="attributes" @change="update" />
     </div>
-    <CreatureSkills v-model="creature.skills" @change="update" />
-    <CreatureBodyParts v-model="creature.bodyParts" @change="update" />
+    <!-- <CreatureSkills v-model="creature.skills" @change="update" /> -->
+    <!-- <CreatureBodyParts v-model="creature.bodyParts" @change="update" /> -->
   </div>
 </template>
 
 <script>
 import CreatureAttributes from "./CreatureAttributes";
 import CreatureVitals from "./CreatureVitals";
-import CreatureSkills from "./CreatureSkills";
-import CreatureBodyParts from "./CreatureBodyParts";
+// import CreatureSkills from "./CreatureSkills";
+// import CreatureBodyParts from "./CreatureBodyParts";
 
 export default {
   name: "CreatureProperties",
   components: {
     CreatureAttributes,
-    CreatureVitals,
-    CreatureSkills,
-    CreatureBodyParts
+    CreatureVitals
+    // CreatureSkills,
+    // CreatureBodyParts
   },
   model: {
-    prop: "creature",
+    prop: "attributes",
     event: "change"
   },
   props: {
-    creature: {
+    attributes: {
       type: Object,
       required: true
     }
@@ -37,7 +37,7 @@ export default {
 
   methods: {
     update() {
-      this.$emit("change", this.creature);
+      this.$emit("change", this.attributes);
     }
   }
 };

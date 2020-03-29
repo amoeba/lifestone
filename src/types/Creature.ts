@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+
 export enum BodyPartType {
   UNDEFINED = "UNDEFINED",
 
@@ -65,14 +67,7 @@ export interface BodyPart {
   bpsd: BPSD;
 }
 
-interface Skill {
-  name: string;
-  spec: string;
-  base: number;
-  effective: number;
-}
-
-export interface CreatureProperties {
+export interface Attributes {
   attributes: {
     strength: number;
     endurance: number;
@@ -98,7 +93,6 @@ export interface CreatureProperties {
       max: number;
     };
   };
-  skills: Skill[];
 }
 
 export const createCreatureBodyPart = function() {
@@ -134,43 +128,55 @@ export const createCreatureBodyPart = function() {
   };
 };
 
-export const createCreatureProperties = function() {
+export const createAttributes = function() {
   return {
-    attributes: {
-      strength: 0,
-      endurance: 0,
-      coordination: 0,
-      quickness: 0,
-      focus: 0,
-      self: 0
+    strength: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100
     },
-    vitals: {
-      health: {
-        base: 0,
-        current: 0,
-        max: 0
-      },
-      stamina: {
-        base: 0,
-        current: 0,
-        max: 0
-      },
-      mana: {
-        base: 0,
-        current: 0,
-        max: 0
-      }
+    endurance: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100
     },
-    skills: [],
-    bodyParts: []
-  };
-};
-
-export const createSkill = function() {
-  return {
-    name: "",
-    spec: "",
-    base: 100,
-    effective: 100
+    coordination: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100
+    },
+    quickness: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100
+    },
+    focus: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100
+    },
+    self: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100
+    },
+    health: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100,
+      current: 50
+    },
+    stamina: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100,
+      current: 100
+    },
+    mana: {
+      cp_spent: 0,
+      level_from_cp: 0,
+      init_level: 100,
+      current: 100
+    }
   };
 };

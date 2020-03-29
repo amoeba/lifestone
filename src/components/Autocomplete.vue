@@ -7,13 +7,11 @@
       <ul>
         <li
           v-for="match in matches"
-          :key="match.id"
-          :data-id="match.id"
+          :key="match.key"
+          :data-id="match.key"
           :data-label="match.label"
           @click="choose"
-        >
-          {{ match.label }}
-        </li>
+        >{{ match.label }}</li>
       </ul>
     </div>
   </div>
@@ -29,7 +27,7 @@ export default {
     },
     value: {
       type: String,
-      required: true
+      required: false
     }
   },
   data() {

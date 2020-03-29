@@ -1,9 +1,9 @@
 <template>
   <div class="row group">
     <select v-model="property.key">
-      <option v-for="prop in propertyTypes" :key="prop.value">
+      <option v-for="prop in propertyTypes" :key="prop">
         {{
-        prop.label
+        prop
         }}
       </option>
     </select>

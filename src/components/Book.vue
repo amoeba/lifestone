@@ -9,11 +9,15 @@
       <div class="row">
         <label>
           Max Pages
-          <input v-model="book.maxPages" type="text" @change="update" />
+          <input v-model="book.maxNumPages" type="text" @change="update" />
         </label>
         <label>
-          Max Characters
-          <input v-model="book.maxCharacters" type="text" @change="update" />
+          Max Characters Per Page
+          <input
+            v-model="book.maxNumCharsPerPage"
+            type="text"
+            @change="update"
+          />
         </label>
       </div>
       <div class="row">

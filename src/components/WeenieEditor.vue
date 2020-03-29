@@ -86,25 +86,25 @@
       </li>
     </ul>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.PROPERTIES) }">
-      <WeenieProperties v-model="weenie.properties" @change="update" />
+      <WeenieProperties v-model="weenie" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATURE) }">
-      <CreatureProperties v-model="weenie.creature" @change="update" />
+      <CreatureProperties v-model="weenie.attributes" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.BOOK) }">
-      <Book v-model="weenie.book" @change="update" />
+      <Book v-model="weenie.pageDataList" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.SPELLS) }">
-      <Spells v-model="weenie.spells" @change="update" />
+      <Spells v-model="weenie.spellbook" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATELIST) }">
       <CreateList v-model="weenie.createList" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.GENERATORS) }">
-      <GeneratorTable v-model="weenie.generators" @change="update" />
+      <GeneratorTable v-model="weenie.generatorTable" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.EMOTES) }">
-      <Emotes v-model="weenie.emotes" @change="update" />
+      <Emotes v-model="weenie.emoteTable" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.JSON) }">
       <textarea v-model="weenieJSON" class="json" rows="40" cols="120" />
@@ -146,8 +146,13 @@ export default {
         this.$store.dispatch("changeTab", value);
       }
     },
-    weenie() {
-      return this.$store.state.weenie;
+    weenie: {
+      get() {
+        return this.$store.state.weenie;
+      },
+      set() {
+        this.$store.dispatch("updateWeenie", this.weenie);
+      }
     },
     weenieTypes() {
       return WeenieType;
@@ -156,10 +161,10 @@ export default {
       return JSON.stringify(this.$store.state.weenie, null, "  ");
     },
     isCreature() {
-      return this.weenie.type === WeenieType.CREATURE;
+      return this.weenie.weenieType === WeenieType.CREATURE;
     },
     isBook() {
-      return this.weenie.type === WeenieType.BOOK;
+      return this.weenie.weenieType === WeenieType.BOOK;
     }
   },
   methods: {

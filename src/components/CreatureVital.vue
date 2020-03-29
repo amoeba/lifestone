@@ -3,15 +3,11 @@
     <h5>{{ name }}</h5>
     <label>
       Base
-      <input v-model="vital.base" type="text" @input="update" />
+      <input v-model="vital.init_level" type="text" @input="update" />
     </label>
     <label>
       Current
       <input v-model="vital.current" type="text" @input="update" />
-    </label>
-    <label>
-      Max
-      <input v-model="vital.max" type="text" @input="update" />
     </label>
   </div>
 </template>
