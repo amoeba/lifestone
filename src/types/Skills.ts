@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
+export enum Training {
+  Unusable,
+  Untrained,
+  Trained,
+  Specialized
+}
+
 export enum Skills {
   ALCHEMY = "Alchemy",
   ARCANE_LORE = "Arcane Lore",
@@ -51,13 +58,13 @@ interface SkillValue {
 }
 
 export interface Skill {
-  key: number;
+  id: number;
   value: SkillValue;
 }
 
-export const createSkill = function() {
+export const createSkill = function(): Skill {
   return {
-    key: 0,
+    id: 0,
     value: {
       level_from_pp: 0,
       last_used_time: 0.0,

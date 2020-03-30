@@ -1,25 +1,33 @@
 <template>
   <div class="item">
     <label>
-      Key
-      <select v-model="skill.key" @change="update">
+      Skill
+      <select v-model.number="skill.id" @change="update">
         <option v-for="(skl, idx) in skills" :key="idx">{{ skl }}</option>
       </select>
     </label>
     <label>
-      init_level
-      <input v-model="skill.value.init_level" type="text" @change="update" />
+      Training
+      <select v-model.number="skill.value.sac" @change="update">
+        <option
+          v-for="(training, idx) in trainingLevels"
+          :key="idx"
+          :value="training.id"
+        >{{ training.label }}</option>
+      </select>
     </label>
     <label>
-      sac?
-      <input v-model="skill.value.sac" type="text" @change="update" />
+      Base
+      <input v-model.number="skill.value.init_level" type="text" @change="update" />
     </label>
+
     <button @click="remove">Remove</button>
   </div>
 </template>
 
 <script>
-import { Skills } from "../types/Skills.ts";
+import { processEnum } from "../types/Util.ts";
+import { Training, Skills } from "../types/Skills.ts";
 
 export default {
   name: "CreatureSkill",
@@ -38,6 +46,9 @@ export default {
     }
   },
   computed: {
+    trainingLevels() {
+      return processEnum(Training);
+    },
     skills() {
       return Skills;
     }

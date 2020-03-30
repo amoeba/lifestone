@@ -42,6 +42,20 @@
           @click.prevent="switchTab(TAB.CREATURE)"
         >Creature</a>
       </li>
+      <li v-if="isCreature">
+        <a
+          href="#skills"
+          :class="{ active: isActive(TAB.SKILLS) }"
+          @click.prevent="switchTab(TAB.SKILLS)"
+        >Skills</a>
+      </li>
+      <li v-if="isCreature">
+        <a
+          href="#bodyparts"
+          :class="{ active: isActive(TAB.BODYPARTS) }"
+          @click.prevent="switchTab(TAB.BODYPARTS)"
+        >Body Parts</a>
+      </li>
       <li v-if="isBook">
         <a
           href="#book"
@@ -91,6 +105,12 @@
     <div class="tabpage" :class="{ hidden: !isActive(TAB.CREATURE) }">
       <CreatureProperties v-model="weenie.attributes" @change="update" />
     </div>
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.SKILLS) }">
+      <CreatureSkills v-model="weenie.skills" @change="update" />
+    </div>
+    <div class="tabpage" :class="{ hidden: !isActive(TAB.BODYPARTS) }">
+      <CreatureBodyParts v-model="weenie.body" @change="update" />
+    </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.BOOK) }">
       <Book v-model="weenie.pageDataList" @change="update" />
     </div>
@@ -115,6 +135,8 @@
 <script>
 import WeenieProperties from "./WeenieProperties";
 import CreatureProperties from "./CreatureProperties";
+import CreatureSkills from "./CreatureSkills";
+import CreatureBodyParts from "./CreatureBodyParts";
 import Book from "./Book";
 import Spells from "./Spells";
 import CreateList from "./CreateList";
@@ -128,6 +150,8 @@ export default {
   components: {
     WeenieProperties,
     CreatureProperties,
+    CreatureSkills,
+    CreatureBodyParts,
     Book,
     Spells,
     CreateList,
