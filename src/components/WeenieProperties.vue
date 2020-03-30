@@ -83,31 +83,54 @@
         </a>
       </li>
     </ul>
-
-    <div :class="{ hidden: !isActive(TAB.STRING) }">
-      <WeeniePropertiesTable v-model="weenie.stringStats" kind="String" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.INT32) }">
-      <WeeniePropertiesTable v-model="weenie.intStats" kind="Int32" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.INT64) }">
-      <WeeniePropertiesTable v-model="weenie.int64Stats" kind="Int64" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.FLOAT) }">
-      <WeeniePropertiesTable v-model="weenie.floatStats" kind="Float" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.DATAID) }">
-      <WeeniePropertiesTable v-model="weenie.didStats" kind="DataID" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.INSTANCEID) }">
-      <WeeniePropertiesTable v-model="weenie.iidStats" kind="InstanceID" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.BOOL) }">
-      <WeeniePropertiesTable v-model="weenie.boolStats" kind="Bool" @change="update" />
-    </div>
-    <div :class="{ hidden: !isActive(TAB.POSITION) }">
-      <WeeniePropertiesTable v-model="weenie.posStats" kind="Position" @change="update" />
-    </div>
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.STRING) }"
+      v-model="weenie.stringStats"
+      kind="String"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.INT32) }"
+      v-model="weenie.intStats"
+      kind="Int32"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.INT64) }"
+      v-model="weenie.int64Stats"
+      kind="Int64"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.FLOAT) }"
+      v-model="weenie.floatStats"
+      kind="Float"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.DATAID) }"
+      v-model="weenie.didStats"
+      kind="DataID"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.INSTANCEID) }"
+      v-model="weenie.iidStats"
+      kind="InstanceID"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.BOOL) }"
+      v-model="weenie.boolStats"
+      kind="Bool"
+      @change="update"
+    />
+    <WeeniePropertiesTable
+      :class="{ hidden: !isActive(TAB.POSITION) }"
+      v-model="weenie.posStats"
+      kind="Position"
+      @change="update"
+    />
   </div>
 </template>
 
