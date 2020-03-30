@@ -5,13 +5,13 @@ interface SpellValue {
 }
 
 export interface Spell {
-  key: number;
+  id: number;
   value: SpellValue;
 }
 
 export const createSpell = function() {
   return {
-    key: 0,
+    id: 0,
     value: {
       casting_likelihood: 1.0
     }

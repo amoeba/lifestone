@@ -7,8 +7,8 @@
       <ul>
         <li
           v-for="match in matches"
-          :key="match.key"
-          :data-id="match.key"
+          :key="match.id"
+          :data-id="match.id"
           :data-label="match.label"
           @click="choose"
         >{{ match.label }}</li>
@@ -47,7 +47,7 @@ export default {
     },
     choose(e) {
       e.target.blur();
-      this.choice = e.target.dataset.id;
+      this.choice = Number(e.target.dataset.id);
       this.input = e.target.dataset.label;
       this.$emit("choose", { id: this.choice, label: this.input });
       this.isOpen = false;

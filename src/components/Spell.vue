@@ -1,11 +1,9 @@
 <template>
   <div class="item">
     <label>
-      ID
-      <input v-model="spell.key" type="text" @change="update" />
-    </label>
-    <label>
-      Spell
+      ID {{spell.id}} ({{spellName}})
+      <input v-model.number="spell.id" type="text" @change="update" />
+
       <Autocomplete :options="spells" @change="update" @choose="choose" />
     </label>
     <label>
@@ -39,17 +37,26 @@ export default {
     }
   },
   computed: {
+    spellName() {
+      const matches = this.spells.filter(s => s.id === this.spell.id);
+
+      if (matches.length === 0) {
+        return "Not Found";
+      }
+
+      return matches[0].label;
+    },
     spells() {
       return [
-        { key: 0, label: "Heal Self I" },
-        { key: 1, label: "Heal Self 2" },
-        { key: 2, label: "Stamina to Mana Other III" }
+        { id: 0, label: "Heal Self I" },
+        { id: 1, label: "Heal Self 2" },
+        { id: 2, label: "Stamina to Mana Other III" }
       ];
     }
   },
   methods: {
     choose(payload) {
-      this.spell.key = payload.key;
+      this.spell.id = payload.id;
       this.$emit("change", this.spell);
     },
     update() {
