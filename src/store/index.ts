@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/camelcase */
+
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 import { RootState } from "@/types/State";
 import { TAB } from "@/types/UI";
 import { Weenie, WeenieType } from "@/types/Weenie";
-import { createAttributes } from "@/types/Creature.ts";
+import { createAttributes } from "@/types/Creature";
 
 Vue.use(Vuex);
 
@@ -21,7 +23,7 @@ const initialState: RootState = {
     weenieType: WeenieType.CREATURE,
     pageDataList: null,
     attributes: createAttributes(),
-    body: [],
+    body: { body_part_table: [] },
     boolStats: [],
     intStats: [],
     didStats: [],

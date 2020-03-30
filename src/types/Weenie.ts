@@ -3,7 +3,7 @@ import { Spell } from "./Spells";
 import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
 import { Book } from "./Book";
-import { BodyPart } from "./Creature";
+import { BodyPartTable } from "./BodyPart";
 import { Int32Prop } from "./properties/Int32Prop";
 import { Skill } from "./Skills";
 
@@ -80,7 +80,7 @@ export interface Weenie {
   weenieType: WeenieType;
   pageDataList: Book | null;
   attributes: Attributes | null;
-  body: BodyPart[];
+  body: BodyPartTable;
   boolStats: BoolProp[];
   intStats: Int32Prop[];
   didStats: DataIDProp[];

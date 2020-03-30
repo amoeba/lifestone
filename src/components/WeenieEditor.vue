@@ -109,7 +109,7 @@
       <CreatureSkills v-model="weenie.skills" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.BODYPARTS) }">
-      <CreatureBodyParts v-model="weenie.body" @change="update" />
+      <CreatureBodyParts v-model="weenie.body.body_part_table" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.BOOK) }">
       <Book v-model="weenie.pageDataList" @change="update" />

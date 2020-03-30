@@ -21,7 +21,7 @@
 
 <script>
 import CreatureBodyPart from "./CreatureBodyPart";
-import { createCreatureBodyPart } from "../types/Creature";
+import { createBodyPart } from "../types/BodyPart";
 
 export default {
   name: "CreatureBodyParts",
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     add() {
-      this.parts.push(createCreatureBodyPart());
+      this.parts.push(createBodyPart());
       this.$emit("change", this.parts);
     },
     remove(index) {
