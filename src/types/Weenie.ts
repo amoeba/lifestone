@@ -49,7 +49,7 @@ enum PositionProp {
 }
 
 interface WeenieProperty<K, V> {
-  key: K;
+  id: K;
   value: V;
 }
 
@@ -100,21 +100,21 @@ export const createProperty = function(kind: WEENIE_PROPERTY) {
   let retval = {};
 
   if (kind === WEENIE_PROPERTY.STRING) {
-    retval = { key: StringProp.Name, value: "" };
+    retval = { id: StringProp.Name, value: "" };
   } else if (kind === WEENIE_PROPERTY.INT32) {
-    retval = { key: Int32Prop.AccountRequirements, value: 1 };
+    retval = { id: Int32Prop.AccountRequirements, value: 1 };
   } else if (kind === WEENIE_PROPERTY.INT64) {
-    retval = { key: Int64Prop.AvailableExperience, value: 1 };
+    retval = { id: Int64Prop.AvailableExperience, value: 1 };
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
-    retval = { key: FloatProp.HeartbeatInterval, value: 1 };
+    retval = { id: FloatProp.HeartbeatInterval, value: 1 };
   } else if (kind === WEENIE_PROPERTY.DATAID) {
-    retval = { key: DataIDProp.MotionTable, value: 1 };
+    retval = { id: DataIDProp.MotionTable, value: 1 };
   } else if (kind === WEENIE_PROPERTY.INSTANCEID) {
-    retval = { key: InstanceIDProp.Container, value: 1 };
+    retval = { id: InstanceIDProp.Container, value: 1 };
   } else if (kind === WEENIE_PROPERTY.BOOL) {
-    retval = { key: BoolProp.Attackable, value: false };
+    retval = { id: BoolProp.Attackable, value: false };
   } else if (kind === WEENIE_PROPERTY.POSITION) {
-    retval = { key: PositionProp.Destination, value: 1 };
+    retval = { id: PositionProp.Destination, value: 1 };
   }
 
   return retval;

@@ -1,6 +1,6 @@
 <template>
   <div class="row group">
-    <select v-model.number="property.key" @input="update">
+    <select v-model.number="property.id" @change="update">
       <option v-for="prop in propertyTypes" :key="prop" :value="prop">
         {{
         prop
