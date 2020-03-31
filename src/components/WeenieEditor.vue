@@ -143,7 +143,8 @@ import CreateList from "./CreateList";
 import GeneratorTable from "./GeneratorTable";
 import EmoteTable from "./EmoteTable";
 import { TAB } from "../types/UI";
-import { WeenieType, StringProp } from "../types/Weenie";
+import { WeenieType } from "../types/Weenie";
+import { StringProp } from "../types/properties/StringProp";
 
 export default {
   name: "WeenieEditor",
@@ -180,7 +181,7 @@ export default {
     },
     weenieName() {
       return this.$store.state.weenie.stringStats.filter(
-        s => (s.key = StringProp.Name)
+        s => (s.id = StringProp.Name)
       ).value;
     },
     weenieTypes() {

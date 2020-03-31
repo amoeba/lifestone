@@ -4,49 +4,22 @@ import { CreateListItem } from "./CreateList";
 import { Generator } from "./Generators";
 import { Book } from "./Book";
 import { BodyPartTable } from "./BodyPart";
-import { Int32Prop } from "./properties/Int32Prop";
 import { Skill } from "./Skills";
 import { EmoteSet } from "./Emotes";
+import { OptionProperties, processEnum } from "./Util";
+import { StringProp } from "./properties/StringProp";
+import { Int32Prop } from "./properties/Int32Prop";
+import { Int64Prop } from "./properties/Int64Prop";
+import { FloatProp } from "./properties/FloatProp";
+import { InstanceIDProp } from "./properties/InstanceIDProp";
+import { DataIDProp } from "./properties/DataIDProp";
+import { BoolProp } from "./properties/BoolProp";
+import { PositionProp } from "./properties/PositionProp";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
   VENDOR = "VENDOR",
   BOOK = "BOOK"
-}
-
-export enum StringProp {
-  Name,
-  Sex
-}
-
-enum Int64Prop {
-  TotalExperience,
-  AvailableExperience
-}
-
-enum FloatProp {
-  HeartbeatInterval,
-  HeartbeatTimestamp
-}
-
-enum DataIDProp {
-  Setup,
-  MotionTable
-}
-
-enum InstanceIDProp {
-  Owner,
-  Container
-}
-
-enum BoolProp {
-  Attackable,
-  Ethereal
-}
-
-enum PositionProp {
-  Location,
-  Destination
 }
 
 interface WeenieProperty<K, V> {
@@ -121,39 +94,25 @@ export const createProperty = function(kind: WEENIE_PROPERTY) {
   return retval;
 };
 
-export const getPropertyTypes = function(kind: WEENIE_PROPERTY): string[] {
+export const getPropertyTypes = function(
+  kind: WEENIE_PROPERTY
+): OptionProperties[] {
   if (kind === WEENIE_PROPERTY.STRING) {
-    return Object.keys(StringProp).filter(
-      k => typeof StringProp[k as any] !== "number"
-    );
+    return processEnum(StringProp);
   } else if (kind === WEENIE_PROPERTY.INT32) {
-    return Object.keys(Int32Prop).filter(
-      k => typeof Int32Prop[k as any] !== "number"
-    );
+    return processEnum(Int32Prop);
   } else if (kind === WEENIE_PROPERTY.INT64) {
-    return Object.keys(Int64Prop).filter(
-      k => typeof Int64Prop[k as any] !== "number"
-    );
+    return processEnum(Int64Prop);
   } else if (kind === WEENIE_PROPERTY.FLOAT) {
-    return Object.keys(FloatProp).filter(
-      k => typeof FloatProp[k as any] !== "number"
-    );
+    return processEnum(FloatProp);
   } else if (kind === WEENIE_PROPERTY.DATAID) {
-    return Object.keys(DataIDProp).filter(
-      k => typeof DataIDProp[k as any] !== "number"
-    );
+    return processEnum(DataIDProp);
   } else if (kind === WEENIE_PROPERTY.INSTANCEID) {
-    return Object.keys(InstanceIDProp).filter(
-      k => typeof InstanceIDProp[k as any] !== "number"
-    );
+    return processEnum(InstanceIDProp);
   } else if (kind === WEENIE_PROPERTY.BOOL) {
-    return Object.keys(BoolProp).filter(
-      k => typeof BoolProp[k as any] !== "number"
-    );
+    return processEnum(BoolProp);
   } else if (kind === WEENIE_PROPERTY.POSITION) {
-    return Object.keys(PositionProp).filter(
-      k => typeof PositionProp[k as any] !== "number"
-    );
+    return processEnum(PositionProp);
   } else {
     return [];
   }
