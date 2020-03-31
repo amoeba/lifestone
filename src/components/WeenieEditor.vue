@@ -124,7 +124,7 @@
       <GeneratorTable v-model="weenie.generatorTable" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.EMOTES) }">
-      <Emotes v-model="weenie.emoteTable" @change="update" />
+      <EmoteTable v-model="weenie.emoteTable" @change="update" />
     </div>
     <div class="tabpage" :class="{ hidden: !isActive(TAB.JSON) }">
       <textarea v-model="weenieJSON" class="json" rows="40" cols="120" />
@@ -141,7 +141,7 @@ import Book from "./Book";
 import Spells from "./Spells";
 import CreateList from "./CreateList";
 import GeneratorTable from "./GeneratorTable";
-import Emotes from "./Emotes";
+import EmoteTable from "./EmoteTable";
 import { TAB } from "../types/UI";
 import { WeenieType, StringProp } from "../types/Weenie";
 
@@ -156,7 +156,7 @@ export default {
     Spells,
     CreateList,
     GeneratorTable,
-    Emotes
+    EmoteTable
   },
   computed: {
     TAB() {

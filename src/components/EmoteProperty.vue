@@ -1,15 +1,18 @@
 <template>
   <li>
     <label>
-      {{ property.key }}
+      {{ propertyLabel }}
       <input v-model="property.value" type="text" @change="update" />
     </label>
   </li>
 </template>
 
 <script>
+import { EMOTE } from "../types/Emotes";
+import { processEnum } from "../types/Util";
+
 export default {
-  name: "Property",
+  name: "EmoteProperty",
   model: {
     prop: "property",
     event: "change"
@@ -18,6 +21,11 @@ export default {
     property: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    propertyLabel() {
+      return processEnum(EMOTE)[this.property.value].label;
     }
   },
   methods: {

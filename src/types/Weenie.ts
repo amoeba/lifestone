@@ -6,6 +6,7 @@ import { Book } from "./Book";
 import { BodyPartTable } from "./BodyPart";
 import { Int32Prop } from "./properties/Int32Prop";
 import { Skill } from "./Skills";
+import { EmoteSet } from "./Emotes";
 
 export enum WeenieType {
   CREATURE = "CREATURE",
@@ -91,7 +92,7 @@ export interface Weenie {
   posStats: PositionProp[];
   createList: CreateListItem[];
   skills: Skill[];
-  emoteTable: [];
+  emoteTable: EmoteSet[];
   spellbook: Spell[];
   generatorTable: Generator[];
 }

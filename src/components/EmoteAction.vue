@@ -1,27 +1,31 @@
 <template>
   <div class="box">
     <div class="two-col row">
-      <select v-model="action.type" @input="updateType">
-        <option v-for="type in actionTypes" :key="type" :value="type">{{
-          type
-        }}</option>
+      <select v-model.number="action.type" @change="updateType">
+        <option v-for="(type, index) in actionTypes" :key="index" :value="type.id">
+          {{
+          type.label
+          }}
+        </option>
       </select>
       <div class="right">
         <button @click="handleRemove">Remove</button>
       </div>
     </div>
-    <Properties v-model="action.properties" @change="update" />
+    <h5>Properties</h5>
+    <EmoteActionProperties v-model="action.properties" @change="update" />
   </div>
 </template>
 
 <script>
-import Properties from "./Properties";
+import EmoteActionProperties from "./EmoteActionProperties";
 import { ACTION, createAction } from "../types/Actions";
+import { processEnum } from "../types/Util";
 
 export default {
   name: "EmoteAction",
   components: {
-    Properties
+    EmoteActionProperties
   },
   model: {
     prop: "action",
@@ -39,7 +43,7 @@ export default {
   },
   computed: {
     actionTypes() {
-      return ACTION;
+      return processEnum(ACTION);
     }
   },
   methods: {

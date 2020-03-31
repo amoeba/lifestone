@@ -1,7 +1,7 @@
 <template>
   <div class="item">
-    <h4>Actions</h4>
-    <button @click="addEmoteAction">Add Action</button>
+    <h4>Emote Actions</h4>
+    <button @click="addEmoteAction">Add Emote</button>
     <EmoteAction
       v-for="(action, index) in actions"
       :key="index"
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     addEmoteAction() {
-      this.actions.push(createAction(ACTION.TURN_TO_TARGET));
+      this.actions.push(createAction(0));
       this.$emit("change", this.actions);
     },
     removeEmoteAction(index) {

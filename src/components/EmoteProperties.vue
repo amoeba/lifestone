@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <Property
+    <EmoteProperty
       v-for="(property, index) in properties"
       :key="index"
       v-model="properties[index]"
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Property from "./Property";
+import EmoteProperty from "./EmoteProperty";
 
 export default {
-  name: "Properties",
+  name: "EmoteProperties",
   components: {
-    Property
+    EmoteProperty
   },
   model: {
     prop: "properties",

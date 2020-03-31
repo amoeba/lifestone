@@ -1,119 +1,44 @@
 export enum ACTION {
-  TURN_TO_TARGET = "TURN_TO_TARGET",
-  WAVE = "WAVE",
-  GIVE = "GIVE",
-  TELL = "TELL",
-  INQ_QUEST = "INQ_QUEST"
+  SAY,
+  BROADCAST
 }
 
-enum PROPERTY {
-  DELAY = "DELAY",
-  QUEST = "QUEST",
-  WEENIE = "WEENIE",
-  DESTINATION = "DESTINATION",
-  PALETTE = "PALETTE",
-  SHADE = "SHADE",
-  QUANTITY = "QUANTITY",
-  BONDED = "BONDED"
+export enum ACTIONPROPERTY {
+  MESSAGE
+}
+
+interface ActionProperty {
+  id: number;
+  value: any;
 }
 
 export interface Action {
-  type: string;
+  type: number;
   properties: ActionProperty[];
 }
 
-export const ActionTypes = [
-  {
-    id: ACTION.TURN_TO_TARGET,
-    label: ACTION.TURN_TO_TARGET
-  },
-  {
-    id: ACTION.WAVE,
-    label: ACTION.WAVE
-  },
-  {
-    id: ACTION.GIVE,
-    label: ACTION.GIVE
-  },
-  {
-    id: ACTION.TELL,
-    label: ACTION.TELL
-  },
-  {
-    id: ACTION.INQ_QUEST,
-    label: ACTION.INQ_QUEST
-  }
-];
-
-interface ActionProperty {
-  key: string;
-  value: number;
-}
-
-const actionProperties: { [key: string]: ActionProperty[] } = {
-  [ACTION.TURN_TO_TARGET]: [
+const actionProperties: { [id: number]: ActionProperty[] } = {
+  [ACTION.SAY]: [
     {
-      key: PROPERTY.DELAY,
-      value: 1.0
+      id: ACTIONPROPERTY.MESSAGE,
+      value: "Hello!"
     }
   ],
-  [ACTION.WAVE]: [
+  [ACTION.BROADCAST]: [
     {
-      key: PROPERTY.DELAY,
-      value: 2.0
-    }
-  ],
-  [ACTION.INQ_QUEST]: [
-    {
-      key: PROPERTY.QUEST,
-      value: 0
-    }
-  ],
-  [ACTION.GIVE]: [
-    {
-      key: PROPERTY.DELAY,
-      value: 0
-    },
-    {
-      key: PROPERTY.WEENIE,
-      value: 0
-    },
-    {
-      key: PROPERTY.DESTINATION,
-      value: 0
-    },
-    {
-      key: PROPERTY.PALETTE,
-      value: 0
-    },
-    {
-      key: PROPERTY.SHADE,
-      value: 0
-    },
-    {
-      key: PROPERTY.QUANTITY,
-      value: 0
-    },
-    {
-      key: PROPERTY.BONDED,
-      value: 0
-    }
-  ],
-  [ACTION.TELL]: [
-    {
-      key: PROPERTY.QUEST,
-      value: 0
+      id: ACTIONPROPERTY.MESSAGE,
+      value: "Hello!"
     }
   ]
 };
 
-export function getActionProperties(actionId: string): ActionProperty[] {
-  return actionProperties[actionId];
+export function getActionProperties(type: number): ActionProperty[] {
+  return actionProperties[type];
 }
 
-export function createAction(action: string): Action {
+export function createAction(type: ACTION): Action {
   return {
-    type: action,
-    properties: getActionProperties(action)
+    type: type,
+    properties: getActionProperties(type)
   };
 }
