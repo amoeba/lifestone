@@ -17,15 +17,14 @@
     </div>
     <div class="row">
       <div v-if="emoteset.value.length === 0">No Emotes to show.</div>
-
       <Emote
         v-for="(emote, index) in emoteset.value"
         :key="index"
         v-model="emoteset.value[index]"
         :index="index"
         @change="update"
-        @duplicate="duplicate"
-        @remove="remove"
+        @duplicate="duplicateEmote"
+        @remove="removeEmote"
       />
     </div>
   </div>
@@ -62,6 +61,9 @@ export default {
     }
   },
   methods: {
+    remove(index) {
+      this.$emit("remove", index);
+    },
     updateType(e) {
       const newEmoteSet = createEmoteSet(Number(e.target.value));
       this.$emit("change", newEmoteSet);
@@ -72,16 +74,17 @@ export default {
     update() {
       this.$emit("change", this.emoteset);
     },
-    duplicate(index) {
-      this.emoteset.splice(
+    duplicateEmote(index) {
+      this.emoteset.value.splice(
         index,
         0,
-        JSON.parse(JSON.stringify(this.emoteset[index]))
+        JSON.parse(JSON.stringify(this.emoteset.value[index]))
       );
       this.$emit("change", this.emoteset);
     },
-    remove(index) {
-      this.$emit("remove", this.index);
+    removeEmote(index) {
+      this.emoteset.value.splice(index, 1);
+      this.$emit("change", this.emoteset);
     }
   }
 };

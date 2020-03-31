@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { EMOTE } from "../types/Emotes";
+import { EMOTE_PROPERTY } from "../types/Emotes";
 import { processEnum } from "../types/Util";
 
 export default {
@@ -25,7 +25,9 @@ export default {
   },
   computed: {
     propertyLabel() {
-      return processEnum(EMOTE)[this.property.value].label;
+      return processEnum(EMOTE_PROPERTY).filter(
+        p => Number(p.id) === this.property.id
+      )[0].label;
     }
   },
   methods: {

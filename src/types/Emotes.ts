@@ -4,13 +4,19 @@ export enum EMOTE {
   USE,
   QUEST_SUCCESS,
   QUEST_FAILURE,
-  GIVE
+  GIVE,
+  FOUR,
+  FIVE,
+  DEATH
 }
 
-enum EMOTE_PROPERTY {
+export enum EMOTE_PROPERTY {
   PROBABILITY,
   QUEST,
-  CLASS_ID
+  CLASS_ID,
+  GIVE,
+  STYLE,
+  SUBSTYLE
 }
 
 interface EmoteProperty {
@@ -70,6 +76,36 @@ const emoteProperties: { [id: number]: EmoteProperty[] } = {
     {
       id: EMOTE_PROPERTY.CLASS_ID,
       value: 2
+    }
+  ],
+  [EMOTE.FOUR]: [
+    {
+      id: EMOTE_PROPERTY.PROBABILITY,
+      value: 1.0
+    },
+    {
+      id: EMOTE_PROPERTY.STYLE,
+      value: 12345
+    },
+    {
+      id: EMOTE_PROPERTY.SUBSTYLE,
+      value: 54321
+    }
+  ],
+  [EMOTE.FIVE]: [
+    {
+      id: EMOTE_PROPERTY.PROBABILITY,
+      value: 1.0
+    },
+    {
+      id: EMOTE_PROPERTY.CLASS_ID,
+      value: 2
+    }
+  ],
+  [EMOTE.DEATH]: [
+    {
+      id: EMOTE_PROPERTY.PROBABILITY,
+      value: 1.0
     }
   ]
 };

@@ -4,6 +4,8 @@ export enum ACTION {
 }
 
 export enum ACTIONPROPERTY {
+  DELAY,
+  EXTENT,
   MESSAGE
 }
 
@@ -20,8 +22,16 @@ export interface Action {
 const actionProperties: { [id: number]: ActionProperty[] } = {
   [ACTION.SAY]: [
     {
+      id: ACTIONPROPERTY.DELAY,
+      value: 0
+    },
+    {
+      id: ACTIONPROPERTY.EXTENT,
+      value: 1
+    },
+    {
       id: ACTIONPROPERTY.MESSAGE,
-      value: "Hello!"
+      value: "Argggh...."
     }
   ],
   [ACTION.BROADCAST]: [
