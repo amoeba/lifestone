@@ -9,14 +9,12 @@
             }}
           </option>
         </select>
+        <button @click="addEmote">Add Category Entry</button>
         <button @click="remove">Remove Category</button>
-      </div>
-      <div class="right">
-        <button @click="addEmote">Add Emote</button>
       </div>
     </div>
     <div class="row">
-      <div v-if="emoteset.value.length === 0">No Emotes to show.</div>
+      <div v-if="emoteset.value.length === 0">No entries to show for this category.</div>
       <Emote
         v-for="(emote, index) in emoteset.value"
         :key="index"

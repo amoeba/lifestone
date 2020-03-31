@@ -2,8 +2,8 @@
   <div class="box">
     <div class="row">
       <div class="right group">
-        <button @click="duplicate">Duplicate Emote</button>
-        <button @click="remove">Remove Emote</button>
+        <button @click="duplicate">Duplicate Entry</button>
+        <button @click="remove">Remove Entry</button>
       </div>
     </div>
     <EmoteProperties v-model="emote.properties" @change="update" />

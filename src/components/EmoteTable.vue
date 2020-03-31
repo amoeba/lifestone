@@ -3,7 +3,7 @@
     <div class="two-col">
       <h3>Emotes</h3>
       <div class="right">
-        <button @click="addEmote">Add EmoteSet</button>
+        <button @click="addEmote">Add Emote Category</button>
       </div>
     </div>
     <p v-if="emotesets.length === 0">No emotes to show.</p>
