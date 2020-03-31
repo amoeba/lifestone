@@ -1,7 +1,11 @@
 <template>
   <div class="item">
-    <h4>Emote Actions</h4>
-    <button @click="addEmoteAction">Add Emote</button>
+    <div class="two-col">
+      <h4>Actions</h4>
+      <div class="right">
+        <button @click="addEmoteAction">Add Action</button>
+      </div>
+    </div>
     <EmoteAction
       v-for="(action, index) in actions"
       :key="index"

@@ -1,10 +1,10 @@
 <template>
-  <li>
+  <div>
     <label>
       {{ propertyLabel }}
       <input v-model="property.value" type="text" @change="update" />
     </label>
-  </li>
+  </div>
 </template>
 
 <script>

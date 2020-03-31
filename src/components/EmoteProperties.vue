@@ -1,12 +1,13 @@
 <template>
-  <ul>
+  <div class="row">
+    <h4>Properties</h4>
     <EmoteProperty
       v-for="(property, index) in properties"
       :key="index"
       v-model="properties[index]"
       @change="update"
     />
-  </ul>
+  </div>
 </template>
 
 <script>

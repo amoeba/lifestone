@@ -6,10 +6,7 @@
         <button @click="remove">Remove</button>
       </div>
     </div>
-    <div class="row">
-      <h4>Properties</h4>
-      <EmoteProperties v-model="emote.properties" @change="update" />
-    </div>
+    <EmoteProperties v-model="emote.properties" @change="update" />
     <EmoteActions v-model="emote.emotes" @change="update" />
   </div>
 </template>
