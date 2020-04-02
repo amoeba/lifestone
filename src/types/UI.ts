@@ -11,7 +11,12 @@ export enum TAB {
   JSON = "JSON"
 }
 
+export enum THEME {
+  LIGHT = "light",
+  DARK = "dark"
+}
+
 export interface UIState {
   activeTab: string;
-  darkMode: boolean;
+  darkMode: boolean | null;
 }

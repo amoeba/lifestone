@@ -19,7 +19,7 @@ const vuexLocal = new VuexPersistence<RootState>({
 const initialState: RootState = {
   ui: {
     activeTab: TAB.PROPERTIES,
-    darkMode: false
+    darkMode: null
   },
   weenie: {
     wcid: 0,
@@ -55,6 +55,13 @@ export default new Vuex.Store({
     changeTab(state, tab: TAB) {
       state.ui.activeTab = tab;
     },
+    toggleDarkMode(state, preference: boolean) {
+      if (state.ui.darkMode === null) {
+        state.ui.darkMode = !preference;
+      } else {
+        state.ui.darkMode = !state.ui.darkMode;
+      }
+    },
     updateWeenie(state, weenie: Weenie) {
       state.weenie = weenie;
     },
@@ -71,6 +78,9 @@ export default new Vuex.Store({
   actions: {
     changeTab(context, tab: TAB) {
       context.commit("changeTab", tab);
+    },
+    toggleDarkMode(context, preference: boolean) {
+      context.commit("toggleDarkMode", preference);
     },
     updateWeenie(context, weenie: Weenie) {
       context.commit("updateWeenie", weenie);
