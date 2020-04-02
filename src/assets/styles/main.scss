@@ -17,7 +17,7 @@
   --c-dark-button: orange;
 }
 
-.theme-container {
+#app {
   /* Make the light theme the default */
   --c-text: var(--c-light-text);
   --c-background: var(--c-light-background);
@@ -28,9 +28,11 @@
 
   color: var(--c-text);
   background-color: var(--c-background);
+
+  flex-grow: 1; // Makes light/dark work
 }
 
-.dark-mode-checkbox:checked ~ .theme-container {
+.dark-mode-checkbox:checked ~ #app {
   /* Override the default theme */
   --c-text: var(--c-dark-text);
   --c-background: var(--c-dark-background);
@@ -170,11 +172,6 @@ ul {
 .col-40-60 {
   display: grid;
   grid-template-columns: 40% 60%;
-}
-
-/* Utility styles */
-.grow {
-  flex-grow: 1;
 }
 
 .row {
