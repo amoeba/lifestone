@@ -30,6 +30,8 @@
   background-color: var(--c-background);
 
   flex-grow: 1; // Makes light/dark work
+
+  transition: background 500ms ease-in-out, color 200ms ease;
 }
 
 .dark-mode-checkbox:checked ~ #app {
