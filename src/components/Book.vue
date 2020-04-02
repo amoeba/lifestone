@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Book</h3>
-    <div class="row">
+    <div class="row group">
       <button :disabled="book" @click="create">Create Book</button>
       <button :disabled="!book" @click="destroy">Destroy Book</button>
     </div>
