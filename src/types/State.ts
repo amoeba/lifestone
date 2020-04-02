@@ -1,7 +1,8 @@
 import { Weenie } from "./Weenie";
+import { UIState } from "./UI";
 
 export interface RootState {
-  activeTab: string;
+  ui: UIState;
   weenie: Weenie;
   drafts: Weenie[];
 }

@@ -17,7 +17,10 @@ const vuexLocal = new VuexPersistence<RootState>({
 
 // State
 const initialState: RootState = {
-  activeTab: TAB.PROPERTIES,
+  ui: {
+    activeTab: TAB.PROPERTIES,
+    darkMode: false
+  },
   weenie: {
     wcid: 0,
     weenieType: WeenieType.CREATURE,
@@ -50,7 +53,7 @@ export default new Vuex.Store({
   },
   mutations: {
     changeTab(state, tab: TAB) {
-      state.activeTab = tab;
+      state.ui.activeTab = tab;
     },
     updateWeenie(state, weenie: Weenie) {
       state.weenie = weenie;

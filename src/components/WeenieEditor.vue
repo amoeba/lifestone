@@ -165,7 +165,7 @@ export default {
     },
     activeTab: {
       get() {
-        return this.$store.state.activeTab;
+        return this.$store.state.ui.activeTab;
       },
       set(value) {
         this.$store.dispatch("changeTab", value);
