@@ -32,7 +32,6 @@ export default {
     },
 
     theme() {
-      console.log(this.$store.state.ui.darkMode);
       if (this.$store.state.ui.darkMode === null) {
         return "";
       }
