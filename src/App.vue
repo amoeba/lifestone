@@ -1,7 +1,11 @@
 <template>
   <div id="app" :class="theme">
     <h1>Lifestone</h1>
-    <button class="theme-toggle" @click="toggleDarkMode">
+    <button
+      aria-label="Toggle theme between dark and light"
+      class="theme-toggle"
+      @click="toggleDarkMode"
+    >
       <span class="theme-icon"></span>
     </button>
     <div id="nav">
