@@ -307,12 +307,21 @@ ul {
   z-index: 1;
 }
 
+.autocomplete-suggestions ul {
+  margin: 0;
+}
+
 .autocomplete-suggestions li {
+  color: var(--c-text);
+  background-color: var(--c-button);
   padding: 3px 5px;
   cursor: pointer;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .autocomplete-suggestions li:hover {
-  background-color: black;
+  background-color: var(--c-focus);
   color: white;
 }
