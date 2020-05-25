@@ -213,6 +213,21 @@ ul {
   border-radius: 5px;
 }
 
+// paired-input
+.pairedinput input {
+  display: inline-block;
+}
+
+.pairedinput input:first-child {
+  border-radius: 5px 0px 0px 5px;
+  border-right: 1px solid var(--c-border);
+  margin-right: 1px;
+}
+
+.pairedinput input:last-child {
+  border-radius: 0px 5px 5px 0px;
+}
+
 /* Grids */
 .two-col {
   display: grid;
@@ -312,7 +327,6 @@ ul {
 }
 
 .autocomplete-suggestions li {
-  color: var(--c-text);
   background-color: var(--c-button);
   padding: 3px 5px;
   cursor: pointer;

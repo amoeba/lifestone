@@ -1,10 +1,16 @@
 <template>
   <div class="item">
     <label>
-      ID {{spell.id}} ({{spellName}})
-      <input v-model.number="spell.id" type="text" @change="update" />
-
-      <Autocomplete :options="spells" @change="update" @choose="choose" />
+      {{ spellName }}
+      <div class="pairedinput">
+        <input v-model.number="spell.id" type="text" size="7" @change="update" />
+        <Autocomplete
+          :options="spells"
+          placeholder="Spell lookup..."
+          @change="update"
+          @choose="choose"
+        />
+      </div>
     </label>
     <label>
       Probability
