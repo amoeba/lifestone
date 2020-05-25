@@ -3,7 +3,12 @@
     <label>
       {{ spellName }}
       <div class="pairedinput">
-        <input v-model.number="spell.id" type="text" size="7" @change="update" />
+        <input
+          v-model.number="spell.id"
+          type="text"
+          size="7"
+          @change="update"
+        />
         <Autocomplete
           :options="spells"
           placeholder="Spell lookup..."
@@ -14,7 +19,11 @@
     </label>
     <label>
       Probability
-      <input v-model="spell.value.casting_likelihood" type="text" @change="update" />
+      <input
+        v-model="spell.value.casting_likelihood"
+        type="text"
+        @change="update"
+      />
     </label>
     <button @click="remove">Remove</button>
   </div>

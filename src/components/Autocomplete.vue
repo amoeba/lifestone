@@ -35,11 +35,13 @@ export default {
     },
     value: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     placeholder: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     }
   },
   data() {
